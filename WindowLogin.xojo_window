@@ -377,7 +377,7 @@ End
 		    self.txtUsername.SetFocus
 		    
 		    //MessageBox ("No match")
-		    
+		    data.close
 		    Return
 		    
 		  Else
@@ -405,6 +405,7 @@ End
 		        self.txtPassword.Text = ""
 		        self.txtUsername.SetFocus
 		        
+		        data.close
 		        Return
 		        
 		      end if
@@ -424,6 +425,8 @@ End
 		  app.activeUserName = self.txtUsername.Text
 		  
 		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in")
+		  
+		  data.close
 		  
 		  app.windowMainP = new WindowMain
 		  app.windowMainP.Show

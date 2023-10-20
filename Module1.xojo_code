@@ -14,7 +14,6 @@ Protected Module Module1
 		  if db.Connect then
 		    //set property
 		    Module1.dbConnected = True
-		    //MessageBox("DB Connected: "+Module1.dbConnected.ToString)
 		    
 		  else
 		    
