@@ -422,7 +422,7 @@ End
 		  
 		  // MessageBox("Let the user login")
 		  // pick up the user_id and set the app property
-		  app.activeUserName = self.txtUsername.Text
+		  app.activeUserName = self.txtUsername.Text.Lowercase
 		  
 		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in")
 		  
