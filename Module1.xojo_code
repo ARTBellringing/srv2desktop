@@ -61,7 +61,7 @@ Protected Module Module1
 		  // time_stamp (auto)
 		  
 		  
-		  Var tableName as string = "tblLog"
+		  Var tableName as string = "srv2_tblLog"
 		  Var insertSQL As String
 		  insertSQL = "INSERT INTO " + tableName + " (log_pc_name, log_pc_user_name, user_id, user_name, action_on, action_on_name, log_action) VALUES (?, ?, ?, ?, ?, ?, ?);"
 		  

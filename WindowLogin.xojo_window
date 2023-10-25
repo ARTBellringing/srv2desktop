@@ -361,7 +361,7 @@ End
 		  
 		  Var data As RowSet
 		  Try
-		    data = db.SelectSQL("SELECT * FROM tblUser WHERE user_name = ?", self.txtUsername.text)
+		    data = db.SelectSQL("SELECT * FROM srv2_tblUser WHERE user_name = ?", self.txtUsername.text)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
 		    Module1.writeDBLog(1,"System","WindowLogin | btnLogin | DB error fetching username")
