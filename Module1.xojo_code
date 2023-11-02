@@ -1,6 +1,16 @@
 #tag Module
 Protected Module Module1
 	#tag Method, Flags = &h0
+		Sub AppClose()
+		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"User exit")
+		  db.Close
+		  
+		  
+		  Return 
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub getDB()
 		  // getDB - connection to DB Server
 		  db = New MySQLCommunityServer

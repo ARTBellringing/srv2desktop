@@ -361,7 +361,7 @@ End
 		  
 		  Var data As RowSet
 		  Try
-		    data = db.SelectSQL("SELECT * FROM srv2_tblUser WHERE user_name = ?", self.txtUsername.text)
+		    data = db.SelectSQL("SELECT * FROM srv2_vwUsers WHERE user_name = ?", self.txtUsername.text)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
 		    Module1.writeDBLog(1,"System","WindowLogin | btnLogin | DB error fetching username")
@@ -386,47 +386,90 @@ End
 		    
 		  end if
 		  
+		  // now determine if this user is allowed to login - look at user state in the view
+		  var tempUserID as Integer
+		  var tempUserName as string
+		  var tempPassword as string
+		  var tempUserState as Integer
+		  var tempUserStateName as string
+		  var tempAllowLogin as Boolean
+		  var tempLoginRejectionMessage as string
+		  
+		  if data <> nil then
+		    for each row as Databaserow in data
+		      
+		      tempUserID = row.ColumnAt(0).IntegerValue
+		      tempUserName = row.ColumnAt(1).StringValue
+		      tempPassword = row.ColumnAt(2).StringValue
+		      tempUserState = row.ColumnAt(3).IntegerValue
+		      tempUserStateName = row.ColumnAt(4).StringValue
+		      tempAllowLogin = row.ColumnAt(5).BooleanValue
+		      tempLoginRejectionMessage = row.ColumnAt(6).StringValue
+		      
+		      
+		    next row
+		    data.close
+		    
+		    if tempAllowLogin = false then
+		      // user is not allowed to login
+		      
+		      Var md As New MessageDialog                      // declare the MessageDialog object
+		      Var b As MessageDialogButton                     // for handling the result
+		      md.Title = "Account Information"
+		      md.IconType = MessageDialog.IconTypes.Stop       // display warning icon
+		      md.ActionButton.Caption = "Quit"
+		      md.CancelButton.Visible = False                  // show the Cancel button
+		      md.AlternateActionButton.Visible = False         // show the "Don't Save" button
+		      md.AlternateActionButton.Caption = "Don't Save"
+		      md.Message = "You cannot login as " + tempUserName + "."
+		      md.Explanation = tempLoginRejectionMessage
+		      
+		      // write an entry to the log that the user tried to login
+		      
+		      Module1.writeDBLog(tempUserID, tempUserName, "User state prevented login. State:" + tempUserState.ToString + " " + tempUserStateName)
+		      
+		      b = md.ShowModal                                 // display the dialog
+		      Select Case b                                    // determine which button was pressed.
+		      Case md.ActionButton
+		        // user pressed Exit
+		        Module1.AppClose
+		        Quit
+		        
+		      Case md.AlternateActionButton
+		        // user pressed Don't Save
+		      Case md.CancelButton
+		        // user pressed Cancel
+		      End Select
+		      
+		    end if ' tempAllowLogin = false
+		    
+		  end if 'data <> nil then
+		  
+		  
 		  // Now we need to see if the password matches...
 		  
-		  //extract the password from the rowset and compare it with the stored value in the db...
+		  //Compare the supplied password with the stored value in the db...
 		  
-		  var tempUserID as Integer
 		  
-		  If data <> Nil Then
-		    For Each row As DatabaseRow In data
-		      //MessageBox(row.ColumnAt(0).StringValue + "  " + row.ColumnAt(1).StringValue + " " + row.ColumnAt(2).StringValue)
-		      
-		      if row.ColumnAt(2).StringValue <> EncodeHex(MD5(self.txtPassword.Text)) THEN // password is wrong...
-		        
-		        // not a valid password
-		        Module1.writeDBLog(1,self.txtUsername.text,"Attempted login with bad password: "+self.txtPassword.Text)
-		        self.lblUserInfo.Text = "Invalid username or password"
-		        self.txtUsername.Text = ""
-		        self.txtPassword.Text = ""
-		        self.txtUsername.SetFocus
-		        
-		        data.close
-		        Return
-		        
-		      end if
-		      
-		      // set the app property...
-		      app.activeUserID = row.ColumnAt(0).IntegerValue
-		      // MessageBox(app.activeUserID.ToString)
-		      
-		    next row 
+		  if tempPassword <> EncodeHex(MD5(self.txtPassword.Text)) THEN // password is wrong...
+		    
+		    // not a valid password
+		    Module1.writeDBLog(1,self.txtUsername.text,"Attempted login with bad password: "+self.txtPassword.Text)
+		    self.lblUserInfo.Text = "Invalid username or password"
+		    self.txtUsername.Text = ""
+		    self.txtPassword.Text = ""
+		    self.txtUsername.SetFocus
+		    
+		    Return
 		    
 		  end if
 		  
-		  //Fall through - if we have got this far, the password must match...
-		  
-		  // MessageBox("Let the user login")
-		  // pick up the user_id and set the app property
-		  app.activeUserName = self.txtUsername.Text.Lowercase
+		  // fall though again - password is correct if w get to here...
+		  // set the app properties
+		  app.activeUserID = tempUserID
+		  app.activeUserName = tempUserName
 		  
 		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in")
-		  
-		  data.close
 		  
 		  app.windowMainP = new WindowMain
 		  app.windowMainP.Show

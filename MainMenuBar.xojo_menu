@@ -122,8 +122,24 @@ Begin Menu MainMenuBar
       Visible = True
       Begin DesktopMenuItem Logout
          SpecialMenu = 0
-         Index = -2147483648
+         Index = 0
          Text = "&Logout"
+         AutoEnabled = True
+         AutoEnable = True
+         Visible = True
+      End
+   End
+   Begin DesktopMenuItem SRv2
+      SpecialMenu = 0
+      Index = -2147483648
+      Text = "SRv2"
+      AutoEnabled = True
+      AutoEnable = True
+      Visible = True
+      Begin DesktopMenuItem About
+         SpecialMenu = 0
+         Index = -2147483648
+         Text = "About"
          AutoEnabled = True
          AutoEnable = True
          Visible = True

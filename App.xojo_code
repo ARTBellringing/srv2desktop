@@ -3,11 +3,7 @@ Protected Class App
 Inherits DesktopApplication
 	#tag Event
 		Sub Closing()
-		  // write an entry for app stop
-		  Module1.writeDBLog (app.activeUserID, app.activeUserName,"Desktop app stopped")
-		  
-		  // close the db connection
-		  db.Close
+		  Module1.AppClose
 		End Sub
 	#tag EndEvent
 

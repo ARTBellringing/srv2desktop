@@ -1,5 +1,5 @@
 #tag DesktopWindow
-Begin DesktopWindow WindowMain
+Begin DesktopWindow WindowAbout
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF
    Composite       =   False
@@ -7,24 +7,80 @@ Begin DesktopWindow WindowMain
    FullScreen      =   False
    HasBackgroundColor=   False
    HasCloseButton  =   True
-   HasFullScreenButton=   True
-   HasMaximizeButton=   True
-   HasMinimizeButton=   True
-   Height          =   700
-   ImplicitInstance=   False
+   HasFullScreenButton=   False
+   HasMaximizeButton=   False
+   HasMinimizeButton=   False
+   Height          =   334
+   ImplicitInstance=   True
    MacProcID       =   0
    MaximumHeight   =   32000
    MaximumWidth    =   32000
-   MenuBar         =   1551681535
+   MenuBar         =   ""
    MenuBarVisible  =   False
-   MinimumHeight   =   600
-   MinimumWidth    =   800
-   Resizeable      =   True
-   Title           =   "SRv2 Desktop"
-   Type            =   0
+   MinimumHeight   =   64
+   MinimumWidth    =   64
+   Resizeable      =   False
+   Title           =   "About..."
+   Type            =   1
    Visible         =   True
-   Width           =   1024
-   Begin DesktopLabel lblDBStatus
+   Width           =   350
+   Begin DesktopCanvas Canvas1
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   768671743
+      Enabled         =   True
+      Height          =   100
+      Index           =   -2147483648
+      Left            =   125
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   33
+      Transparent     =   True
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopButton bntClose
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Close"
+      Default         =   True
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   135
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   1
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   259
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin DesktopLabel lblVersion
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
@@ -34,10 +90,10 @@ Begin DesktopWindow WindowMain
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   866
+      Left            =   20
       LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   False
+      LockedInPosition=   False
+      LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
       Multiline       =   False
@@ -46,59 +102,27 @@ Begin DesktopWindow WindowMain
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Connecting to DB"
-      TextAlignment   =   3
-      TextColor       =   &c80804000
-      Tooltip         =   ""
-      Top             =   0
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   145
-   End
-   Begin DesktopLabel lblVersion
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   10.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   262
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   False
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   8
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "version"
+      Text            =   "Version"
       TextAlignment   =   2
-      TextColor       =   &c80804000
+      TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   680
+      Top             =   158
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   500
+      Width           =   310
    End
-   Begin DesktopLabel lblActiveUser
+   Begin DesktopLabel lblStatus
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   20
+      Height          =   39
       Index           =   -2147483648
       Italic          =   False
-      Left            =   10
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -107,80 +131,18 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   9
+      TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "ActiveUser"
-      TextAlignment   =   0
-      TextColor       =   &c80804000
+      Text            =   "Status"
+      TextAlignment   =   2
+      TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   0
+      Top             =   180
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   147
-   End
-   Begin DesktopButton btnMail
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Mail"
-      Default         =   True
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   10
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   32
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
-   Begin DesktopButton btnABout
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Mail"
-      Default         =   True
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   11
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   66
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
+      Width           =   310
    End
 End
 #tag EndDesktopWindow
@@ -188,60 +150,45 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
+		  var stage as string
+		  Select Case app.StageCode
+		  Case 0 ' Development
+		    stage = "D"
+		  Case 1  'Alpha
+		    stage = "A"
+		  Case 2 ' Beta
+		    stage = "B"
+		  Case 3 ' Production
+		    stage = "P"
+		  Case else
+		    stage = ""
+		  End Select 
 		  
 		  lblVersion.Text = app.Description + " v" + app.MajorVersion.ToString + "." + app.MinorVersion.ToString + _
-		  "." + app.BugVersion.ToString + " Build: " + app.NonReleaseVersion.ToString + " on X " + XojoVersionString
+		  "." + app.BugVersion.ToString + " " + stage + " Build " + app.NonReleaseVersion.ToString + " on X " + XojoVersionString
 		  
-		  //MessageBox(Module1.dbConnected.ToString)
+		  // lblClientIP.Text = "IP: " + Session.RemoteAddress
 		  
-		  if Module1.dbConnected = TRUE then
-		    
-		    self.lblDBStatus.Text = "Connected to DB"
-		    
-		  End if
-		  
-		  self.lblActiveUser.Text = "Logged in as: " + app.activeUserName + " ID: " + app.activeUserID.ToString
-		  
-		  
-		  
+		  self.lblStatus.Text = "Logged in as: " + app.activeUserName + " (" + App.activeUserID.ToString + ")"
 		End Sub
 	#tag EndEvent
-
-
-	#tag MenuHandler
-		Function About() As Boolean Handles About.Action
-		  WindowAbout.show
-		  
-		  Return True
-		  
-		End Function
-	#tag EndMenuHandler
-
-	#tag MenuHandler
-		Function Logout() As Boolean Handles Logout.Action
-		  module1.writeDBLog(app.activeUserID, app.activeUserName, "User exit")
-		  db.close
-		  
-		  
-		  Return True
-		  
-		End Function
-	#tag EndMenuHandler
 
 
 #tag EndWindowCode
 
-#tag Events btnMail
+#tag Events Canvas1
 	#tag Event
-		Sub Pressed()
-		  ModuleMail.MailSend
+		Sub Opening()
+		  var p as Picture = new picture(me.width, me.height)
+		  p.Graphics.DrawPicture(SR2v2Logo, 0, 0, me.width, me.height, 0, 0, SR2v2Logo.width, SR2v2Logo.height)
+		  me.Backdrop = p
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnABout
+#tag Events bntClose
 	#tag Event
 		Sub Pressed()
-		  WindowAbout.Show
+		  Self.Close
 		End Sub
 	#tag EndEvent
 #tag EndEvents
