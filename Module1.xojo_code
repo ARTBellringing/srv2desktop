@@ -4,7 +4,7 @@ Protected Module Module1
 		Sub AppClose()
 		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"User exit")
 		  db.Close
-		  
+		  Quit
 		  
 		  Return 
 		End Sub

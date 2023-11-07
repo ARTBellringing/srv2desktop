@@ -205,7 +205,7 @@ Begin DesktopWindow WindowLogin
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
-      FontName        =   "C"
+      FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
       Height          =   20
@@ -213,9 +213,9 @@ Begin DesktopWindow WindowLogin
       Italic          =   False
       Left            =   107
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
       Multiline       =   False
       Scope           =   0
@@ -223,8 +223,8 @@ Begin DesktopWindow WindowLogin
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
+      Text            =   "MESSAGE"
+      TextAlignment   =   2
       TextColor       =   &cFF000000
       Tooltip         =   ""
       Top             =   243
@@ -298,6 +298,8 @@ End
 		Sub Opening()
 		  lblVersion.Text = app.Description + " v" + app.MajorVersion.ToString + "." + app.MinorVersion.ToString + _
 		  "." + app.BugVersion.ToString + " Build " + app.NonReleaseVersion.ToString + "  on Xojo " + XojoVersionString
+		  
+		  me.txtUsername.SetFocus
 		  
 		End Sub
 	#tag EndEvent
@@ -394,6 +396,8 @@ End
 		  var tempUserStateName as string
 		  var tempAllowLogin as Boolean
 		  var tempLoginRejectionMessage as string
+		  var tempSr1_user_id as string
+		  var tempDesktopLoginPermitted as Boolean
 		  
 		  if data <> nil then
 		    for each row as Databaserow in data
@@ -405,12 +409,14 @@ End
 		      tempUserStateName = row.ColumnAt(4).StringValue
 		      tempAllowLogin = row.ColumnAt(5).BooleanValue
 		      tempLoginRejectionMessage = row.ColumnAt(6).StringValue
+		      tempSr1_user_id = row.ColumnAt(6).StringValue ' not used here
+		      tempDesktopLoginPermitted = row.ColumnAt(8).BooleanValue
 		      
 		      
 		    next row
 		    data.close
 		    
-		    if tempAllowLogin = false then
+		    if tempAllowLogin = false or tempDesktopLoginPermitted = false then 
 		      // user is not allowed to login
 		      
 		      Var md As New MessageDialog                      // declare the MessageDialog object
@@ -424,9 +430,24 @@ End
 		      md.Message = "You cannot login as " + tempUserName + "."
 		      md.Explanation = tempLoginRejectionMessage
 		      
+		      if tempDesktopLoginPermitted = False then 
+		        
+		        md.Explanation = "User " + tempUserName + " is not authorised to use the SRv2 Desktop Application."
+		        
+		      end if ' tempDesktopLoginPermitted = false
+		      
+		      
 		      // write an entry to the log that the user tried to login
 		      
-		      Module1.writeDBLog(tempUserID, tempUserName, "User state prevented login. State:" + tempUserState.ToString + " " + tempUserStateName)
+		      if tempDesktopLoginPermitted = False then 
+		        
+		        Module1.writeDBLog(tempUserID, tempUserName, "User not authorised for desktop app")
+		        
+		      else
+		        
+		        Module1.writeDBLog(tempUserID, tempUserName, "User state prevented login. State:" + tempUserState.ToString + " " + tempUserStateName)
+		        
+		      end if ' tempDesktopLoginPermitted = false
 		      
 		      b = md.ShowModal                                 // display the dialog
 		      Select Case b                                    // determine which button was pressed.
@@ -468,6 +489,7 @@ End
 		  // set the app properties
 		  app.activeUserID = tempUserID
 		  app.activeUserName = tempUserName
+		  app.activeUserPassword = tempPassword
 		  
 		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in")
 		  

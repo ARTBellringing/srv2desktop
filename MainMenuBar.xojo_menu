@@ -120,6 +120,14 @@ Begin Menu MainMenuBar
       AutoEnabled = True
       AutoEnable = True
       Visible = True
+      Begin DesktopMenuItem ChangePassword
+         SpecialMenu = 0
+         Index = -2147483648
+         Text = "Change Password"
+         AutoEnabled = True
+         AutoEnable = True
+         Visible = True
+      End
       Begin DesktopMenuItem Logout
          SpecialMenu = 0
          Index = 0

@@ -10,7 +10,7 @@ Begin DesktopWindow WindowMain
    HasFullScreenButton=   True
    HasMaximizeButton=   True
    HasMinimizeButton=   True
-   Height          =   700
+   Height          =   750
    ImplicitInstance=   False
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -23,7 +23,7 @@ Begin DesktopWindow WindowMain
    Title           =   "SRv2 Desktop"
    Type            =   0
    Visible         =   True
-   Width           =   1024
+   Width           =   1500
    Begin DesktopLabel lblDBStatus
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -34,7 +34,7 @@ Begin DesktopWindow WindowMain
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   866
+      Left            =   1342
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   False
@@ -82,11 +82,11 @@ Begin DesktopWindow WindowMain
       TextAlignment   =   2
       TextColor       =   &c80804000
       Tooltip         =   ""
-      Top             =   680
+      Top             =   730
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   500
+      Width           =   976
    End
    Begin DesktopLabel lblActiveUser
       AllowAutoDeactivate=   True
@@ -98,11 +98,11 @@ Begin DesktopWindow WindowMain
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   10
+      Left            =   1342
       LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
+      LockedInPosition=   True
+      LockLeft        =   False
+      LockRight       =   True
       LockTop         =   True
       Multiline       =   False
       Scope           =   0
@@ -111,10 +111,10 @@ Begin DesktopWindow WindowMain
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "ActiveUser"
-      TextAlignment   =   0
+      TextAlignment   =   3
       TextColor       =   &c80804000
       Tooltip         =   ""
-      Top             =   0
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -124,7 +124,7 @@ Begin DesktopWindow WindowMain
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Mail"
+      Caption         =   "Mail Test"
       Default         =   True
       Enabled         =   True
       FontName        =   "System"
@@ -145,38 +145,7 @@ Begin DesktopWindow WindowMain
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   32
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
-   Begin DesktopButton btnABout
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Mail"
-      Default         =   True
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   11
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   66
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -200,7 +169,7 @@ End
 		    
 		  End if
 		  
-		  self.lblActiveUser.Text = "Logged in as: " + app.activeUserName + " ID: " + app.activeUserID.ToString
+		  self.lblActiveUser.Text = "User: " + app.activeUserName + " " + app.activeUserID.ToString +")"
 		  
 		  
 		  
@@ -218,9 +187,19 @@ End
 	#tag EndMenuHandler
 
 	#tag MenuHandler
-		Function Logout() As Boolean Handles Logout.Action
+		Function ChangePassword() As Boolean Handles ChangePassword.Action
+		  app.windowChangePasswordP = new WindowChangePassword
+		  app.windowChangePasswordP.ShowModal
+		  
+		  Return True
+		  
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
+		Function Logout(index as Integer) As Boolean Handles Logout.Action
 		  module1.writeDBLog(app.activeUserID, app.activeUserName, "User exit")
-		  db.close
+		  Module1.AppClose
 		  
 		  
 		  Return True
@@ -235,13 +214,6 @@ End
 	#tag Event
 		Sub Pressed()
 		  ModuleMail.MailSend
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnABout
-	#tag Event
-		Sub Pressed()
-		  WindowAbout.Show
 		End Sub
 	#tag EndEvent
 #tag EndEvents
