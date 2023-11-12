@@ -363,7 +363,7 @@ End
 		  
 		  Var data As RowSet
 		  Try
-		    data = db.SelectSQL("SELECT * FROM srv2_vwUsers WHERE user_name = ?", self.txtUsername.text)
+		    data = db.SelectSQL("SELECT * FROM srv2_vwUserLogin WHERE user_name = ?;", self.txtUsername.text)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
 		    Module1.writeDBLog(1,"System","WindowLogin | btnLogin | DB error fetching username")
@@ -389,29 +389,30 @@ End
 		  end if
 		  
 		  // now determine if this user is allowed to login - look at user state in the view
-		  var tempUserID as Integer
-		  var tempUserName as string
-		  var tempPassword as string
-		  var tempUserState as Integer
-		  var tempUserStateName as string
-		  var tempAllowLogin as Boolean
-		  var tempLoginRejectionMessage as string
-		  var tempSr1_user_id as string
-		  var tempDesktopLoginPermitted as Boolean
+		  
+		  var tempUserID as Integer '0
+		  var tempUserName as string '1
+		  var tempPassword as string '2
+		  var tempDesktopLoginPermitted as Boolean '3
+		  var tempLives as integer '4
+		  var tempUserState as Integer '5
+		  var tempUserStateName as string '6
+		  var tempAllowLogin as Boolean '7
+		  var tempLoginRejectionMessage as string '8
+		  
 		  
 		  if data <> nil then
 		    for each row as Databaserow in data
 		      
-		      tempUserID = row.ColumnAt(0).IntegerValue
-		      tempUserName = row.ColumnAt(1).StringValue
-		      tempPassword = row.ColumnAt(2).StringValue
-		      tempUserState = row.ColumnAt(3).IntegerValue
-		      tempUserStateName = row.ColumnAt(4).StringValue
-		      tempAllowLogin = row.ColumnAt(5).BooleanValue
-		      tempLoginRejectionMessage = row.ColumnAt(6).StringValue
-		      tempSr1_user_id = row.ColumnAt(6).StringValue ' not used here
-		      tempDesktopLoginPermitted = row.ColumnAt(8).BooleanValue
-		      
+		      tempUserID = row.ColumnAt(0).IntegerValue '0
+		      tempUserName = row.ColumnAt(1).StringValue '1
+		      tempPassword = row.ColumnAt(2).StringValue '2
+		      tempDesktopLoginPermitted = row.ColumnAt(3).BooleanValue '3
+		      tempLives = row.ColumnAt(4).IntegerValue '4
+		      tempUserState = row.ColumnAt(5).IntegerValue '5
+		      tempUserStateName = row.ColumnAt(6).StringValue '6
+		      tempAllowLogin = row.ColumnAt(7).BooleanValue '7
+		      tempLoginRejectionMessage = row.ColumnAt(8).StringValue '8
 		      
 		    next row
 		    data.close
@@ -435,7 +436,6 @@ End
 		        md.Explanation = "User " + tempUserName + " is not authorised to use the SRv2 Desktop Application."
 		        
 		      end if ' tempDesktopLoginPermitted = false
-		      
 		      
 		      // write an entry to the log that the user tried to login
 		      
@@ -468,7 +468,6 @@ End
 		  
 		  
 		  // Now we need to see if the password matches...
-		  
 		  //Compare the supplied password with the stored value in the db...
 		  
 		  
@@ -482,6 +481,7 @@ End
 		    self.txtUsername.SetFocus
 		    
 		    Return
+		    
 		    
 		  end if
 		  
