@@ -290,14 +290,67 @@ Begin DesktopWindow WindowLogin
       Visible         =   True
       Width           =   310
    End
+   Begin DesktopButton btnHaveCode
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "I have a code"
+      Default         =   True
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   125
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   275
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   89
+   End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
+		Sub Closing()
+		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowLogin | window closed")
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Opening()
-		  lblVersion.Text = app.Description + " v" + app.MajorVersion.ToString + "." + app.MinorVersion.ToString + _
-		  "." + app.BugVersion.ToString + " Build " + app.NonReleaseVersion.ToString + "  on Xojo " + XojoVersionString
+		  var stage as string
+		  Select Case app.StageCode
+		  Case 0 ' Development
+		    stage = "D"
+		  Case 1  'Alpha
+		    stage = "A"
+		  Case 2 ' Beta
+		    stage = "B"
+		  Case 3 ' Production
+		    stage = "P"
+		  Case else
+		    stage = ""
+		  End Select 
+		  
+		  
+		  lblVersion.Text = "v" + app.MajorVersion.ToString + "." + app.MinorVersion.ToString _
+		  + "." + app.BugVersion.ToString + "." + stage + " Build " + app.NonReleaseVersion.ToString + " X " + XojoVersionString
 		  
 		  me.txtUsername.SetFocus
 		  
@@ -394,11 +447,12 @@ End
 		  var tempUserName as string '1
 		  var tempPassword as string '2
 		  var tempDesktopLoginPermitted as Boolean '3
-		  var tempLives as integer '4
-		  var tempUserState as Integer '5
-		  var tempUserStateName as string '6
-		  var tempAllowLogin as Boolean '7
-		  var tempLoginRejectionMessage as string '8
+		  var tempPasswordAttemptsRemaining as integer '4
+		  var tempLoginCode as string '5
+		  var tempUserState as Integer '6
+		  var tempUserStateName as string '7
+		  var tempAllowLogin as Boolean '8
+		  var tempLoginRejectionMessage as string '9
 		  
 		  
 		  if data <> nil then
@@ -408,11 +462,12 @@ End
 		      tempUserName = row.ColumnAt(1).StringValue '1
 		      tempPassword = row.ColumnAt(2).StringValue '2
 		      tempDesktopLoginPermitted = row.ColumnAt(3).BooleanValue '3
-		      tempLives = row.ColumnAt(4).IntegerValue '4
-		      tempUserState = row.ColumnAt(5).IntegerValue '5
-		      tempUserStateName = row.ColumnAt(6).StringValue '6
-		      tempAllowLogin = row.ColumnAt(7).BooleanValue '7
-		      tempLoginRejectionMessage = row.ColumnAt(8).StringValue '8
+		      tempPasswordAttemptsRemaining = row.ColumnAt(4).IntegerValue '4
+		      tempLoginCode = row.ColumnAt(5).StringValue '5
+		      tempUserState = row.ColumnAt(6).IntegerValue '6
+		      tempUserStateName = row.ColumnAt(7).StringValue '7
+		      tempAllowLogin = row.ColumnAt(8).BooleanValue '8
+		      tempLoginRejectionMessage = row.ColumnAt(9).StringValue '9
 		      
 		    next row
 		    data.close
@@ -508,6 +563,21 @@ End
 		  var p as Picture = new picture(me.width, me.height)
 		  p.Graphics.DrawPicture(SR2v2Logo, 0, 0, me.width, me.height, 0, 0, SR2v2Logo.width, SR2v2Logo.height)
 		  me.Backdrop = p
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnHaveCode
+	#tag Event
+		Sub Pressed()
+		  //open close self and open the have code window
+		  
+		  module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowLogin | Have code button pressed")
+		  
+		  app.windowCodeLoginP = new WindowCodeLogin
+		  app.windowCodeLoginP.Show
+		  WindowLogin.close
+		  
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

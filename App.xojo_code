@@ -21,7 +21,109 @@ Inherits DesktopApplication
 		  Module1.writeDBLog(1,"","Desktop app started.  v" + app.MajorVersion.ToString + "." + app.MinorVersion.ToString + _
 		  "." + app.BugVersion.ToString + " Build " + app.NonReleaseVersion.ToString + "  on Xojo " + XojoVersionString)
 		  
-		  WindowLogin.Visible = True
+		  //update the appVersion property
+		  app.appVersion = app.MajorVersion.ToString + "." + app.MinorVersion.ToString _
+		  + "." + app.BugVersion.ToString + "." + app.NonReleaseVersion.ToString
+		  
+		  //check if this verson of the app is still allowed to run...
+		  Var data As RowSet
+		  var sqlText as string
+		  sqlText = "SELECT * FROM srv2_tblAppVersion WHERE version_text  = ?;" 
+		  
+		  Try
+		    data = db.SelectSQL(sqlText, app.appVersion)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(1,"System","WindowLogin | Version Check | DB error fetching version")
+		  End Try
+		  
+		  var tempVersionText as string
+		  var tempVersionIsLive as Boolean
+		  
+		  
+		  if data.RowCount = 0 then  // this version isn't listed in the db
+		    Module1.writeDBLog(1,"System","Application Start | Version Check | User tried to log in with unlisted version " + app.appVersion)
+		    
+		    Var md As New MessageDialog                      // declare the MessageDialog object
+		    Var b As MessageDialogButton                     // for handling the result
+		    md.Title = "Unsupported Version"
+		    md.IconType = MessageDialog.IconTypes.Stop       // display warning icon
+		    md.ActionButton.Caption = "OK"
+		    md.CancelButton.Visible = False                  // show the Cancel button
+		    md.AlternateActionButton.Visible = False         // show the "Don't Save" button
+		    md.AlternateActionButton.Caption = "Don't Save"
+		    md.Message = "Using SRv2 Desktop v" + app.appVersion + " is not supported."
+		    md.Explanation = "Please upgrade to a supported version."
+		    
+		    data.close
+		    
+		    b = md.ShowModal                                 // display the dialog
+		    Select Case b                                    // determine which button was pressed.
+		    Case md.ActionButton
+		      // user pressed Quit
+		      Module1.AppClose
+		      Quit
+		      
+		    Case md.AlternateActionButton
+		      // user pressed Don't Save
+		    Case md.CancelButton
+		      // user pressed Cancel
+		    End Select
+		    Return
+		    
+		  Else
+		    
+		    // there is a row - and as they are unique it must be the only row...
+		    if data <> nil then
+		      for each row as Databaserow in data
+		        
+		        // ignore the 0 column which is ID
+		        tempVersionText = row.ColumnAt(1).StringValue '1
+		        tempVersionIsLive = row.ColumnAt(2).BooleanValue '2
+		        
+		      next row
+		      data.close
+		      
+		    end if 'data <> nil
+		    
+		  end if 'data.RowCount = 0
+		  
+		  // fall through here
+		  
+		  if tempVersionIsLive = false then ' version exists in the table but is no-longer supported
+		    
+		    Module1.writeDBLog(1,"System","Application Start | Version Check | User tried to log in with obsolete version " + app.appVersion)
+		    
+		    Var md As New MessageDialog                      // declare the MessageDialog object
+		    Var b As MessageDialogButton                     // for handling the result
+		    md.Title = "Obsolete Version"
+		    md.IconType = MessageDialog.IconTypes.Stop       // display warning icon
+		    md.ActionButton.Caption = "OK"
+		    md.CancelButton.Visible = False                  // show the Cancel button
+		    md.AlternateActionButton.Visible = False         // show the "Don't Save" button
+		    md.AlternateActionButton.Caption = "Don't Save"
+		    md.Message = "Using SRv2 Desktop v" + app.appVersion + " is no-longer supported."
+		    md.Explanation = "Please upgrade to a supported version."
+		    
+		    data.close
+		    
+		    b = md.ShowModal                                 // display the dialog
+		    Select Case b                                    // determine which button was pressed.
+		    Case md.ActionButton
+		      // user pressed Quit
+		      Module1.AppClose
+		      Quit
+		      
+		    Case md.AlternateActionButton
+		      // user pressed Don't Save
+		    Case md.CancelButton
+		      // user pressed Cancel
+		    End Select
+		    Return
+		    
+		  end if   ' tempVersionIsLive = false
+		  
+		  WindowLogin.Show
 		End Sub
 	#tag EndEvent
 
@@ -39,7 +141,23 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		appVersion As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		windowChangePasswordP As WindowChangePassword
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowCodeLoginP As WindowCodeLogin
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowForceChangePasswordP As WindowForceChangePassword
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowLoginP As WindowLogin
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
