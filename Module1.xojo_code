@@ -1,12 +1,74 @@
 #tag Module
 Protected Module Module1
 	#tag Method, Flags = &h0
+		Sub activateUser()
+		  // Activate user - always called after logging in with a code- change user state to 2
+		  var data as string
+		  
+		  //also need to change or overwrite the user_state to 2
+		  // reuse data variable from above
+		  data = "UPDATE srv2_tblUser SET user_state = 2, updated_by = ? WHERE sr2_user_id = ?;"
+		  
+		  Try
+		    db.BeginTransaction
+		    db.ExecuteSQL(data, app.activeUserID, app.activeUserID)
+		    db.CommitTransaction
+		  Catch error As DatabaseException
+		    MessageBox(error.Message)
+		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "ForceChangePasswordPage | btnChange | DB error changing user_statee " + error.Message)
+		    db.RollbackTransaction
+		    
+		    return
+		    
+		  End Try
+		  
+		  module1.writeDBLog(app.activeUserID,app.activeUserName,"Account activated")
+		  Module1.writeDBNote(app.activeUserID, 1, "Account activated", NIL, TRUE)
+		  
+		  //check if we need to clear out the login code...
+		  if app.activeUserLoginCode.length <> 0 then 'there is a code to be cleared
+		    
+		    Module1.clearLoginCode
+		    
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub AppClose()
 		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"User exit")
+		  Module1.writeDBNote(app.activeUserID, 1, "User exit", NIL, TRUE)
 		  db.Close
 		  Quit
 		  
 		  Return 
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub clearLoginCode()
+		  // clear login code 
+		  
+		  var data as string
+		  
+		  data = "UPDATE srv2_tblUser SET login_code = ?, updated_by = ? WHERE sr2_user_id = ?;"
+		  
+		  Try
+		    db.BeginTransaction
+		    db.ExecuteSQL(data, NIL, app.activeUserID, app.activeUserID)
+		    db.CommitTransaction
+		  Catch error As DatabaseException
+		    MessageBox(error.Message)
+		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "ActivateUser | DB error clearing code " + error.Message)
+		    db.RollbackTransaction
+		    
+		    return
+		    
+		  End Try
+		  
+		  module1.writeDBLog(app.activeUserID, app.activeUserName, "Login code cleared")
+		  Module1.writeDBNote(app.activeUserID, 1, "Login code cleared", NIL, TRUE)
 		End Sub
 	#tag EndMethod
 
@@ -24,6 +86,26 @@ Protected Module Module1
 		  if db.Connect then
 		    //set property
 		    Module1.dbConnected = True
+		    
+		    var data as string
+		    data = "SET session time_Zone = 'Europe/London';"
+		    
+		    Try
+		      db.BeginTransaction
+		      db.ExecuteSQL(data)
+		      db.CommitTransaction
+		    Catch error As DatabaseException
+		      MessageBox("DB Error: " + error.Message)
+		      Module1.writeDBLog(1,"System","getDB | Set TZ | DB error " + error.Message)
+		      db.RollbackTransaction
+		    End Try
+		    
+		    // data = "select @@session.time_zone;"
+		    // 
+		    // var rs as rowset
+		    // rs = db.SelectSQL(data)
+		    // messagebox (rs.columnat(0).StringValue)
+		    
 		    
 		  else
 		    
@@ -78,6 +160,43 @@ Protected Module Module1
 		  Try
 		    db.BeginTransaction
 		    db.ExecuteSQL(insertSQL, SystemInformationMBS.ComputerName, SystemInformationMBS.UserName, app.activeUserID, app.activeUserName, action_on, action_on_name, log_action)
+		    db.CommitTransaction
+		  Catch error As DatabaseException
+		    MessageBox(error.Message)
+		    db.RollbackTransaction
+		  End Try
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub writeDBNote(action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean)
+		  // method to write an entry to tblNote in the db
+		  
+		  // note_id  (default)
+		  // created_timestamp (default)
+		  // user_id (int)
+		  // action_on (int) FK
+		  // note_type (int) FK
+		  // note_text (string)
+		  // note_due_date (datetime)
+		  // note_closed (boolean)
+		  // last_update_by (int) FK
+		  // update_timestamp (default)
+		  
+		  
+		  // Note Type:
+		  // 1 Admin
+		  // 2 Membership
+		  // 3 Safeguarding
+		  // 4 Technical
+		  
+		  Var tableName as string = "srv2_tblNote"
+		  Var insertSQL As String
+		  insertSQL = "INSERT INTO " + tableName + " (user_id, action_on, note_type, note_text, note_due_date, note_closed, last_update_by) VALUES (?, ?, ?, ?, ?, ?, ?);"
+		  
+		  Try
+		    db.BeginTransaction
+		    db.ExecuteSQL(insertSQL, app.activeUserID, action_on, note_type, note_text, note_due_date, note_closed, app.activeUserID)
 		    db.CommitTransaction
 		  Catch error As DatabaseException
 		    MessageBox(error.Message)

@@ -547,6 +547,7 @@ End
 		  app.activeUserPassword = tempPassword
 		  
 		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in")
+		  Module1.writeDBNote(app.activeUserID, 1, "Logged in", NIL, TRUE)
 		  
 		  app.windowMainP = new WindowMain
 		  app.windowMainP.Show

@@ -343,7 +343,7 @@ End
 		    data = db.SelectSQL("SELECT * FROM srv2_vwUserLogin WHERE user_name = ?;", self.txtUsername.text)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(1,"System","WindowLogin | btnLogin | DB error fetching username")
+		    Module1.writeDBLog(1,"System","WindowCodeLogin | btnLogin | DB error fetching username")
 		  End Try
 		  
 		  if data.RowCount = 0 then
@@ -395,6 +395,13 @@ End
 		      
 		    next row
 		    data.close
+		    
+		    // update the app property for user state (used later to determine if we need to activate this user)
+		    app.activeUserState = tempUserState
+		    
+		    // update app property for login code
+		    app.activeUserLoginCode = tempLoginCode
+		    
 		    
 		    if tempAllowLogin = false or tempDesktopLoginPermitted = false then 
 		      // user is not allowed to login
@@ -482,9 +489,10 @@ End
 		  // set the app properties
 		  app.activeUserID = tempUserID
 		  app.activeUserName = tempUserName
-		  app.activeUserPassword = tempLoginCode
+		  app.activeUserLoginCode = tempLoginCode
 		  
 		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in with code")
+		  Module1.writeDBNote(app.activeUserID, 1, "Logged in with code", NIL, TRUE)
 		  
 		  self.close
 		  

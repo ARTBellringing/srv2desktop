@@ -456,7 +456,7 @@ End
 		  // if we get here, then user must have entered correct old password and can go ahead and make the change
 		  
 		  var newPassword as string
-		  newPassword = EncodeHex(MD5(self.txtNewPassword1.Text))
+		  newPassword = EncodeHex(MD5(self.txtNewPassword1.Text)).Lowercase
 		  
 		  var data as string
 		  data = "UPDATE srv2_tblUser SET password = ?, updated_by = ? WHERE sr2_user_id = ?;"

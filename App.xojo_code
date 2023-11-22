@@ -133,11 +133,19 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		activeUserLoginCode As string = "1"
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		activeUserName As String = "System"
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		activeUserPassword As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		activeUserState As Integer = 1
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -348,6 +356,14 @@ Inherits DesktopApplication
 			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="appVersion"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

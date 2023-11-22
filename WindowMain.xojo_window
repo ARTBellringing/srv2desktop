@@ -182,6 +182,37 @@ Begin DesktopWindow WindowMain
       Visible         =   True
       Width           =   80
    End
+   Begin DesktopButton btnNote
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Note"
+      Default         =   True
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   12
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   86
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
 End
 #tag EndDesktopWindow
 
@@ -260,6 +291,19 @@ End
 		  
 		  
 		  messagebox(rbe)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnNote
+	#tag Event
+		Sub Pressed()
+		  // (action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean)
+		  
+		  
+		  Module1.writeDBNote(app.activeUserID, 1, "Test note text", NIL, TRUE)
+		  
+		  
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

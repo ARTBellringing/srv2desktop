@@ -300,7 +300,7 @@ End
 		  
 		  if self.txtNewPassword1.Text.Length < 6  then
 		    
-		    // user hasn't typed anything
+		    // password not long enough
 		    self.lblUserInfo.Text = "New password must be 6 chars or more"
 		    self.txtNewPassword1.Text = ""
 		    self.txtNewPassword2.Text = ""
@@ -336,7 +336,7 @@ End
 		  
 		  // if we get here, then user must have entered matching passwords - so write the new password to the db
 		  var newPassword as string
-		  newPassword = EncodeHex(MD5(self.txtNewPassword1.Text))
+		  newPassword = EncodeHex(MD5(self.txtNewPassword1.Text)).Lowercase
 		  
 		  var data as string
 		  data = "UPDATE srv2_tblUser SET password = ?, updated_by = ? WHERE sr2_user_id = ?;"
@@ -374,32 +374,27 @@ End
 		    
 		  End Try
 		  
-		  //also need to change the user_state to 2
-		  // reuse data variable from above
-		  data = "UPDATE srv2_tblUser SET user_state = 2, updated_by = ? WHERE sr2_user_id = ?;"
-		  
-		  Try
-		    db.BeginTransaction
-		    db.ExecuteSQL(data, app.activeUserID, App.activeUserID)
-		    db.CommitTransaction
-		  Catch error As DatabaseException
-		    MessageBox(error.Message)
-		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "WindowForceChangePassword | btnChange | DB error changing user_statee " + error.Message)
-		    db.RollbackTransaction
-		    
-		    return ' why return on error?
-		    
-		  End Try
-		  
-		  Module1.writeDBLog(app.activeUserID, app.activeUserName, "Forced password change successful")
+		  //update the app property for new password
 		  app.activeUserPassword = newPassword
 		  
-		  MessageBox ("Password for " + app.activeUserName + " changed.")
+		  Module1.writeDBLog(app.activeUserID, app.activeUserName, "Forced password change successful")
+		  Module1.writeDBNote(app.activeUserID, 1, "Forced password change", NIL, TRUE)
+		  
+		  self.close ' close force password change window
+		  
+		  if app.activeUserState = 1 then 'user is not activated and needs activatind
+		    Module1.activateUser 'activate the user - change user state, clear login code
+		  end if
+		  
+		  if app.activeUserState = 1 then 'user is not activated and needs activating
+		    Module1.activateUser 'activate the user - change user state, clear login code
+		  end if
 		  
 		  app.WindowMainP = new WindowMain
 		  app.windowMainP.show
-		  WindowForceChangePassword.close
 		  
+		  
+		  MessageBox ("User: " + app.activeUserName + " password changed.")
 		  
 		  
 		  
