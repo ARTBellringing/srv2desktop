@@ -357,38 +357,21 @@ End
 		  // update the app record of the encrypted password
 		  app.activeUserPassword = newPassword
 		  
-		  // also need to clear out the login_code, if there is one...
-		  // reuse data variable from above
-		  data = "UPDATE srv2_tblUser SET login_code = ?, updated_by = ? WHERE sr2_user_id = ?;"
-		  
-		  Try
-		    db.BeginTransaction
-		    db.ExecuteSQL(data, NIL, app.activeUserID, App.activeUserID)
-		    db.CommitTransaction
-		  Catch error As DatabaseException
-		    MessageBox(error.Message)
-		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "WindowForceChangePassword | btnChange | DB error clearing code " + error.Message)
-		    db.RollbackTransaction
-		    
-		    return  ' why return on error?
-		    
-		  End Try
+		  //reset the user's password_tries_remaining
+		  Module1.ResetUserPasswordTries(app.activeUserID)
 		  
 		  //update the app property for new password
 		  app.activeUserPassword = newPassword
 		  
 		  Module1.writeDBLog(app.activeUserID, app.activeUserName, "Forced password change successful")
-		  Module1.writeDBNote(app.activeUserID, 1, "Forced password change", NIL, TRUE)
+		  // action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean
+		  Module1.writeDBNote(app.activeUserID, 1, "Login with code - password changed",Nil,True)
 		  
-		  self.close ' close force password change window
+		  Self.close ' close force password change window
 		  
-		  if app.activeUserState = 1 then 'user is not activated and needs activatind
-		    Module1.activateUser 'activate the user - change user state, clear login code
-		  end if
-		  
-		  if app.activeUserState = 1 then 'user is not activated and needs activating
-		    Module1.activateUser 'activate the user - change user state, clear login code
-		  end if
+		  If app.activeUserState = 1 Then 'user is not activated and needs activating
+		    Module1.activateUser 'activate the user - change user state, clear login code if needed
+		  End If
 		  
 		  app.WindowMainP = new WindowMain
 		  app.windowMainP.show

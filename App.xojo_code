@@ -153,6 +153,10 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		loginTriesRemaining As Integer = 3
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		windowChangePasswordP As WindowChangePassword
 	#tag EndProperty
 
@@ -170,6 +174,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		windowMainP As WindowMain
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowNotesP As WindowNotes
 	#tag EndProperty
 
 
@@ -363,6 +371,22 @@ Inherits DesktopApplication
 			Group="Behavior"
 			InitialValue=""
 			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="activeUserLoginCode"
+			Visible=false
+			Group="Behavior"
+			InitialValue="1"
+			Type="string"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="activeUserState"
+			Visible=false
+			Group="Behavior"
+			InitialValue="1"
+			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

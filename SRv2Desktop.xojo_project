@@ -9,6 +9,7 @@ DesktopWindow=WindowCodeLogin;WindowCodeLogin.xojo_window;&h0000000026537FFF;&h0
 DesktopWindow=WindowChangePassword;WindowChangePassword.xojo_window;&h000000006EB9B7FF;&h0000000000000000;false
 DesktopWindow=WindowForceChangePassword;WindowForceChangePassword.xojo_window;&h0000000045B467FF;&h0000000000000000;false
 DesktopWindow=WindowMain;WindowMain.xojo_window;&h00000000214437FF;&h0000000000000000;false
+DesktopWindow=WindowNotes;WindowNotes.xojo_window;&h00000000310567FF;&h0000000000000000;false
 MenuBar=MainMenuBar;MainMenuBar.xojo_menu;&h000000005C7CC7FF;&h0000000000000000;false
 Module=Module1;Module1.xojo_code;&h000000004C4797FF;&h0000000000000000;false
 Folder=Images;Images;&h00000000710B57FF;&h0000000000000000;false

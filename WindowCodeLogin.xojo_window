@@ -315,13 +315,16 @@ End
 #tag Events btnCodeLogin
 	#tag Event
 		Sub Pressed()
-		  if self.txtUsername.Text.Length = 0  then
+		  If Self.txtUsername.Text.Length = 0  Then
 		    
 		    // user hasn't typed anything
 		    self.lblUserInfo.Text = "Blank username is not allowed"
 		    Self.txtUsername.Text = ""
 		    self.txtCode.Text = ""
-		    self.txtUsername.SetFocus
+		    Self.txtUsername.SetFocus
+		    
+		    Module1.DecAppLoginTries
+		    
 		    Return
 		    
 		  end if
@@ -331,7 +334,10 @@ End
 		    // user hasn't typed anything
 		    self.lblUserInfo.Text = "Blank code is not allowed"
 		    self.txtCode.Text = ""
-		    self.txtCode.SetFocus
+		    Self.txtCode.SetFocus
+		    
+		    Module1.DecAppLoginTries
+		    
 		    Return
 		    
 		  end if
@@ -352,8 +358,10 @@ End
 		    Module1.writeDBLog(1,"","Attempted Login with bad username: " + self.txtUsername.Text)
 		    self.lblUserInfo.Text = "Invalid username or code"
 		    self.txtUsername.Text = ""
-		    self.txtCode.Text = ""
-		    self.txtUsername.SetFocus
+		    Self.txtCode.Text = ""
+		    Self.txtUsername.SetFocus
+		    
+		    Module1.DecAppLoginTries
 		    
 		    //MessageBox ("No match")
 		    data.close
@@ -367,16 +375,17 @@ End
 		  
 		  // now determine if this user is allowed to login - look at user state in the view
 		  
-		  var tempUserID as Integer '0
-		  var tempUserName as string '1
-		  var tempPassword as string '2
-		  var tempDesktopLoginPermitted as Boolean '3
-		  var tempPasswordAttemptsRemaining as integer '4
-		  var tempLoginCode as string '5
-		  var tempUserState as Integer '6
-		  var tempUserStateName as string '7
-		  var tempAllowLogin as Boolean '8
-		  var tempLoginRejectionMessage as string '9
+		  Var tempUserID As Integer '0
+		  Var tempUserName As String '1
+		  Var tempPassword As String '2
+		  Var tempDesktopLoginPermitted As Boolean '3
+		  Var tempLoginCode As String '4
+		  Var tempUserState As Integer '5
+		  Var tempPasswordTriesRemaining As Integer '6
+		  Var tempAccountLockedOut As Boolean '7
+		  Var tempUserStateName As String '8
+		  Var tempAllowLogin As Boolean '9
+		  Var tempLoginRejectionMessage As String '10
 		  
 		  
 		  if data <> nil then
@@ -386,12 +395,13 @@ End
 		      tempUserName = row.ColumnAt(1).StringValue '1
 		      tempPassword = row.ColumnAt(2).StringValue '2
 		      tempDesktopLoginPermitted = row.ColumnAt(3).BooleanValue '3
-		      tempPasswordAttemptsRemaining = row.ColumnAt(4).IntegerValue '4
-		      tempLoginCode = row.ColumnAt(5).StringValue '5
-		      tempUserState = row.ColumnAt(6).IntegerValue '6
-		      tempUserStateName = row.ColumnAt(7).StringValue '7
-		      tempAllowLogin = row.ColumnAt(8).BooleanValue '8
-		      tempLoginRejectionMessage = row.ColumnAt(9).StringValue '9
+		      tempLoginCode = row.ColumnAt(4).StringValue '4
+		      tempUserState = row.ColumnAt(5).IntegerValue '5
+		      tempPasswordTriesRemaining = row.ColumnAt(6).IntegerValue '6
+		      tempAccountLockedOut = row.ColumnAt(7).BooleanValue '7
+		      tempUserStateName = row.ColumnAt(8).StringValue '8
+		      tempAllowLogin = row.ColumnAt(9).BooleanValue '9
+		      tempLoginRejectionMessage = row.ColumnAt(10).StringValue '10
 		      
 		    next row
 		    data.close
@@ -450,8 +460,37 @@ End
 		      
 		    end if ' tempAllowLogin = false
 		    
-		  end if 'data <> nil then
+		  End If 'data <> nil then
 		  
+		  // now check if account is locked out...
+		  If tempAccountLockedOut = True Then
+		    
+		    Var md As New MessageDialog                      // declare the MessageDialog object
+		    Var b As MessageDialogButton                     // for handling the result
+		    md.Title = "Account Information"
+		    md.IconType = MessageDialog.IconTypes.Stop       // display warning icon
+		    md.ActionButton.Caption = "Quit"
+		    md.CancelButton.Visible = False                  // show the Cancel button
+		    md.AlternateActionButton.Visible = False         // show the "Don't Save" button
+		    md.AlternateActionButton.Caption = "Don't Save"
+		    md.Message = "You cannot login as " + tempUserName + "."
+		    md.Explanation = "Account " + tempUserName + " is locked out.  Please contact admin@bellringing.org for assistance."
+		    
+		    b = md.ShowModal                                 // display the dialog
+		    Select Case b                                    // determine which button was pressed.
+		    Case md.ActionButton
+		      // user pressed Exit
+		      Module1.writeDBLog(tempUserID, tempUserName, "Attempted login with code when account locked out")
+		      Module1.AppClose
+		      Quit
+		      
+		    Case md.AlternateActionButton
+		      // user pressed Don't Save
+		    Case md.CancelButton
+		      // user pressed Cancel
+		    End Select
+		    
+		  End If ' Account locked out
 		  
 		  // is code login permitted for this user?
 		  
@@ -462,26 +501,31 @@ End
 		    self.lblUserInfo.Text = "Invalid username or code"
 		    self.txtUsername.Text = ""
 		    self.txtCode.Text = ""
-		    self.txtUsername.SetFocus
+		    Self.txtUsername.SetFocus
+		    
+		    Module1.DecAppLoginTries
+		    Module1.DecUserPasswordTries(tempUserID)
 		    
 		    //MessageBox ("No code")
 		    Return
 		    
-		  end if 'tempLoginCode.length = 0
+		  End If 'tempLoginCode.length = 0
 		  
 		  // now check if the code matches
 		  
-		  if tempLoginCode <> self.txtCode.Text THEN // code is wrong...
+		  If tempLoginCode <> Self.txtCode.Text Then // code is wrong...
 		    
 		    // not a valid code
-		    Module1.writeDBLog(1,self.txtUsername.text,"Attempted login with bad code: "+self.txtCode.Text)
-		    self.lblUserInfo.Text = "Invalid username or code"
-		    self.txtUsername.Text = ""
-		    self.txtCode.Text = ""
-		    self.txtUsername.SetFocus
+		    Module1.writeDBLog(1,Self.txtUsername.Text,"Attempted login with bad code: "+Self.txtCode.Text)
+		    Self.lblUserInfo.Text = "Invalid username or code"
+		    Self.txtUsername.Text = ""
+		    Self.txtCode.Text = ""
+		    Self.txtUsername.SetFocus
+		    
+		    Module1.DecAppLoginTries
+		    Module1.DecUserPasswordTries(tempUserID)
 		    
 		    Return
-		    
 		    
 		  end if
 		  
@@ -492,7 +536,10 @@ End
 		  app.activeUserLoginCode = tempLoginCode
 		  
 		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in with code")
-		  Module1.writeDBNote(app.activeUserID, 1, "Logged in with code", NIL, TRUE)
+		  Module1.writeDBNote(app.activeUserID, 1, "Logged in with code", Nil, True)
+		  
+		  // reset password tries value for user
+		  Module1.ResetUserPasswordTries(app.activeUserID)
 		  
 		  self.close
 		  

@@ -269,6 +269,15 @@ End
 		End Function
 	#tag EndMenuHandler
 
+	#tag MenuHandler
+		Function Notes() As Boolean Handles Notes.Action
+		  app.windowNotesP = New WindowNotes
+		  app.windowNotesP.Show
+		  Return True
+		  
+		End Function
+	#tag EndMenuHandler
+
 
 #tag EndWindowCode
 

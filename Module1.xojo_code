@@ -38,7 +38,7 @@ Protected Module Module1
 	#tag Method, Flags = &h0
 		Sub AppClose()
 		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"User exit")
-		  Module1.writeDBNote(app.activeUserID, 1, "User exit", NIL, TRUE)
+		  //Module1.writeDBNote(app.activeUserID, 1, "User exit", NIL, TRUE)
 		  db.Close
 		  Quit
 		  
@@ -73,6 +73,109 @@ Protected Module Module1
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub DecAppLoginTries()
+		  // decrement app login tries (not to be confused with password_tries)
+		  
+		  App.loginTriesRemaining = app.loginTriesRemaining - 1
+		  
+		  If app.loginTriesRemaining = 0 Then
+		    
+		    MessageBox("You've made 3 failed attempts to login.  SRv2 Desktop will now close.")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName,"Login | 3 consecutive failed login attempts.  Desktop app closing")
+		    
+		    Module1.AppClose
+		    Quit
+		    
+		  End If
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub DecUserPasswordTries(input as Integer)
+		  // decrement the user's password_tries_remaining value and exit if 0
+		  
+		  Var data As RowSet
+		  Var sql1 As String
+		  sql1 = "SELECT sr2_user_id, password_tries_remaining FROM srv2_tblUser WHERE sr2_user_id  = ?;"
+		  
+		  Try
+		    data = db.SelectSQL(sql1, input)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(1,"System","DecrementUserPasswordTries | DB error fetching user row")
+		  End Try
+		  
+		  Var tempUserID As Integer '0
+		  Var tempPasswordTriesRemaining  As Integer '1
+		  
+		  If data <> Nil Then
+		    For Each row As Databaserow In data
+		      
+		      tempUserID = row.ColumnAt(0).IntegerValue '0
+		      tempPasswordTriesRemaining = row.ColumnAt(1).IntegerValue '1
+		      
+		    Next row
+		    data.close
+		    
+		  End If 'data <> nil
+		  
+		  // MessageBox("Remaining: "+tempPasswordTriesRemaining.ToString)
+		  
+		  tempPasswordTriesRemaining = tempPasswordTriesRemaining - 1
+		  
+		  // MessageBox("Now remaining: "+tempPasswordTriesRemaining.ToString)
+		  
+		  // write the value back to the DB
+		  
+		  Var sqlString As String
+		  
+		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ? WHERE sr2_user_id = ?;"
+		  
+		  Try
+		    db.BeginTransaction
+		    db.ExecuteSQL(sqlString, tempPasswordTriesRemaining, Input)
+		    db.CommitTransaction
+		  Catch error As DatabaseException
+		    MessageBox(error.Message)
+		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Method decrementPasswordLoginTries | DB error writing new tries valuepassword " + error.Message)
+		    db.RollbackTransaction
+		    
+		    Return
+		    
+		  End Try
+		  
+		  // set account_locked_out = TRUE if we are down to 0
+		  
+		  If tempPasswordTriesRemaining = 0 Then
+		    
+		    // reuse var data from above
+		    sqlString = "UPDATE srv2_tblUser SET account_locked_out = ? WHERE sr2_user_id = ?;"
+		    
+		    Try
+		      db.BeginTransaction
+		      db.ExecuteSQL(sqlString, True, Input)
+		      db.CommitTransaction
+		    Catch error As DatabaseException
+		      MessageBox(error.Message)
+		      Module1.writeDBLog(app.activeUserID, app.activeUserName, "Method decrementPasswordLoginTries | DB error writing account_locked_out value")
+		      //action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean
+		      Module1.writeDBNote(Input, 1, "Account locked out", Nil, True)
+		      db.RollbackTransaction
+		      Return
+		    End Try
+		    
+		    Module1.AppClose
+		    Quit
+		    
+		  End If ' temp password tries remaining = 0
+		  
+		  Return 
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub getDB()
 		  // getDB - connection to DB Server
 		  db = New MySQLCommunityServer
@@ -89,6 +192,7 @@ Protected Module Module1
 		    
 		    var data as string
 		    data = "SET session time_Zone = 'Europe/London';"
+		    //data = "SET session time_Zone = 'America/New_York';"
 		    
 		    Try
 		      db.BeginTransaction
@@ -134,6 +238,138 @@ Protected Module Module1
 		    
 		  end if
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ResetUserPasswordTries(input as Integer)
+		  // reset the user's password_tries_remaining value to 3
+		  // called on succssful login
+		  
+		  Var sqlString As String
+		  
+		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ? WHERE sr2_user_id = ?;"
+		  
+		  Try
+		    db.BeginTransaction
+		    db.ExecuteSQL(sqlString, 3, Input)
+		    db.CommitTransaction
+		  Catch error As DatabaseException
+		    MessageBox(error.Message)
+		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Method ResetPasswordLoginTries | DB error writing new tries value " + error.Message)
+		    db.RollbackTransaction
+		    
+		    Return
+		    
+		  End Try
+		  
+		  Return 
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function sr2DateTime(input as DateTime, dayBoolean as boolean, timeBoolean as boolean) As string
+		  // convert a date time to our preferred date/time format
+		  
+		  //day of week 3 chars
+		  Var tempInt As Integer
+		  Var tempString As String
+		  
+		  Var output As String
+		  
+		  output = ""
+		  
+		  If dayBoolean = True Then
+		    
+		    tempInt = Input.DayOfWeek
+		    
+		    Select Case tempInt
+		      
+		    Case 1
+		      output = "Sun "
+		    Case 2
+		      output = "Mon "
+		    Case 3
+		      output = "Tue "
+		    Case 4
+		      output = "Wed "
+		    Case 5
+		      output = "Thu "
+		    Case 6
+		      output = "Fri "
+		    Case 7
+		      output = "Sat" 
+		    End Select
+		    
+		  End If ' dayBoolean = TRUE
+		  
+		  // day digits
+		  tempInt = Input.Day
+		  tempString = "00" + tempInt.ToString +"-"
+		  output = output + tempString.Right(3)
+		  
+		  // month chars
+		  tempInt = Input.Month
+		  
+		  Select Case tempInt
+		    
+		  Case 1
+		    output = output + "Jan-"
+		  Case 2
+		    output = output + "Feb-"
+		  Case 3
+		    output = output + "Mar-"
+		  Case 4
+		    output = output + "Apr-"
+		  Case 5
+		    output = output + "May-"
+		  Case 6
+		    output = output + "Jun-"
+		  Case 7
+		    output = output + "Jul-"
+		  Case 8
+		    output = output + "Aug-"
+		  Case 9
+		    output = output + "Sep-"
+		  Case 10
+		    output = output + "Oct-"
+		  Case 11
+		    output = output + "Nov-"
+		  Case 12
+		    output = output + "Dec-"
+		    
+		  End Select
+		  
+		  tempInt = Input.Year
+		  tempString = tempInt.ToString
+		  
+		  output = output + tempString
+		  
+		  
+		  If timeBoolean = True Then
+		    
+		    output = output + " "
+		    
+		    tempInt = Input.Hour
+		    tempString = "00" + tempInt.ToString
+		    tempString = tempString.Right(2)
+		    
+		    output = output + tempString + ":"
+		    
+		    tempInt = Input.Minute
+		    tempString = tempInt.ToString
+		    tempString = "00" + tempString
+		    
+		    output = output + tempString.right(2)
+		    
+		  End If ' timeBoolean = TRUE
+		  
+		  Return output
+		  
+		  
+		  
+		  
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0

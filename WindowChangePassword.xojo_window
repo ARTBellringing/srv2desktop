@@ -373,7 +373,7 @@ End
 #tag Events btnChange
 	#tag Event
 		Sub Pressed()
-		  if self.txtOldPassword.Text.Length = 0  then
+		  If Self.txtOldPassword.Text.Length = 0  Then
 		    
 		    // user hasn't typed anything
 		    self.lblUserInfo.Text = "Current password cannot be blank"
@@ -455,8 +455,8 @@ End
 		  
 		  // if we get here, then user must have entered correct old password and can go ahead and make the change
 		  
-		  var newPassword as string
-		  newPassword = EncodeHex(MD5(self.txtNewPassword1.Text)).Lowercase
+		  Var newPassword As String
+		  newPassword = EncodeHex(MD5(Self.txtNewPassword1.Text)).Lowercase
 		  
 		  var data as string
 		  data = "UPDATE srv2_tblUser SET password = ?, updated_by = ? WHERE sr2_user_id = ?;"

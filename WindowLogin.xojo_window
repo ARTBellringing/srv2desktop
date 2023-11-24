@@ -391,13 +391,16 @@ End
 #tag Events btnLogin
 	#tag Event
 		Sub Pressed()
-		  if self.txtUsername.Text.Length = 0  then
+		  If Self.txtUsername.Text.Length = 0  Then
 		    
 		    // user hasn't typed anything
 		    self.lblUserInfo.Text = "Blank username is not allowed"
 		    Self.txtUsername.Text = ""
 		    self.txtPassword.Text = ""
-		    self.txtUsername.SetFocus
+		    Self.txtUsername.SetFocus
+		    
+		    Module1.DecAppLoginTries
+		    
 		    Return
 		    
 		  end if
@@ -407,7 +410,10 @@ End
 		    // user hasn't typed anything
 		    self.lblUserInfo.Text = "Blank password is not allowed"
 		    self.txtPassword.Text = ""
-		    self.txtPassword.SetFocus
+		    Self.txtPassword.SetFocus
+		    
+		    Module1.DecAppLoginTries
+		    
 		    Return
 		    
 		  end if
@@ -426,33 +432,37 @@ End
 		    
 		    '// no match match in DB...
 		    Module1.writeDBLog(1,"","Attempted Login with bad username: " + self.txtUsername.Text)
-		    self.lblUserInfo.Text = "Invalid username or password"
-		    self.txtUsername.Text = ""
-		    self.txtPassword.Text = ""
-		    self.txtUsername.SetFocus
+		    Self.lblUserInfo.Text = "Invalid username or password"
+		    Self.txtUsername.Text = ""
+		    Self.txtPassword.Text = ""
+		    Self.txtUsername.SetFocus
 		    
 		    //MessageBox ("No match")
 		    data.close
+		    
+		    Module1.DecAppLoginTries
+		    
 		    Return
 		    
 		  Else
 		    
 		    //MessageBox(data.RowCount.ToString)
 		    
-		  end if
+		  End If 'rowcount = 0 
 		  
-		  // now determine if this user is allowed to login - look at user state in the view
+		  // now determine if this user is allowed to login...
 		  
-		  var tempUserID as Integer '0
+		  Var tempUserID As Integer '0
 		  var tempUserName as string '1
 		  var tempPassword as string '2
-		  var tempDesktopLoginPermitted as Boolean '3
-		  var tempPasswordAttemptsRemaining as integer '4
-		  var tempLoginCode as string '5
-		  var tempUserState as Integer '6
-		  var tempUserStateName as string '7
-		  var tempAllowLogin as Boolean '8
-		  var tempLoginRejectionMessage as string '9
+		  Var tempDesktopLoginPermitted As Boolean '3
+		  Var tempLoginCode As String '4
+		  Var tempUserState As Integer '5
+		  Var tempPasswordTriesRemaining As Integer '6
+		  Var tempAccountLockedOut As Boolean '7
+		  Var tempUserStateName As String '8
+		  Var tempAllowLogin As Boolean '9
+		  Var tempLoginRejectionMessage As String '10
 		  
 		  
 		  if data <> nil then
@@ -462,17 +472,18 @@ End
 		      tempUserName = row.ColumnAt(1).StringValue '1
 		      tempPassword = row.ColumnAt(2).StringValue '2
 		      tempDesktopLoginPermitted = row.ColumnAt(3).BooleanValue '3
-		      tempPasswordAttemptsRemaining = row.ColumnAt(4).IntegerValue '4
-		      tempLoginCode = row.ColumnAt(5).StringValue '5
-		      tempUserState = row.ColumnAt(6).IntegerValue '6
-		      tempUserStateName = row.ColumnAt(7).StringValue '7
-		      tempAllowLogin = row.ColumnAt(8).BooleanValue '8
-		      tempLoginRejectionMessage = row.ColumnAt(9).StringValue '9
+		      tempLoginCode = row.ColumnAt(4).StringValue '4
+		      tempUserState = row.ColumnAt(5).IntegerValue '5
+		      tempPasswordTriesRemaining = row.ColumnAt(6).IntegerValue '6
+		      tempAccountLockedOut = row.ColumnAt(7).BooleanValue '7
+		      tempUserStateName = row.ColumnAt(8).StringValue '8
+		      tempAllowLogin = row.ColumnAt(9).BooleanValue '9
+		      tempLoginRejectionMessage = row.ColumnAt(10).StringValue '10
 		      
 		    next row
 		    data.close
 		    
-		    if tempAllowLogin = false or tempDesktopLoginPermitted = false then 
+		    If tempAllowLogin = False Or tempDesktopLoginPermitted = False Then 
 		      // user is not allowed to login
 		      
 		      Var md As New MessageDialog                      // declare the MessageDialog object
@@ -486,23 +497,16 @@ End
 		      md.Message = "You cannot login as " + tempUserName + "."
 		      md.Explanation = tempLoginRejectionMessage
 		      
-		      if tempDesktopLoginPermitted = False then 
+		      If tempDesktopLoginPermitted = False Then 
 		        
 		        md.Explanation = "User " + tempUserName + " is not authorised to use the SRv2 Desktop Application."
+		        Module1.writeDBLog(tempUserID,tempUserName,"Attempted login via desktop when not authorised")
 		        
-		      end if ' tempDesktopLoginPermitted = false
-		      
-		      // write an entry to the log that the user tried to login
-		      
-		      if tempDesktopLoginPermitted = False then 
+		      Else  'allowLogin = false
 		        
-		        Module1.writeDBLog(tempUserID, tempUserName, "User not authorised for desktop app")
+		        Module1.writeDBLog(tempUserID,tempUserName,"User state " + tempUserName + " prevented login")
 		        
-		      else
-		        
-		        Module1.writeDBLog(tempUserID, tempUserName, "User state prevented login. State:" + tempUserState.ToString + " " + tempUserStateName)
-		        
-		      end if ' tempDesktopLoginPermitted = false
+		      End If ' tempDesktopLoginPermitted = false
 		      
 		      b = md.ShowModal                                 // display the dialog
 		      Select Case b                                    // determine which button was pressed.
@@ -517,39 +521,73 @@ End
 		        // user pressed Cancel
 		      End Select
 		      
-		    end if ' tempAllowLogin = false
+		    End If ' tempAllowLogin = false or temoDesktopLoginPermitted = false
 		    
-		  end if 'data <> nil then
-		  
+		    // now check if account is locked out...
+		    If tempAccountLockedOut = True Then
+		      
+		      Var md As New MessageDialog                      // declare the MessageDialog object
+		      Var b As MessageDialogButton                     // for handling the result
+		      md.Title = "Account Information"
+		      md.IconType = MessageDialog.IconTypes.Stop       // display warning icon
+		      md.ActionButton.Caption = "Quit"
+		      md.CancelButton.Visible = False                  // show the Cancel button
+		      md.AlternateActionButton.Visible = False         // show the "Don't Save" button
+		      md.AlternateActionButton.Caption = "Don't Save"
+		      md.Message = "You cannot login as " + tempUserName + "."
+		      md.Explanation = "Account " + tempUserName + " is locked out.  Please contact admin@bellringing.org for assistance."
+		      
+		      b = md.ShowModal                                 // display the dialog
+		      Select Case b                                    // determine which button was pressed.
+		      Case md.ActionButton
+		        // user pressed Exit
+		        Module1.writeDBLog(tempUserID, tempUserName, "Attempted login when account locked out")
+		        Module1.AppClose
+		        Quit
+		        
+		      Case md.AlternateActionButton
+		        // user pressed Don't Save
+		      Case md.CancelButton
+		        // user pressed Cancel
+		      End Select
+		      
+		    End If ' Account locked out
+		    
+		  End If 'data <> nil then
 		  
 		  // Now we need to see if the password matches...
 		  //Compare the supplied password with the stored value in the db...
 		  
-		  
-		  if tempPassword <> EncodeHex(MD5(self.txtPassword.Text)) THEN // password is wrong...
+		  If tempPassword <> EncodeHex(MD5(Self.txtPassword.Text)) Then // password is wrong...
 		    
 		    // not a valid password
 		    Module1.writeDBLog(1,self.txtUsername.text,"Attempted login with bad password: "+self.txtPassword.Text)
-		    self.lblUserInfo.Text = "Invalid username or password"
+		    Self.lblUserInfo.Text = "Invalid username or password "
 		    self.txtUsername.Text = ""
-		    self.txtPassword.Text = ""
-		    self.txtUsername.SetFocus
+		    Self.txtPassword.Text = ""
+		    Self.txtUsername.SetFocus
+		    
+		    //decrement the user's password_tries_remaining value, and the app_login tries values
+		    Module1.DecAppLoginTries
+		    Module1.DecUserPasswordTries(tempUserID)
 		    
 		    Return
 		    
-		    
 		  end if
 		  
-		  // fall though again - password is correct if w get to here...
+		  // fall though again - password is correct if we get to here...
 		  // set the app properties
 		  app.activeUserID = tempUserID
 		  app.activeUserName = tempUserName
 		  app.activeUserPassword = tempPassword
 		  
 		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in")
-		  Module1.writeDBNote(app.activeUserID, 1, "Logged in", NIL, TRUE)
+		  Module1.writeDBNote(app.activeUserID, 1, "Logged in", Nil, True)
 		  
-		  app.windowMainP = new WindowMain
+		  //reset the user's password_tries_remaining value
+		  Module1.ResetUserPasswordTries(app.activeUserID)
+		  
+		  app.windowMainP = New WindowMain
 		  app.windowMainP.Show
 		  
 		  WindowLogin.close
