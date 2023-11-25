@@ -504,7 +504,7 @@ End
 		        
 		      Else  'allowLogin = false
 		        
-		        Module1.writeDBLog(tempUserID,tempUserName,"User state " + tempUserName + " prevented login")
+		        Module1.writeDBLog(tempUserID,tempUserName,"User state " + tempUserState.ToString + " prevented login")
 		        
 		      End If ' tempDesktopLoginPermitted = false
 		      

@@ -25,7 +25,7 @@ Inherits DesktopApplication
 		  app.appVersion = app.MajorVersion.ToString + "." + app.MinorVersion.ToString _
 		  + "." + app.BugVersion.ToString + "." + app.NonReleaseVersion.ToString
 		  
-		  //check if this verson of the app is still allowed to run...
+		  //check if this verson of the app is allowed to run...
 		  Var data As RowSet
 		  var sqlText as string
 		  sqlText = "SELECT * FROM srv2_tblAppVersion WHERE version_text  = ?;" 
@@ -37,11 +37,11 @@ Inherits DesktopApplication
 		    Module1.writeDBLog(1,"System","WindowLogin | Version Check | DB error fetching version")
 		  End Try
 		  
-		  var tempVersionText as string
+		  Var tempVersionText As String
 		  var tempVersionIsLive as Boolean
 		  
 		  
-		  if data.RowCount = 0 then  // this version isn't listed in the db
+		  If data.RowCount = 0 Then  // this version isn't listed in the db
 		    Module1.writeDBLog(1,"System","Application Start | Version Check | User tried to log in with unlisted version " + app.appVersion)
 		    
 		    Var md As New MessageDialog                      // declare the MessageDialog object
@@ -386,6 +386,14 @@ Inherits DesktopApplication
 			Visible=false
 			Group="Behavior"
 			InitialValue="1"
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="loginTriesRemaining"
+			Visible=false
+			Group="Behavior"
+			InitialValue="3"
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty

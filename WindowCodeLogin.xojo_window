@@ -441,7 +441,7 @@ End
 		        
 		      else
 		        
-		        Module1.writeDBLog(tempUserID, tempUserName, "User state prevented login. State:" + tempUserState.ToString + " " + tempUserStateName)
+		        Module1.writeDBLog(tempUserID, tempUserName, "User state " + tempUserState.ToString + " prevented login)
 		        
 		      end if ' tempDesktopLoginPermitted = false
 		      

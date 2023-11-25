@@ -298,7 +298,7 @@ Protected Module Module1
 		    Case 6
 		      output = "Fri "
 		    Case 7
-		      output = "Sat" 
+		      output = "Sat " 
 		    End Select
 		    
 		  End If ' dayBoolean = TRUE
@@ -421,10 +421,11 @@ Protected Module Module1
 		  
 		  
 		  // Note Type:
-		  // 1 Admin
-		  // 2 Membership
-		  // 3 Safeguarding
-		  // 4 Technical
+		  // 1 User
+		  // 2 Admin
+		  // 3 Membership
+		  // 4 Safeguarding
+		  // 5 Technical
 		  
 		  Var tableName as string = "srv2_tblNote"
 		  Var insertSQL As String
