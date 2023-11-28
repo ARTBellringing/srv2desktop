@@ -440,8 +440,9 @@ End
 		  
 		  if app.activeUserPassword <> EncodeHex(MD5(self.txtOldPassword.Text)) THEN // password is wrong...
 		    
-		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Attempted to change password but entered bad old password:  "+self.txtOldPassword.Text)
-		    self.lblUserInfo.Text = "Current password is not correct"
+		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Attempted to change password but entered bad old password:  "+Self.txtOldPassword.Text)
+		    Module1.writeDBNote(app.activeUserID,1,"Failed to change own password - bad old password entered",Nil, True)
+		    Self.lblUserInfo.Text = "Current password is not correct"
 		    self.txtOldPassword.Text = ""
 		    self.txtNewPassword1.Text = ""
 		    self.txtNewPassword2.Text = ""
@@ -475,6 +476,7 @@ End
 		  End Try
 		  
 		  Module1.writeDBLog(app.activeUserID, app.activeUserName, "Password change successful")
+		  Module1.writeDBNote(app.activeUserID,1,"Password changed",Nil,True)
 		  app.activeUserPassword = newPassword
 		  
 		  self.Close

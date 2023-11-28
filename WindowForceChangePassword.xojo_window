@@ -20,7 +20,7 @@ Begin DesktopWindow WindowForceChangePassword
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Set a new password"
+   Title           =   "Set your new password"
    Type            =   1
    Visible         =   True
    Width           =   256
@@ -28,7 +28,7 @@ Begin DesktopWindow WindowForceChangePassword
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Change Password"
+      Caption         =   "Set Password"
       Default         =   True
       Enabled         =   True
       FontName        =   "System"
@@ -192,37 +192,6 @@ Begin DesktopWindow WindowForceChangePassword
       Visible         =   True
       Width           =   212
    End
-   Begin DesktopButton btnCancel
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   True
-      Caption         =   "Cancel"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   8
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   146
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
    Begin DesktopTextField txtNewPassword1
       AllowAutoDeactivate=   True
       AllowFocusRing  =   True
@@ -360,9 +329,6 @@ End
 		  //reset the user's password_tries_remaining
 		  Module1.ResetUserPasswordTries(app.activeUserID)
 		  
-		  //update the app property for new password
-		  app.activeUserPassword = newPassword
-		  
 		  Module1.writeDBLog(app.activeUserID, app.activeUserName, "Forced password change successful")
 		  // action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean
 		  Module1.writeDBNote(app.activeUserID, 1, "Login with code - password changed",Nil,True)
@@ -375,7 +341,6 @@ End
 		  
 		  app.WindowMainP = new WindowMain
 		  app.windowMainP.show
-		  
 		  
 		  MessageBox ("User: " + app.activeUserName + " password changed.")
 		  
@@ -396,15 +361,6 @@ End
 		  End if
 		  Self.lblUserInfo.Text = ""
 		End Function
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnCancel
-	#tag Event
-		Sub Pressed()
-		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowForceChangePassword | Cancel button pressed")
-		  
-		  self.Close
-		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events txtNewPassword1

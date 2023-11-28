@@ -405,7 +405,7 @@ End
 		    
 		  end if
 		  
-		  if self.txtPassword.Text.Length = 0  then
+		  If Self.txtPassword.Text.Length = 0  Then
 		    
 		    // user hasn't typed anything
 		    self.lblUserInfo.Text = "Blank password is not allowed"
@@ -464,7 +464,6 @@ End
 		  Var tempAllowLogin As Boolean '9
 		  Var tempLoginRejectionMessage As String '10
 		  
-		  
 		  if data <> nil then
 		    for each row as Databaserow in data
 		      
@@ -511,7 +510,7 @@ End
 		      b = md.ShowModal                                 // display the dialog
 		      Select Case b                                    // determine which button was pressed.
 		      Case md.ActionButton
-		        // user pressed Exit
+		        // user pressed OK
 		        Module1.AppClose
 		        Quit
 		        
@@ -586,6 +585,8 @@ End
 		  
 		  //reset the user's password_tries_remaining value
 		  Module1.ResetUserPasswordTries(app.activeUserID)
+		  // update the last login datetime
+		  Module1.UpdateLoginDateTime
 		  
 		  app.windowMainP = New WindowMain
 		  app.windowMainP.Show

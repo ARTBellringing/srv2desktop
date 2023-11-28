@@ -133,11 +133,11 @@ Begin DesktopWindow WindowMain
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   1407
       LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
+      LockLeft        =   False
+      LockRight       =   True
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
@@ -145,7 +145,7 @@ Begin DesktopWindow WindowMain
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   20
+      Top             =   59
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -164,11 +164,11 @@ Begin DesktopWindow WindowMain
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   1407
       LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
+      LockLeft        =   False
+      LockRight       =   True
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
@@ -176,18 +176,18 @@ Begin DesktopWindow WindowMain
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   52
+      Top             =   91
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
    End
-   Begin DesktopButton btnNote
+   Begin DesktopButton btnLoginTime
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Note"
-      Default         =   True
+      Caption         =   "LoginTime"
+      Default         =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -195,7 +195,7 @@ Begin DesktopWindow WindowMain
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   1409
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -207,7 +207,7 @@ Begin DesktopWindow WindowMain
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   86
+      Top             =   125
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -303,16 +303,10 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnNote
+#tag Events btnLoginTime
 	#tag Event
 		Sub Pressed()
-		  // (action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean)
-		  
-		  
-		  Module1.writeDBNote(app.activeUserID, 1, "Test note text", NIL, TRUE)
-		  
-		  
-		  
+		  Module1.UpdateLoginDateTime
 		End Sub
 	#tag EndEvent
 #tag EndEvents

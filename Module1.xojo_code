@@ -103,7 +103,7 @@ Protected Module Module1
 		    data = db.SelectSQL(sql1, input)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(1,"System","DecrementUserPasswordTries | DB error fetching user row")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName,"DecUserPasswordTries | DB error fetching user row")
 		  End Try
 		  
 		  Var tempUserID As Integer '0
@@ -243,7 +243,7 @@ Protected Module Module1
 	#tag Method, Flags = &h0
 		Sub ResetUserPasswordTries(input as Integer)
 		  // reset the user's password_tries_remaining value to 3
-		  // called on succssful login
+		  // called on successful login
 		  
 		  Var sqlString As String
 		  
@@ -271,7 +271,6 @@ Protected Module Module1
 		Function sr2DateTime(input as DateTime, dayBoolean as boolean, timeBoolean as boolean) As string
 		  // convert a date time to our preferred date/time format
 		  
-		  //day of week 3 chars
 		  Var tempInt As Integer
 		  Var tempString As String
 		  
@@ -279,6 +278,7 @@ Protected Module Module1
 		  
 		  output = ""
 		  
+		  //day of week 3 chars
 		  If dayBoolean = True Then
 		    
 		    tempInt = Input.DayOfWeek
@@ -370,6 +370,61 @@ Protected Module Module1
 		  
 		  
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub UpdateLoginDateTime()
+		  // update login date time for current active user
+		  
+		  Var data As RowSet
+		  Var sqlText  As String
+		  sqlText = "SELECT last_login_datetime FROM srv2_tblUser WHERE sr2_user_id = ?;"
+		  
+		  Try
+		    data = db.SelectSQL(sqlText, app.activeUserID)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    //action_on as integer, action_on_name as string, log_action as string
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName,"Method: updateLoginDateTime | DB error fetching values")
+		    
+		    Return
+		    
+		  End Try
+		  
+		  MessageBox(data.RowCount.ToString)
+		  
+		  // extract the date time as date time
+		  Var tempLastLoginDatetime As DateTime '0
+		  
+		  For Each row As DatabaseRow In data
+		    
+		    tempLastLoginDatetime = DateTime.FromString(row.ColumnAt(0))
+		    
+		  Next 'row
+		  
+		  data.Close
+		  
+		  // write the new value back
+		  
+		  Var sqlString As String
+		  
+		  sqlString = "UPDATE srv2_tblUser SET previous_login_datetime = ?, last_login_datetime = now() WHERE sr2_user_id = ?;"
+		  
+		  Try
+		    db.BeginTransaction
+		    db.ExecuteSQL(sqlString, tempLastLoginDatetime, app.activeUserID)
+		    db.CommitTransaction
+		  Catch error As DatabaseException
+		    MessageBox(error.Message)
+		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Method UpdateLoginDateTime | DB error writing new last login date " + error.Message)
+		    db.RollbackTransaction
+		    
+		    Return
+		    
+		  End Try
+		  
+		  Return 
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0

@@ -20,7 +20,7 @@ Begin DesktopWindow WindowCodeLogin
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "I have a code"
+   Title           =   "Enter username and one-time code"
    Type            =   0
    Visible         =   True
    Width           =   350
@@ -357,7 +357,7 @@ End
 		    '// no match match in DB...
 		    Module1.writeDBLog(1,"","Attempted Login with bad username: " + self.txtUsername.Text)
 		    self.lblUserInfo.Text = "Invalid username or code"
-		    self.txtUsername.Text = ""
+		    Self.txtUsername.Text = ""
 		    Self.txtCode.Text = ""
 		    Self.txtUsername.SetFocus
 		    
@@ -441,7 +441,9 @@ End
 		        
 		      else
 		        
-		        Module1.writeDBLog(tempUserID, tempUserName, "User state " + tempUserState.ToString + " prevented login)
+		        Module1.writeDBLog(tempUserID, tempUserName, "User state " + tempUserState.ToString + " prevented login")
+		        //action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean)
+		        Module1.writeDBNote(tempUserID,1,"Attempted code login when account state " + tempUserState.ToString + ": login not permitted",Nil,True)
 		        
 		      end if ' tempDesktopLoginPermitted = false
 		      
@@ -481,6 +483,7 @@ End
 		    Case md.ActionButton
 		      // user pressed Exit
 		      Module1.writeDBLog(tempUserID, tempUserName, "Attempted login with code when account locked out")
+		      Module1.writeDBNote(tempUserID,1,"Attempted login when account locked out",Nil,True)
 		      Module1.AppClose
 		      Quit
 		      
@@ -540,6 +543,8 @@ End
 		  
 		  // reset password tries value for user
 		  Module1.ResetUserPasswordTries(app.activeUserID)
+		  // update last login date time
+		  Module1.UpdateLoginDateTime
 		  
 		  self.close
 		  
