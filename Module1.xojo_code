@@ -130,11 +130,11 @@ Protected Module Module1
 		  
 		  Var sqlString As String
 		  
-		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ? WHERE sr2_user_id = ?;"
+		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ?, update_by = ? WHERE sr2_user_id = ?;"
 		  
 		  Try
 		    db.BeginTransaction
-		    db.ExecuteSQL(sqlString, tempPasswordTriesRemaining, Input)
+		    db.ExecuteSQL(sqlString, tempPasswordTriesRemaining, Input, Input)
 		    db.CommitTransaction
 		  Catch error As DatabaseException
 		    MessageBox(error.Message)
@@ -150,11 +150,11 @@ Protected Module Module1
 		  If tempPasswordTriesRemaining = 0 Then
 		    
 		    // reuse var data from above
-		    sqlString = "UPDATE srv2_tblUser SET account_locked_out = ? WHERE sr2_user_id = ?;"
+		    sqlString = "UPDATE srv2_tblUser SET account_locked_out = ?, updated_by = ? WHERE sr2_user_id = ?;"
 		    
 		    Try
 		      db.BeginTransaction
-		      db.ExecuteSQL(sqlString, True, Input)
+		      db.ExecuteSQL(sqlString, True, Input, Input)
 		      db.CommitTransaction
 		    Catch error As DatabaseException
 		      MessageBox(error.Message)
@@ -247,11 +247,11 @@ Protected Module Module1
 		  
 		  Var sqlString As String
 		  
-		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ? WHERE sr2_user_id = ?;"
+		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ?, updated_by = ? WHERE sr2_user_id = ?;"
 		  
 		  Try
 		    db.BeginTransaction
-		    db.ExecuteSQL(sqlString, 3, Input)
+		    db.ExecuteSQL(sqlString, 3, Input, Input)
 		    db.CommitTransaction
 		  Catch error As DatabaseException
 		    MessageBox(error.Message)
@@ -391,7 +391,7 @@ Protected Module Module1
 		    
 		  End Try
 		  
-		  MessageBox(data.RowCount.ToString)
+		  //MessageBox(data.RowCount.ToString)
 		  
 		  // extract the date time as date time
 		  Var tempLastLoginDatetime As DateTime '0
@@ -408,11 +408,11 @@ Protected Module Module1
 		  
 		  Var sqlString As String
 		  
-		  sqlString = "UPDATE srv2_tblUser SET previous_login_datetime = ?, last_login_datetime = now() WHERE sr2_user_id = ?;"
+		  sqlString = "UPDATE srv2_tblUser SET previous_login_datetime = ?, last_login_datetime = now(), updated_by = ?  WHERE sr2_user_id = ?;"
 		  
 		  Try
 		    db.BeginTransaction
-		    db.ExecuteSQL(sqlString, tempLastLoginDatetime, app.activeUserID)
+		    db.ExecuteSQL(sqlString, tempLastLoginDatetime, app.activeUserID, app.activeUserID)
 		    db.CommitTransaction
 		  Catch error As DatabaseException
 		    MessageBox(error.Message)
