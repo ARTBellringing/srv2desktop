@@ -164,22 +164,22 @@ End
 		  
 		  For Each row As DatabaseRow In data
 		    
-		    tempCreatedDateTime = DateTime.FromString(row.ColumnAt(0))
+		    tempCreatedDateTime = DateTime.FromString(row.Column("created_timestamp"))
 		    tempCreatedDateTimeString = Trim(sr2DateTime(tempCreatedDateTime, True, True)) // day and time
-		    tempActionOn = row.ColumnAt(1).IntegerValue '1
-		    tempNoteTypeName = row.ColumnAt(2).StringValue '2
-		    tempNoteText = row.ColumnAt(3).StringValue '3
+		    tempActionOn = row.Column("action_on").IntegerValue '1
+		    tempNoteTypeName = row.Column("note_type_name").StringValue '2
+		    tempNoteText = row.Column("note_text").StringValue '3
 		    
-		    If row.ColumnAt(4).StringValue.Length = 0 Then
+		    If row.Column("note_due_date").StringValue.Length = 0 Then
 		      tempNoteDueDateString = ""
 		      
 		    Else
-		      tempNoteDueDate = DateTime.FromString(row.ColumnAt(4))
+		      tempNoteDueDate = DateTime.FromString(row.Column("note_due_date"))
 		      tempNoteDueDateString = Trim(sr2DateTime(tempCreatedDateTime, False, False)) // Date only
 		      
 		    End If
 		    
-		    tempNoteClosed = row.ColumnAt(5).BooleanValue  '5
+		    tempNoteClosed = row.Column("note_closed").BooleanValue  '5
 		    
 		    If tempNoteClosed = True Then
 		      tempNoteClosedString = ""
@@ -189,13 +189,13 @@ End
 		      
 		    End If
 		    
-		    tempUserName = row.ColumnAt(6).StringValue '6
+		    tempUserName = row.Column("user_name").StringValue '6
 		    
-		    If row.ColumnAt(7).StringValue.Length = 0 Then
+		    If row.Column("update_timestamp").StringValue.Length = 0 Then
 		      tempUpdateTimeStampString = ""
 		      
 		    Else
-		      tempUpdateTimeStamp = DateTime.FromString(row.ColumnAt(7))
+		      tempUpdateTimeStamp = DateTime.FromString(row.Column("update_time_stamp"))
 		      tempUpdateTimeStampString = Trim(sr2DateTime(tempUpdateTimeStamp, False, False)) // Date only
 		      
 		    End If

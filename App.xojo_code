@@ -157,6 +157,14 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		objectUserID As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		objectUserName As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		windowChangePasswordP As WindowChangePassword
 	#tag EndProperty
 

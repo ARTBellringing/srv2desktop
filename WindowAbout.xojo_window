@@ -49,7 +49,7 @@ Begin DesktopWindow WindowAbout
       Visible         =   True
       Width           =   100
    End
-   Begin DesktopButton bntClose
+   Begin DesktopButton btnClose
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -185,7 +185,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events bntClose
+#tag Events btnClose
 	#tag Event
 		Sub Pressed()
 		  Self.Close

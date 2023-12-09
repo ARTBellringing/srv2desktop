@@ -391,17 +391,17 @@ End
 		  if data <> nil then
 		    for each row as Databaserow in data
 		      
-		      tempUserID = row.ColumnAt(0).IntegerValue '0
-		      tempUserName = row.ColumnAt(1).StringValue '1
-		      tempPassword = row.ColumnAt(2).StringValue '2
-		      tempDesktopLoginPermitted = row.ColumnAt(3).BooleanValue '3
-		      tempLoginCode = row.ColumnAt(4).StringValue '4
-		      tempUserState = row.ColumnAt(5).IntegerValue '5
-		      tempPasswordTriesRemaining = row.ColumnAt(6).IntegerValue '6
-		      tempAccountLockedOut = row.ColumnAt(7).BooleanValue '7
-		      tempUserStateName = row.ColumnAt(8).StringValue '8
-		      tempAllowLogin = row.ColumnAt(9).BooleanValue '9
-		      tempLoginRejectionMessage = row.ColumnAt(10).StringValue '10
+		      tempUserID = row.Column("sr2_user_id").IntegerValue '0
+		      tempUserName = row.Column("user_name").StringValue '1
+		      tempPassword = row.Column("password").StringValue '2
+		      tempDesktopLoginPermitted = row.Column("desktop_login_permitted").BooleanValue '3
+		      tempLoginCode = row.Column("login_code").StringValue '4
+		      tempUserState = row.Column("user_state").IntegerValue '5
+		      tempPasswordTriesRemaining = row.Column("password_tries_remaining").IntegerValue '6
+		      tempAccountLockedOut = row.Column("account_locked_out").BooleanValue '7
+		      tempUserStateName = row.Column("user_state_name").StringValue '8
+		      tempAllowLogin = row.Column("allow_login").BooleanValue '9
+		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue '10
 		      
 		    next row
 		    data.close
@@ -497,7 +497,7 @@ End
 		  
 		  // is code login permitted for this user?
 		  
-		  if tempLoginCode.Length = 0 then
+		  If tempLoginCode.Length = 0 Then
 		    
 		    '// no code in DB
 		    Module1.writeDBLog(1,"","Attempted Login via code when code not set for: " + self.txtUsername.Text)

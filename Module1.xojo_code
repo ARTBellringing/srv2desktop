@@ -112,8 +112,8 @@ Protected Module Module1
 		  If data <> Nil Then
 		    For Each row As Databaserow In data
 		      
-		      tempUserID = row.ColumnAt(0).IntegerValue '0
-		      tempPasswordTriesRemaining = row.ColumnAt(1).IntegerValue '1
+		      tempUserID = row.Column("sr2_user_id").IntegerValue '0
+		      tempPasswordTriesRemaining = row.Column("password_tries_remaining").IntegerValue '1
 		      
 		    Next row
 		    data.close
@@ -130,7 +130,7 @@ Protected Module Module1
 		  
 		  Var sqlString As String
 		  
-		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ?, update_by = ? WHERE sr2_user_id = ?;"
+		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ?, updated_by = ? WHERE sr2_user_id = ?;"
 		  
 		  Try
 		    db.BeginTransaction
@@ -242,12 +242,12 @@ Protected Module Module1
 
 	#tag Method, Flags = &h0
 		Sub ResetUserPasswordTries(input as Integer)
-		  // reset the user's password_tries_remaining value to 3
+		  // reset the user's password_tries_remaining
 		  // called on successful login
 		  
 		  Var sqlString As String
 		  
-		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ?, updated_by = ? WHERE sr2_user_id = ?;"
+		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ?, updated_by = ?, never_Logged_in = FALSE WHERE sr2_user_id = ?;"
 		  
 		  Try
 		    db.BeginTransaction
@@ -270,6 +270,13 @@ Protected Module Module1
 	#tag Method, Flags = &h0
 		Function sr2DateTime(input as DateTime, dayBoolean as boolean, timeBoolean as boolean) As string
 		  // convert a date time to our preferred date/time format
+		  
+		  
+		  If Input = Nil Then
+		    
+		    Return "No date"
+		    
+		  End If
 		  
 		  Var tempInt As Integer
 		  Var tempString As String
@@ -305,46 +312,49 @@ Protected Module Module1
 		  
 		  // day digits
 		  tempInt = Input.Day
-		  tempString = "00" + tempInt.ToString +"-"
+		  tempString = "00" + tempInt.ToString +"/"
 		  output = output + tempString.Right(3)
 		  
 		  // month chars
 		  tempInt = Input.Month
+		  tempString = "00" + tempInt.ToString +"/"
+		  output = output + tempString.Right(3)
 		  
-		  Select Case tempInt
-		    
-		  Case 1
-		    output = output + "Jan-"
-		  Case 2
-		    output = output + "Feb-"
-		  Case 3
-		    output = output + "Mar-"
-		  Case 4
-		    output = output + "Apr-"
-		  Case 5
-		    output = output + "May-"
-		  Case 6
-		    output = output + "Jun-"
-		  Case 7
-		    output = output + "Jul-"
-		  Case 8
-		    output = output + "Aug-"
-		  Case 9
-		    output = output + "Sep-"
-		  Case 10
-		    output = output + "Oct-"
-		  Case 11
-		    output = output + "Nov-"
-		  Case 12
-		    output = output + "Dec-"
-		    
-		  End Select
+		  // 
+		  // 
+		  // Select Case tempInt
+		  // 
+		  // Case 1
+		  // output = output + "Jan-"
+		  // Case 2
+		  // output = output + "Feb-"
+		  // Case 3
+		  // output = output + "Mar-"
+		  // Case 4
+		  // output = output + "Apr-"
+		  // Case 5
+		  // output = output + "May-"
+		  // Case 6
+		  // output = output + "Jun-"
+		  // Case 7
+		  // output = output + "Jul-"
+		  // Case 8
+		  // output = output + "Aug-"
+		  // Case 9
+		  // output = output + "Sep-"
+		  // Case 10
+		  // output = output + "Oct-"
+		  // Case 11
+		  // output = output + "Nov-"
+		  // Case 12
+		  // output = output + "Dec-"
+		  // 
+		  // End Select
 		  
 		  tempInt = Input.Year
 		  tempString = tempInt.ToString
 		  
 		  output = output + tempString
-		  
 		  
 		  If timeBoolean = True Then
 		    
@@ -360,21 +370,60 @@ Protected Module Module1
 		    tempString = tempInt.ToString
 		    tempString = "00" + tempString
 		    
-		    output = output + tempString.right(2)
+		    output = output + tempString.Right(2)
 		    
 		  End If ' timeBoolean = TRUE
 		  
 		  Return output
 		  
-		  
-		  
-		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub unlockUserID()
+		  //unlockUserID and reset password tries
+		  
+		  Var tempUserID As Integer
+		  Var tempUserName As String
+		  
+		  tempUserID = app.objectUserID
+		  tempUserName = app.objectUserName
+		  
+		  // MessageBox(app.activeUserID.ToString + " " + tempUserID.ToString)
+		  
+		  Var sqlString As String
+		  
+		  sqlString = "UPDATE srv2_tblUser SET account_locked_out = FALSE, password_tries_remaining = 3, updated_by = ? WHERE sr2_user_id = ?;"
+		  
+		  Try
+		    db.BeginTransaction
+		    db.ExecuteSQL(sqlString, app.activeUserID, tempUserID)
+		    db.CommitTransaction
+		    
+		  Catch error As DatabaseException
+		    MessageBox(error.Message)
+		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Method UnlockUserID  | DB error writing unlock to db " + error.Message)
+		    db.RollbackTransaction
+		    
+		    Return
+		    
+		  End Try
+		  
+		  //action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean)
+		  Module1.writeDBNote(app.objectUserID,2,"User account unlocked",Nil, True)
+		  //action_on as integer, action_on_name as string, log_action as string
+		  Module1.writeDBLog(tempUserID, tempUserName, "User account unlocked and tries reset")
+		  app.windowMainP.lblLockedOut.visible = False
+		  app.WindowMainP.btnUnlock.visible = False
+		  MessageBox("User " + tempUserName + " has been unlocked")
+		  
+		  Return 
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub UpdateLoginDateTime()
-		  // update login date time for current active user
+		  // update login date time for current active user - clear never_logged_in flag if set
 		  
 		  Var data As RowSet
 		  Var sqlText  As String
@@ -398,17 +447,17 @@ Protected Module Module1
 		  
 		  For Each row As DatabaseRow In data
 		    
-		    tempLastLoginDatetime = DateTime.FromString(row.ColumnAt(0))
+		    tempLastLoginDatetime = DateTime.FromString(row.Column("last_login_datetime"))
 		    
 		  Next 'row
 		  
 		  data.Close
 		  
-		  // write the new value back
+		  // write the new value back - and setb never_logged_in to False
 		  
 		  Var sqlString As String
 		  
-		  sqlString = "UPDATE srv2_tblUser SET previous_login_datetime = ?, last_login_datetime = now(), updated_by = ?  WHERE sr2_user_id = ?;"
+		  sqlString = "UPDATE srv2_tblUser SET previous_login_datetime = ?, last_login_datetime = now(), updated_by = ?, never_logged_in = FALSE WHERE sr2_user_id = ?;"
 		  
 		  Try
 		    db.BeginTransaction
