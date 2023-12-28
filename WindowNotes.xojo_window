@@ -122,6 +122,8 @@ End
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
 		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "WindowNotes | UpdateListBox | DB error in select listbox rows " + error.Message)
+		    Module1.AppClose
+		    
 		  End Try
 		  
 		  if data.RowCount = 0 then
@@ -140,14 +142,6 @@ End
 		  
 		  // fall through...
 		  
-		  // created_timestamp 0
-		  // action_on 1
-		  // note_type_name 2
-		  // note_text 3
-		  // note_due_date 4
-		  // note_closed 5
-		  // user_name 6
-		  // update_timestamp 7
 		  
 		  var tempCreatedDateTime as DateTime '0
 		  Var tempCreatedDateTimeString As String //
@@ -195,7 +189,7 @@ End
 		      tempUpdateTimeStampString = ""
 		      
 		    Else
-		      tempUpdateTimeStamp = DateTime.FromString(row.Column("update_time_stamp"))
+		      tempUpdateTimeStamp = DateTime.FromString(row.Column("update_timestamp"))
 		      tempUpdateTimeStampString = Trim(sr2DateTime(tempUpdateTimeStamp, False, False)) // Date only
 		      
 		    End If

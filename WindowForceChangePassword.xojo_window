@@ -313,13 +313,20 @@ End
 		  Try
 		    db.BeginTransaction
 		    db.ExecuteSQL(data, newPassword, app.activeUserID, App.activeUserID)
+		    
+		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Forced password change successful")
+		    // action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean
+		    Module1.writeDBNote(app.activeUserID, 1, "Login with code - password changed",Nil,True)
+		    
 		    db.CommitTransaction
+		    
 		  Catch error As DatabaseException
 		    MessageBox(error.Message)
 		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "WindowForceChangePassword | btnChange | DB error writing new forced password " + error.Message)
 		    db.RollbackTransaction
+		    Module1.AppClose
 		    
-		    return
+		    Return
 		    
 		  End Try
 		  
@@ -327,17 +334,9 @@ End
 		  app.activeUserPassword = newPassword
 		  
 		  //reset the user's password_tries_remaining
-		  Module1.ResetUserPasswordTries(app.activeUserID)
-		  
-		  Module1.writeDBLog(app.activeUserID, app.activeUserName, "Forced password change successful")
-		  // action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean
-		  Module1.writeDBNote(app.activeUserID, 1, "Login with code - password changed",Nil,True)
+		  // Module1.ResetUserPasswordTries(app.activeUserID) - not needed here - should be up code...
 		  
 		  Self.close ' close force password change window
-		  
-		  If app.activeUserState = 1 Then 'user is not activated and needs activating
-		    Module1.activateUser 'activate the user - change user state, clear login code if needed
-		  End If
 		  
 		  app.WindowMainP = new WindowMain
 		  app.windowMainP.show

@@ -6,7 +6,7 @@ Begin DesktopWindow WindowCodeLogin
    DefaultLocation =   2
    FullScreen      =   False
    HasBackgroundColor=   False
-   HasCloseButton  =   True
+   HasCloseButton  =   False
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   False
@@ -20,7 +20,7 @@ Begin DesktopWindow WindowCodeLogin
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Enter username and one-time code"
+   Title           =   "Enter your username and one-time code"
    Type            =   0
    Visible         =   True
    Width           =   350
@@ -269,12 +269,6 @@ End
 
 #tag WindowCode
 	#tag Event
-		Sub Closing()
-		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"Login Code window closed")
-		End Sub
-	#tag EndEvent
-
-	#tag Event
 		Sub Opening()
 		  me.txtUsername.SetFocus
 		  
@@ -323,7 +317,7 @@ End
 		    self.txtCode.Text = ""
 		    Self.txtUsername.SetFocus
 		    
-		    Module1.DecAppLoginTries
+		    Module1.DecAppLoginTries("login with a code")
 		    
 		    Return
 		    
@@ -336,7 +330,7 @@ End
 		    self.txtCode.Text = ""
 		    Self.txtCode.SetFocus
 		    
-		    Module1.DecAppLoginTries
+		    Module1.DecAppLoginTries("login with a code")
 		    
 		    Return
 		    
@@ -350,6 +344,8 @@ End
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
 		    Module1.writeDBLog(1,"System","WindowCodeLogin | btnLogin | DB error fetching username")
+		    Module1.AppClose
+		    
 		  End Try
 		  
 		  if data.RowCount = 0 then
@@ -361,7 +357,7 @@ End
 		    Self.txtCode.Text = ""
 		    Self.txtUsername.SetFocus
 		    
-		    Module1.DecAppLoginTries
+		    Module1.DecAppLoginTries("login with a code")
 		    
 		    //MessageBox ("No match")
 		    data.close
@@ -375,43 +371,42 @@ End
 		  
 		  // now determine if this user is allowed to login - look at user state in the view
 		  
-		  Var tempUserID As Integer '0
-		  Var tempUserName As String '1
-		  Var tempPassword As String '2
-		  Var tempDesktopLoginPermitted As Boolean '3
-		  Var tempLoginCode As String '4
-		  Var tempUserState As Integer '5
-		  Var tempPasswordTriesRemaining As Integer '6
-		  Var tempAccountLockedOut As Boolean '7
-		  Var tempUserStateName As String '8
-		  Var tempAllowLogin As Boolean '9
-		  Var tempLoginRejectionMessage As String '10
+		  Var tempUserID As Integer
+		  Var tempUserName As String
+		  Var tempPassword As String
+		  Var tempDesktopLoginPermitted As Boolean
+		  Var tempLoginCode As String
+		  Var tempUserState As Integer
+		  Var tempPasswordTriesRemaining As Integer
+		  Var tempAccountLockedOut As Boolean
+		  Var tempUserStateName As String
+		  Var tempAllowLogin As Boolean
+		  Var tempLoginRejectionMessage As String 
 		  
 		  
 		  if data <> nil then
 		    for each row as Databaserow in data
 		      
-		      tempUserID = row.Column("sr2_user_id").IntegerValue '0
-		      tempUserName = row.Column("user_name").StringValue '1
-		      tempPassword = row.Column("password").StringValue '2
-		      tempDesktopLoginPermitted = row.Column("desktop_login_permitted").BooleanValue '3
-		      tempLoginCode = row.Column("login_code").StringValue '4
-		      tempUserState = row.Column("user_state").IntegerValue '5
-		      tempPasswordTriesRemaining = row.Column("password_tries_remaining").IntegerValue '6
-		      tempAccountLockedOut = row.Column("account_locked_out").BooleanValue '7
-		      tempUserStateName = row.Column("user_state_name").StringValue '8
-		      tempAllowLogin = row.Column("allow_login").BooleanValue '9
-		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue '10
+		      tempUserID = row.Column("sr2_user_id").IntegerValue
+		      tempUserName = row.Column("user_name").StringValue
+		      tempPassword = row.Column("password").StringValue
+		      tempDesktopLoginPermitted = row.Column("desktop_login_permitted").BooleanValue
+		      tempLoginCode = row.Column("login_code").StringValue
+		      tempUserState = row.Column("user_state").IntegerValue
+		      tempPasswordTriesRemaining = row.Column("password_tries_remaining").IntegerValue
+		      tempAccountLockedOut = row.Column("account_locked_out").BooleanValue
+		      tempUserStateName = row.Column("user_state_name").StringValue
+		      tempAllowLogin = row.Column("allow_login").BooleanValue
+		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue
 		      
 		    next row
 		    data.close
 		    
-		    // update the app property for user state (used later to determine if we need to activate this user)
-		    app.activeUserState = tempUserState
-		    
-		    // update app property for login code
-		    app.activeUserLoginCode = tempLoginCode
-		    
+		    // // update the app property for user state (used later to determine if we need to activate this user)
+		    // app.activeUserState = tempUserState
+		    // 
+		    // // update app property for login code
+		    // app.activeUserLoginCode = tempLoginCode
 		    
 		    if tempAllowLogin = false or tempDesktopLoginPermitted = false then 
 		      // user is not allowed to login
@@ -435,7 +430,7 @@ End
 		      
 		      // write an entry to the log that the user tried to login
 		      
-		      if tempDesktopLoginPermitted = False then 
+		      If tempDesktopLoginPermitted = False Then 
 		        
 		        Module1.writeDBLog(tempUserID, tempUserName, "User not authorised for desktop app")
 		        
@@ -452,7 +447,6 @@ End
 		      Case md.ActionButton
 		        // user pressed Exit
 		        Module1.AppClose
-		        Quit
 		        
 		      Case md.AlternateActionButton
 		        // user pressed Don't Save
@@ -506,7 +500,7 @@ End
 		    self.txtCode.Text = ""
 		    Self.txtUsername.SetFocus
 		    
-		    Module1.DecAppLoginTries
+		    Module1.DecAppLoginTries("login with a code")
 		    Module1.DecUserPasswordTries(tempUserID)
 		    
 		    //MessageBox ("No code")
@@ -525,7 +519,7 @@ End
 		    Self.txtCode.Text = ""
 		    Self.txtUsername.SetFocus
 		    
-		    Module1.DecAppLoginTries
+		    Module1.DecAppLoginTries("login with a code")
 		    Module1.DecUserPasswordTries(tempUserID)
 		    
 		    Return
@@ -536,15 +530,22 @@ End
 		  // set the app properties
 		  app.activeUserID = tempUserID
 		  app.activeUserName = tempUserName
-		  app.activeUserLoginCode = tempLoginCode
+		  //app.activeUserLoginCode = tempLoginCode
 		  
 		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in with code")
 		  Module1.writeDBNote(app.activeUserID, 1, "Logged in with code", Nil, True)
 		  
 		  // reset password tries value for user
 		  Module1.ResetUserPasswordTries(app.activeUserID)
+		  
 		  // update last login date time
 		  Module1.UpdateLoginDateTime
+		  
+		  // activate the user
+		  Module1.activateUser
+		  
+		  // need to clear the login code
+		  Module1.clearLoginCode
 		  
 		  self.close
 		  
@@ -561,7 +562,9 @@ End
 		Sub Pressed()
 		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowCodeLogin | Cancel button pressed")
 		  
-		  self.Close
+		  Self.Close
+		  WindowLogin.Show
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

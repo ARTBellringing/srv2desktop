@@ -471,6 +471,8 @@ End
 		    MessageBox(error.Message)
 		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "WindowChangePassword | btnChange | DB error writing new password " + error.Message)
 		    db.RollbackTransaction
+		    Module1.AppClose
+		    
 		    return
 		    
 		  End Try

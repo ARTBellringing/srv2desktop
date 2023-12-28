@@ -123,17 +123,21 @@ Inherits DesktopApplication
 		    
 		  end if   ' tempVersionIsLive = false
 		  
-		  WindowLogin.Show
+		  windowLogin.show ' implicit instance
 		End Sub
 	#tag EndEvent
 
 
 	#tag Property, Flags = &h0
-		activeUserID As Integer = 1
+		activeUserAltContactID As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		activeUserLoginCode As string = "1"
+		activeUserHasAltContact As Boolean
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		activeUserID As Integer = 1
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -142,10 +146,6 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		activeUserPassword As String
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		activeUserState As Integer = 1
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -162,6 +162,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		objectUserName As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		window As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -186,6 +190,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		windowNotesP As WindowNotes
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowRecoverP As WindowRecover
 	#tag EndProperty
 
 
@@ -382,26 +390,50 @@ Inherits DesktopApplication
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="activeUserLoginCode"
-			Visible=false
-			Group="Behavior"
-			InitialValue="1"
-			Type="string"
-			EditorType="MultiLineEditor"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="activeUserState"
-			Visible=false
-			Group="Behavior"
-			InitialValue="1"
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="loginTriesRemaining"
 			Visible=false
 			Group="Behavior"
 			InitialValue="3"
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="objectUserID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="objectUserName"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="window"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="activeUserHasAltContact"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="activeUserAltContactID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty

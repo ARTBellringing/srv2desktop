@@ -2,36 +2,58 @@
 Protected Module Module1
 	#tag Method, Flags = &h0
 		Sub activateUser()
-		  // Activate user - always called after logging in with a code- change user state to 2
-		  var data as string
+		  // Activate user - if the user needs to be activated...  always called after logging in with a code
 		  
-		  //also need to change or overwrite the user_state to 2
-		  // reuse data variable from above
-		  data = "UPDATE srv2_tblUser SET user_state = 2, updated_by = ? WHERE sr2_user_id = ?;"
-		  
+		  Var data As RowSet
 		  Try
-		    db.BeginTransaction
-		    db.ExecuteSQL(data, app.activeUserID, app.activeUserID)
-		    db.CommitTransaction
+		    data = db.SelectSQL("SELECT user_state FROM srv2_vwUserLogin WHERE sr2_user_id = ?;", app.activeUserID)
 		  Catch error As DatabaseException
-		    MessageBox(error.Message)
-		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "ForceChangePasswordPage | btnChange | DB error changing user_statee " + error.Message)
-		    db.RollbackTransaction
-		    
-		    return
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(1,"System","ActivateUser |  DB error fetching user state")
+		    Module1.AppClose
 		    
 		  End Try
 		  
-		  module1.writeDBLog(app.activeUserID,app.activeUserName,"Account activated")
-		  Module1.writeDBNote(app.activeUserID, 1, "Account activated", NIL, TRUE)
+		  // now determine the user state
 		  
-		  //check if we need to clear out the login code...
-		  if app.activeUserLoginCode.length <> 0 then 'there is a code to be cleared
-		    
-		    Module1.clearLoginCode
-		    
-		  end if
+		  Var tempUserID As Integer
+		  Var tempUserState As Integer
 		  
+		  If data <> Nil Then
+		    For Each row As Databaserow In data
+		      
+		      tempUserState = row.Column("user_state").IntegerValue 
+		      
+		    Next row
+		    data.close
+		    
+		  End If ' data <> nil
+		  
+		  if tempUserState = 1 then 
+		    
+		    Var sql As String
+		    
+		    sql = "UPDATE srv2_tblUser SET user_state = 2, updated_by = ? WHERE sr2_user_id = ?;"
+		    
+		    Try
+		      db.BeginTransaction
+		      db.ExecuteSQL(sql, app.activeUserID, app.activeUserID)
+		      db.CommitTransaction
+		      
+		      module1.writeDBLog(app.activeUserID,app.activeUserName,"Account activated")
+		      Module1.writeDBNote(app.activeUserID, 1, "Account activated", Nil, True)
+		      
+		    Catch error As DatabaseException
+		      MessageBox(error.Message)
+		      Module1.writeDBLog(app.activeUserID, app.activeUserName, "Activate User| DB error changing user_state " + error.Message)
+		      db.RollbackTransaction
+		      Module1.AppClose
+		      
+		      Return
+		      
+		    End Try
+		    
+		  End If ' user state = 1
 		End Sub
 	#tag EndMethod
 
@@ -50,41 +72,42 @@ Protected Module Module1
 		Sub clearLoginCode()
 		  // clear login code 
 		  
-		  var data as string
+		  var sql1 as string
 		  
-		  data = "UPDATE srv2_tblUser SET login_code = ?, updated_by = ? WHERE sr2_user_id = ?;"
+		  sql1 = "UPDATE srv2_tblUser SET login_code = ?, updated_by = ? WHERE sr2_user_id = ?;"
 		  
 		  Try
 		    db.BeginTransaction
-		    db.ExecuteSQL(data, NIL, app.activeUserID, app.activeUserID)
+		    db.ExecuteSQL(sql1, Nil, app.activeUserID, app.activeUserID)
 		    db.CommitTransaction
+		    
+		    module1.writeDBLog(app.activeUserID, app.activeUserName, "Login code cleared")
+		    Module1.writeDBNote(app.activeUserID, 1, "Login code cleared", Nil, True)
+		    
 		  Catch error As DatabaseException
 		    MessageBox(error.Message)
-		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "ActivateUser | DB error clearing code " + error.Message)
+		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "ClearLoginCode | DB error writing cleared code " + error.Message)
 		    db.RollbackTransaction
-		    
-		    return
+		    Module1.AppClose
 		    
 		  End Try
 		  
-		  module1.writeDBLog(app.activeUserID, app.activeUserName, "Login code cleared")
-		  Module1.writeDBNote(app.activeUserID, 1, "Login code cleared", NIL, TRUE)
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub DecAppLoginTries()
+		Sub DecAppLoginTries(trytype as string)
 		  // decrement app login tries (not to be confused with password_tries)
 		  
 		  App.loginTriesRemaining = app.loginTriesRemaining - 1
 		  
 		  If app.loginTriesRemaining = 0 Then
 		    
-		    MessageBox("You've made 3 failed attempts to login.  SRv2 Desktop will now close.")
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName,"Login | 3 consecutive failed login attempts.  Desktop app closing")
+		    MessageBox("You've made 3 failed attempts to " + trytype + ".  SRv2 Desktop will now close.")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName,"DecLoginTries | 3 consecutive failed attempts " + trytype + ".  Desktop app closing")
 		    
 		    Module1.AppClose
-		    Quit
 		    
 		  End If
 		  
@@ -104,6 +127,7 @@ Protected Module Module1
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
 		    Module1.writeDBLog(app.activeUserID,app.activeUserName,"DecUserPasswordTries | DB error fetching user row")
+		    Module1.AppClose
 		  End Try
 		  
 		  Var tempUserID As Integer '0
@@ -120,14 +144,9 @@ Protected Module Module1
 		    
 		  End If 'data <> nil
 		  
-		  // MessageBox("Remaining: "+tempPasswordTriesRemaining.ToString)
-		  
 		  tempPasswordTriesRemaining = tempPasswordTriesRemaining - 1
 		  
-		  // MessageBox("Now remaining: "+tempPasswordTriesRemaining.ToString)
-		  
 		  // write the value back to the DB
-		  
 		  Var sqlString As String
 		  
 		  sqlString = "UPDATE srv2_tblUser SET password_tries_remaining = ?, updated_by = ? WHERE sr2_user_id = ?;"
@@ -140,8 +159,7 @@ Protected Module Module1
 		    MessageBox(error.Message)
 		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Method decrementPasswordLoginTries | DB error writing new tries valuepassword " + error.Message)
 		    db.RollbackTransaction
-		    
-		    Return
+		    Module1.AppClose
 		    
 		  End Try
 		  
@@ -162,11 +180,11 @@ Protected Module Module1
 		      //action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean
 		      Module1.writeDBNote(Input, 1, "Account locked out", Nil, True)
 		      db.RollbackTransaction
-		      Return
+		      ' dont need to close the app as would normally be the case as it will close regardless in 2 lines...
+		      
 		    End Try
 		    
 		    Module1.AppClose
-		    Quit
 		    
 		  End If ' temp password tries remaining = 0
 		  
@@ -229,7 +247,7 @@ Protected Module Module1
 		    Select Case b                                    // determine which button was pressed.
 		    Case md.ActionButton
 		      // user pressed OK
-		      Quit
+		      Module1.AppClose
 		    Case md.AlternateActionButton
 		      // user pressed Don't Save
 		    Case md.CancelButton
@@ -257,6 +275,7 @@ Protected Module Module1
 		    MessageBox(error.Message)
 		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Method ResetPasswordLoginTries | DB error writing new tries value " + error.Message)
 		    db.RollbackTransaction
+		    Module1.AppClose
 		    
 		    Return
 		    
@@ -404,6 +423,7 @@ Protected Module Module1
 		    MessageBox(error.Message)
 		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Method UnlockUserID  | DB error writing unlock to db " + error.Message)
 		    db.RollbackTransaction
+		    Module1.AppClose
 		    
 		    Return
 		    
@@ -423,7 +443,7 @@ Protected Module Module1
 
 	#tag Method, Flags = &h0
 		Sub UpdateLoginDateTime()
-		  // update login date time for current active user - clear never_logged_in flag if set
+		  // update login date time for current active user - clear never_logged_in flag if set,
 		  
 		  Var data As RowSet
 		  Var sqlText  As String
@@ -435,6 +455,7 @@ Protected Module Module1
 		    MessageBox("DB Error: " + error.Message)
 		    //action_on as integer, action_on_name as string, log_action as string
 		    Module1.writeDBLog(app.activeUserID,app.activeUserName,"Method: updateLoginDateTime | DB error fetching values")
+		    Module1.AppClose
 		    
 		    Return
 		    
@@ -453,7 +474,7 @@ Protected Module Module1
 		  
 		  data.Close
 		  
-		  // write the new value back - and setb never_logged_in to False
+		  // write the new value back - and set never_logged_in to False
 		  
 		  Var sqlString As String
 		  
@@ -467,6 +488,7 @@ Protected Module Module1
 		    MessageBox(error.Message)
 		    Module1.writeDBLog(app.activeUserID, app.activeUserName, "Method UpdateLoginDateTime | DB error writing new last login date " + error.Message)
 		    db.RollbackTransaction
+		    Module1.AppClose
 		    
 		    Return
 		    
@@ -504,6 +526,8 @@ Protected Module Module1
 		  Catch error As DatabaseException
 		    MessageBox(error.Message)
 		    db.RollbackTransaction
+		    module1.AppClose
+		    
 		  End Try
 		End Sub
 	#tag EndMethod
@@ -542,6 +566,8 @@ Protected Module Module1
 		  Catch error As DatabaseException
 		    MessageBox(error.Message)
 		    db.RollbackTransaction
+		    Module1.AppClose
+		    
 		  End Try
 		End Sub
 	#tag EndMethod

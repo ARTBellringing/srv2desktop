@@ -183,7 +183,7 @@ Begin DesktopWindow WindowLogin
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   222
+      Left            =   234
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -295,7 +295,7 @@ Begin DesktopWindow WindowLogin
       Bold            =   False
       Cancel          =   False
       Caption         =   "I have a code"
-      Default         =   True
+      Default         =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -303,7 +303,7 @@ Begin DesktopWindow WindowLogin
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   125
+      Left            =   137
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -312,6 +312,37 @@ Begin DesktopWindow WindowLogin
       MacButtonStyle  =   0
       Scope           =   0
       TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   275
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   89
+   End
+   Begin DesktopButton btnRecover
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Forgot login?"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   36
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   9
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -394,29 +425,29 @@ End
 		  If Self.txtUsername.Text.Length = 0  Then
 		    
 		    // user hasn't typed anything
-		    self.lblUserInfo.Text = "Blank username is not allowed"
+		    Self.lblUserInfo.Text = "Blank username is not allowed"
 		    Self.txtUsername.Text = ""
-		    self.txtPassword.Text = ""
+		    Self.txtPassword.Text = ""
 		    Self.txtUsername.SetFocus
 		    
-		    Module1.DecAppLoginTries
+		    Module1.DecAppLoginTries("login")
 		    
 		    Return
 		    
-		  end if
+		  End If
 		  
 		  If Self.txtPassword.Text.Length = 0  Then
 		    
 		    // user hasn't typed anything
-		    self.lblUserInfo.Text = "Blank password is not allowed"
-		    self.txtPassword.Text = ""
+		    Self.lblUserInfo.Text = "Blank password is not allowed"
+		    Self.txtPassword.Text = ""
 		    Self.txtPassword.SetFocus
 		    
-		    Module1.DecAppLoginTries
+		    Module1.DecAppLoginTries("login")
 		    
 		    Return
 		    
-		  end if
+		  End If
 		  
 		  // now see if there is a matching row for the username in tblUser...
 		  
@@ -426,6 +457,8 @@ End
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
 		    Module1.writeDBLog(1,"System","WindowLogin | btnLogin | DB error fetching username")
+		    Module1.AppClose
+		    
 		  End Try
 		  
 		  if data.RowCount = 0 then
@@ -440,7 +473,7 @@ End
 		    //MessageBox ("No match")
 		    data.close
 		    
-		    Module1.DecAppLoginTries
+		    Module1.DecAppLoginTries("login")
 		    
 		    Return
 		    
@@ -452,32 +485,32 @@ End
 		  
 		  // now determine if this user is allowed to login...
 		  
-		  Var tempUserID As Integer '0
-		  var tempUserName as string '1
+		  Var tempUserID As Integer
+		  Var tempUserName As String
 		  var tempPassword as string '2
-		  Var tempDesktopLoginPermitted As Boolean '3
-		  Var tempLoginCode As String '4
+		  Var tempDesktopLoginPermitted As Boolean
+		  Var tempLoginCode As String
 		  Var tempUserState As Integer '5
-		  Var tempPasswordTriesRemaining As Integer '6
-		  Var tempAccountLockedOut As Boolean '7
-		  Var tempUserStateName As String '8
+		  Var tempPasswordTriesRemaining As Integer
+		  Var tempAccountLockedOut As Boolean
+		  Var tempUserStateName As String
 		  Var tempAllowLogin As Boolean '9
-		  Var tempLoginRejectionMessage As String '10
+		  Var tempLoginRejectionMessage As String 
 		  
-		  if data <> nil then
+		  If data <> Nil Then
 		    for each row as Databaserow in data
 		      
-		      tempUserID = row.Column("sr2_user_id").IntegerValue '0
-		      tempUserName = row.Column("user_name").StringValue '1
-		      tempPassword = row.Column("password").StringValue '2
-		      tempDesktopLoginPermitted = row.Column("desktop_login_permitted").BooleanValue '3
-		      tempLoginCode = row.Column("login_code").StringValue '4
-		      tempUserState = row.Column("user_state").IntegerValue '5
-		      tempPasswordTriesRemaining = row.Column("password_tries_remaining").IntegerValue '6
-		      tempAccountLockedOut = row.Column("account_locked_out").BooleanValue '7
-		      tempUserStateName = row.Column("user_state_name").StringValue '8
-		      tempAllowLogin = row.Column("allow_login").BooleanValue '9
-		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue '10
+		      tempUserID = row.Column("sr2_user_id").IntegerValue
+		      tempUserName = row.Column("user_name").StringValue
+		      tempPassword = row.Column("password").StringValue
+		      tempDesktopLoginPermitted = row.Column("desktop_login_permitted").BooleanValue
+		      tempLoginCode = row.Column("login_code").StringValue
+		      tempUserState = row.Column("user_state").IntegerValue
+		      tempPasswordTriesRemaining = row.Column("password_tries_remaining").IntegerValue
+		      tempAccountLockedOut = row.Column("account_locked_out").BooleanValue
+		      tempUserStateName = row.Column("user_state_name").StringValue
+		      tempAllowLogin = row.Column("allow_login").BooleanValue
+		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue
 		      
 		    next row
 		    data.close
@@ -542,7 +575,6 @@ End
 		        // user pressed Exit
 		        Module1.writeDBLog(tempUserID, tempUserName, "Attempted login when account locked out")
 		        Module1.AppClose
-		        Quit
 		        
 		      Case md.AlternateActionButton
 		        // user pressed Don't Save
@@ -567,7 +599,7 @@ End
 		    Self.txtUsername.SetFocus
 		    
 		    //decrement the user's password_tries_remaining value, and the app_login tries values
-		    Module1.DecAppLoginTries
+		    Module1.DecAppLoginTries("login")
 		    Module1.DecUserPasswordTries(tempUserID)
 		    
 		    Return
@@ -587,6 +619,7 @@ End
 		  Module1.ResetUserPasswordTries(app.activeUserID)
 		  // update the last login datetime
 		  Module1.UpdateLoginDateTime
+		  // Module1.activateUser - only needed when logging in via code
 		  
 		  app.windowMainP = New WindowMain
 		  app.windowMainP.Show
@@ -615,7 +648,22 @@ End
 		  
 		  app.windowCodeLoginP = new WindowCodeLogin
 		  app.windowCodeLoginP.Show
-		  WindowLogin.close
+		  windowLogin.close
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnRecover
+	#tag Event
+		Sub Pressed()
+		  //open close self and open the have recover window
+		  
+		  module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowLogin | Recover button pressed")
+		  
+		  app.windowRecoverP = New WindowRecover
+		  app.windowRecoverP.show
+		  windowLogin.close
 		  
 		  
 		End Sub
