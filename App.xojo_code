@@ -149,6 +149,10 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		activeUserTower As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		appVersion As String
 	#tag EndProperty
 
@@ -174,6 +178,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		windowCodeLoginP As WindowCodeLogin
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowDoveP As WindowDove
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

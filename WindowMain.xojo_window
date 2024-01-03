@@ -2638,7 +2638,7 @@ Begin DesktopWindow WindowMain
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
-      Width           =   371
+      Width           =   342
    End
    Begin DesktopLabel lblOrgAttachment
       AllowAutoDeactivate=   True
@@ -2679,7 +2679,7 @@ Begin DesktopWindow WindowMain
       AllowTabs       =   False
       BackgroundColor =   &cFFFFFF
       Bold            =   False
-      Enabled         =   True
+      Enabled         =   False
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
@@ -2706,12 +2706,12 @@ Begin DesktopWindow WindowMain
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   343
+      Top             =   344
       Transparent     =   False
       Underline       =   False
       ValidationMask  =   ""
-      Visible         =   True
-      Width           =   371
+      Visible         =   False
+      Width           =   65
    End
    Begin DesktopLabel lblTower
       AllowAutoDeactivate=   True
@@ -2735,7 +2735,7 @@ Begin DesktopWindow WindowMain
       TabIndex        =   56
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Tower"
+      Text            =   "Tower (Dove)"
       TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
@@ -2989,6 +2989,7 @@ Begin DesktopWindow WindowMain
       Width           =   48
    End
    Begin DesktopSeparator Separator2
+      Active          =   False
       AllowAutoDeactivate=   True
       AllowTabStop    =   True
       Enabled         =   True
@@ -3001,6 +3002,7 @@ Begin DesktopWindow WindowMain
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
+      PanelIndex      =   0
       Scope           =   0
       TabIndex        =   85
       TabPanelIndex   =   0
@@ -3009,12 +3011,16 @@ Begin DesktopWindow WindowMain
       Transparent     =   False
       Visible         =   True
       Width           =   465
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
    End
-   Begin DesktopButton btnACClear
+   Begin DesktopButton btnDove
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Clear AC"
+      Caption         =   "Select..."
       Default         =   True
       Enabled         =   True
       FontName        =   "System"
@@ -3035,11 +3041,52 @@ Begin DesktopWindow WindowMain
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   152
+      Top             =   343
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   58
+   End
+   Begin DesktopTextField txtTowerFull
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   False
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   22
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   938
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   87
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   343
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   272
    End
 End
 #tag EndDesktopWindow
@@ -3459,6 +3506,54 @@ End
 		  End If 'data <> nil then
 		  
 		  Self.lblRowCount.Text = tempMRetrCount.ToString("###,###") + " of " + tempMRowCount.ToString("###,###")
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub populateTower()
+		  // populate Tower Info
+		  
+		  // Var tempJUserID As Integer
+		  // Var tempJUserName As String = ""
+		  // 
+		  // Var tempJFirstName As String = ""
+		  // Var tempJLastName As String = ""
+		  
+		  
+		  If Self.txtTower.Text.Length = 0 Then
+		    
+		    // do nothing
+		    txtTowerFull.Text = ""
+		    Return
+		    
+		  End If
+		  
+		  // fall through if there is a value
+		  
+		  Var sqlA As String
+		  
+		  sqlA = "SELECT composite FROM srv2_vwDoveTowers WHERE dove_id = """ + txtTower.Text + """;"
+		  
+		  Var data As RowSet
+		  Try
+		    data = db.SelectSQL(sqlA)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateTower | DB error fetching Tower info")
+		  End Try
+		  
+		  If data <> Nil Then
+		    
+		    For Each row As Databaserow In data
+		      
+		      txtTowerFull.Text = row.Column("composite").StringValue
+		      
+		    Next row
+		    
+		    data.close
+		    
+		  End If 'data <> nil then
 		  
 		End Sub
 	#tag EndMethod
@@ -4231,6 +4326,7 @@ End
 	#tag Event
 		Sub TextChanged()
 		  controlLoad
+		  populateTower
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -4309,14 +4405,19 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnACClear
+#tag Events btnDove
 	#tag Event
 		Sub Pressed()
-		  // btnClearAC pushed
-		  
-		  self.clearACInfo
-		  
-		  
+		  // MessageBox("Dove find pressed!")
+		  app.windowDoveP = New WindowDove
+		  app.windowDoveP.show
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events txtTowerFull
+	#tag Event
+		Sub TextChanged()
+		  controlLoad
 		End Sub
 	#tag EndEvent
 #tag EndEvents

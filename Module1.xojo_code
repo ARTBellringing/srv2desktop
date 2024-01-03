@@ -208,13 +208,16 @@ Protected Module Module1
 		    //set property
 		    Module1.dbConnected = True
 		    
-		    var data as string
+		    Var data As String
+		    Var data1 As String
 		    data = "SET session time_Zone = 'Europe/London';"
 		    //data = "SET session time_Zone = 'America/New_York';"
+		    data1 = "SET NAMES utf8mb3;"
 		    
 		    Try
 		      db.BeginTransaction
 		      db.ExecuteSQL(data)
+		      //db.ExecuteSQL(data1)
 		      db.CommitTransaction
 		    Catch error As DatabaseException
 		      MessageBox("DB Error: " + error.Message)
