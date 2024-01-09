@@ -298,8 +298,7 @@ End
 		    For Each row As Databaserow In data3
 		      
 		      tempDoveID = row.column("dove_id").StringValue
-		      tempComposite = row.Column("composite").StringValue
-		      break
+		      tempComposite = row.Column("composite").StringValue.DefineEncoding(Encodings.UTF8)
 		      
 		      // populate the list box row
 		      Self.ListBoxTowers.AddRow(tempDoveID, tempComposite)

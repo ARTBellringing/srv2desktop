@@ -217,7 +217,7 @@ Protected Module Module1
 		    Try
 		      db.BeginTransaction
 		      db.ExecuteSQL(data)
-		      //db.ExecuteSQL(data1)
+		      db.ExecuteSQL(data1)
 		      db.CommitTransaction
 		    Catch error As DatabaseException
 		      MessageBox("DB Error: " + error.Message)
