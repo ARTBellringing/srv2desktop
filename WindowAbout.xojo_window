@@ -40,7 +40,7 @@ Begin DesktopWindow WindowAbout
       LockRight       =   True
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   0
+      TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -70,7 +70,7 @@ Begin DesktopWindow WindowAbout
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   1
+      TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -99,7 +99,7 @@ Begin DesktopWindow WindowAbout
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   2
+      TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Version"
@@ -131,7 +131,7 @@ Begin DesktopWindow WindowAbout
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   3
+      TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Status"

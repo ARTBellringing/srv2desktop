@@ -169,6 +169,10 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		RoleToEdit As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		window As Integer
 	#tag EndProperty
 
@@ -202,6 +206,18 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		windowRecoverP As WindowRecover
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowRoleEditP As WindowRoleEdit
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowRoleNewP As WindowRoleNew
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowRolesP As WindowRoles
 	#tag EndProperty
 
 
@@ -439,6 +455,22 @@ Inherits DesktopApplication
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="activeUserAltContactID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="activeUserTower"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RoleToEdit"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""

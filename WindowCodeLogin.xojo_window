@@ -388,16 +388,16 @@ End
 		    for each row as Databaserow in data
 		      
 		      tempUserID = row.Column("sr2_user_id").IntegerValue
-		      tempUserName = row.Column("user_name").StringValue
-		      tempPassword = row.Column("password").StringValue
+		      tempUserName = row.Column("user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempPassword = row.Column("password").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempDesktopLoginPermitted = row.Column("desktop_login_permitted").BooleanValue
-		      tempLoginCode = row.Column("login_code").StringValue
+		      tempLoginCode = row.Column("login_code").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempUserState = row.Column("user_state").IntegerValue
 		      tempPasswordTriesRemaining = row.Column("password_tries_remaining").IntegerValue
 		      tempAccountLockedOut = row.Column("account_locked_out").BooleanValue
-		      tempUserStateName = row.Column("user_state_name").StringValue
+		      tempUserStateName = row.Column("user_state_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempAllowLogin = row.Column("allow_login").BooleanValue
-		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue
+		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue.DefineEncoding(Encodings.UTF8)
 		      
 		    next row
 		    data.close

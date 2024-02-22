@@ -51,7 +51,7 @@ Begin DesktopWindow WindowLogin
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
-      TabIndex        =   1
+      TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -92,7 +92,7 @@ Begin DesktopWindow WindowLogin
       Password        =   True
       ReadOnly        =   False
       Scope           =   0
-      TabIndex        =   3
+      TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -125,7 +125,7 @@ Begin DesktopWindow WindowLogin
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   0
+      TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Username:"
@@ -191,7 +191,7 @@ Begin DesktopWindow WindowLogin
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   5
+      TabIndex        =   9
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -220,7 +220,7 @@ Begin DesktopWindow WindowLogin
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   4
+      TabIndex        =   6
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "MESSAGE"
@@ -249,7 +249,7 @@ Begin DesktopWindow WindowLogin
       LockRight       =   True
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   6
+      TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -277,7 +277,7 @@ Begin DesktopWindow WindowLogin
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   7
+      TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   False
       Text            =   "Untitled"
@@ -342,7 +342,7 @@ Begin DesktopWindow WindowLogin
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   9
+      TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -365,7 +365,7 @@ End
 
 	#tag Event
 		Sub Opening()
-		  var stage as string
+		  Var stage As String
 		  Select Case app.StageCode
 		  Case 0 ' Development
 		    stage = "D"
@@ -501,16 +501,16 @@ End
 		    for each row as Databaserow in data
 		      
 		      tempUserID = row.Column("sr2_user_id").IntegerValue
-		      tempUserName = row.Column("user_name").StringValue
-		      tempPassword = row.Column("password").StringValue
+		      tempUserName = row.Column("user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempPassword = row.Column("password").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempDesktopLoginPermitted = row.Column("desktop_login_permitted").BooleanValue
-		      tempLoginCode = row.Column("login_code").StringValue
+		      tempLoginCode = row.Column("login_code").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempUserState = row.Column("user_state").IntegerValue
 		      tempPasswordTriesRemaining = row.Column("password_tries_remaining").IntegerValue
 		      tempAccountLockedOut = row.Column("account_locked_out").BooleanValue
-		      tempUserStateName = row.Column("user_state_name").StringValue
+		      tempUserStateName = row.Column("user_state_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempAllowLogin = row.Column("allow_login").BooleanValue
-		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue
+		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue.DefineEncoding(Encodings.UTF8)
 		      
 		    next row
 		    data.close

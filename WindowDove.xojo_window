@@ -46,7 +46,7 @@ Begin DesktopWindow WindowDove
       PanelIndex      =   0
       RecentItemsValue=   ""
       Scope           =   0
-      TabIndex        =   0
+      TabIndex        =   3
       TabPanelIndex   =   0
       Text            =   ""
       Tooltip         =   ""
@@ -78,7 +78,7 @@ Begin DesktopWindow WindowDove
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   1
+      TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Search for a tower name"
@@ -127,7 +127,7 @@ Begin DesktopWindow WindowDove
       RequiresSelection=   False
       RowSelectionType=   0
       Scope           =   0
-      TabIndex        =   2
+      TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -158,7 +158,7 @@ Begin DesktopWindow WindowDove
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   3
+      TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Untitled"
@@ -175,7 +175,7 @@ Begin DesktopWindow WindowDove
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Select"
+      Caption         =   "Set..."
       Default         =   False
       Enabled         =   True
       FontName        =   "System"
@@ -206,6 +206,67 @@ End
 #tag EndDesktopWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Opening()
+		  // windowDove opening
+		  Var tempTowerCount As Integer
+		  Var tempURCount As Integer
+		  
+		  // check the number of unringable towers in tblDove
+		  
+		  Var sql1 As String = "SELECT COUNT(*) FROM srv2_tblDove where ur = 'u/r';"
+		  
+		  Var data1 As RowSet
+		  Try
+		    data1 = db.SelectSQL(sql1)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowTowers | Method: PopulateListBox | DB error fetching unringable towers row count")
+		  End Try
+		  
+		  If data1 <> Nil Then
+		    
+		    For Each row As Databaserow In data1
+		      
+		      tempURCount = row.columnat(0).IntegerValue 'unringable rings
+		      //MessageBox (tempURCount.ToString)
+		      
+		    Next row
+		    data1.close
+		    
+		  End If 'data <> nil
+		  
+		  // check the total number of rings In tblDove
+		  
+		  Var sql2 As String = "SELECT COUNT(*) FROM srv2_tblDove;"
+		  
+		  Var data2 As RowSet
+		  Try
+		    data2 = db.SelectSQL(sql2)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowTowers | Method: PopulateListBox | DB error fetching towers row count")
+		  End Try
+		  
+		  If data1 <> Nil Then
+		    
+		    For Each row As Databaserow In data2
+		      
+		      tempTowerCount = row.columnat(0).IntegerValue 'all rows
+		      
+		    Next row
+		    data1.close
+		    
+		  End If 'data <> nil then
+		  
+		  // update the on-screen data...
+		  Self.lblTowerInfo.Text = tempTowerCount.ToString("###,###") + " towers incl " + tempURCount.tostring("###,###") + " unringable"
+		  
+		  
+		End Sub
+	#tag EndEvent
+
+
 	#tag Method, Flags = &h0
 		Sub populateListBox()
 		  // populate list box
@@ -311,7 +372,7 @@ End
 		  End If 'data <> nil then
 		  
 		  // update the on-screen data...
-		  Self.lblTowerInfo.Text = tempFetchedCount.ToString("###,###") + " of " + tempTowerCount.ToString("###,###") + " including " + tempURCount.tostring("###,###") + " unringable"
+		  Self.lblTowerInfo.Text = tempFetchedCount.ToString("###,###") + " of " + tempTowerCount.ToString("###,###") + " towers incl " + tempURCount.tostring("###,###") + " unringable"
 		  
 		End Sub
 	#tag EndMethod

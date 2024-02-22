@@ -211,7 +211,6 @@ Protected Module Module1
 		    Var data As String
 		    Var data1 As String
 		    data = "SET session time_Zone = 'Europe/London';"
-		    //data = "SET session time_Zone = 'America/New_York';"
 		    data1 = "SET NAMES utf8mb3;"
 		    
 		    Try
@@ -226,7 +225,6 @@ Protected Module Module1
 		    End Try
 		    
 		    // data = "select @@session.time_zone;"
-		    // 
 		    // var rs as rowset
 		    // rs = db.SelectSQL(data)
 		    // messagebox (rs.columnat(0).StringValue)
