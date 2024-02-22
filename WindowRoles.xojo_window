@@ -1129,7 +1129,7 @@ End
 		  
 		  If ListBoxAllRoles.SelectedRowIndex = Listbox.NoSelection Then
 		    
-		    MessageBox("Please select a user role row first")
+		    MessageBox("Please select a role to edit")
 		    
 		  Else ' user has selected a row
 		    
