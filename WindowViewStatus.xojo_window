@@ -1,5 +1,5 @@
 #tag DesktopWindow
-Begin DesktopWindow WindowDove
+Begin DesktopWindow WindowViewStatus
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF
    Composite       =   False
@@ -10,8 +10,8 @@ Begin DesktopWindow WindowDove
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   False
-   Height          =   279
-   ImplicitInstance=   True
+   Height          =   567
+   ImplicitInstance=   False
    MacProcID       =   0
    MaximumHeight   =   32000
    MaximumWidth    =   32000
@@ -20,46 +20,11 @@ Begin DesktopWindow WindowDove
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Select a tower"
-   Type            =   1
+   Title           =   "Status detail"
+   Type            =   0
    Visible         =   True
-   Width           =   532
-   Begin DesktopSearchField SearchTower
-      Active          =   False
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   False
-      AllowRecentItems=   False
-      AllowTabStop    =   True
-      ClearMenuItemValue=   ""
-      Enabled         =   True
-      Height          =   22
-      Hint            =   "3 chars or more"
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   170
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumRecentItems=   5
-      PanelIndex      =   0
-      RecentItemsValue=   ""
-      Scope           =   0
-      TabIndex        =   3
-      TabPanelIndex   =   0
-      Text            =   ""
-      Tooltip         =   ""
-      Top             =   20
-      Transparent     =   False
-      Visible         =   True
-      Width           =   213
-      _mIndex         =   0
-      _mInitialParent =   ""
-      _mName          =   ""
-      _mPanelIndex    =   0
-   End
-   Begin DesktopLabel lblSearch
+   Width           =   894
+   Begin DesktopLabel lblMessage
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
@@ -78,20 +43,52 @@ Begin DesktopWindow WindowDove
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   0
+      TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Search for a tower name"
-      TextAlignment   =   3
+      Text            =   "MESSAGE"
+      TextAlignment   =   2
+      TextColor       =   &cFF000000
+      Tooltip         =   ""
+      Top             =   189
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   533
+   End
+   Begin DesktopLabel lblUserInfo
+      AllowAutoDeactivate=   True
+      Bold            =   True
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   25
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "User Info"
+      TextAlignment   =   2
       TextColor       =   &c000000
       Tooltip         =   ""
       Top             =   20
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   138
+      Width           =   530
    End
-   Begin DesktopListBox ListBoxTowers
+   Begin DesktopListBox lbxCourses
       AllowAutoDeactivate=   True
       AllowAutoHideScrollbars=   True
       AllowExpandableRows=   False
@@ -100,9 +97,9 @@ Begin DesktopWindow WindowDove
       AllowRowDragging=   False
       AllowRowReordering=   False
       Bold            =   False
-      ColumnCount     =   2
-      ColumnWidths    =   "0,500"
-      DefaultRowHeight=   -1
+      ColumnCount     =   5
+      ColumnWidths    =   "35,80,35,220"
+      DefaultRowHeight=   16
       DropIndicatorVisible=   False
       Enabled         =   True
       FontName        =   "System"
@@ -114,11 +111,11 @@ Begin DesktopWindow WindowDove
       HasHorizontalScrollbar=   False
       HasVerticalScrollbar=   True
       HeadingIndex    =   -1
-      Height          =   163
+      Height          =   84
       Index           =   -2147483648
       InitialValue    =   ""
       Italic          =   False
-      Left            =   20
+      Left            =   25
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -127,55 +124,23 @@ Begin DesktopWindow WindowDove
       RequiresSelection=   False
       RowSelectionType=   0
       Scope           =   0
-      TabIndex        =   1
+      TabIndex        =   6
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   64
+      Top             =   68
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   492
+      Width           =   533
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
-   Begin DesktopLabel lblTowerInfo
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   9.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   27
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Untitled"
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   239
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   201
-   End
-   Begin DesktopButton btnSelect
+   Begin DesktopButton btnCourseLoad
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Set..."
+      Caption         =   "Fetch"
       Default         =   False
       Enabled         =   True
       FontName        =   "System"
@@ -184,7 +149,7 @@ Begin DesktopWindow WindowDove
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   432
+      Left            =   502
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -192,15 +157,175 @@ Begin DesktopWindow WindowDove
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   4
+      TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   237
+      Top             =   164
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   80
+      Width           =   56
+   End
+   Begin DesktopLabel lblID
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   33
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "ID"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   47
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   22
+   End
+   Begin DesktopLabel lblID1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   67
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   9
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Date"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   47
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   66
+   End
+   Begin DesktopLabel lblModule
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   145
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   10
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Mod"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   47
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   34
+   End
+   Begin DesktopLabel lblLocation
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   182
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   11
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Location"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   47
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   146
+   End
+   Begin DesktopLabel lblStatus
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   399
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   12
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Course status"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   47
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   146
    End
 End
 #tag EndDesktopWindow
@@ -208,241 +333,104 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
-		  // windowDove opening
-		  Var tempTowerCount As Integer
-		  Var tempURCount As Integer
+		  // Window View Courses - Openning
 		  
-		  // check the number of unringable towers in tblDove
+		  // get user info
+		  // display user info
 		  
-		  Var sql1 As String = "SELECT COUNT(*) FROM srv2_tblDove where ur = 'u/r';"
+		  Var tempUserID As Integer
+		  Var tempUserName As String
+		  Var tempFirstName As String
+		  Var tempLastName As String
 		  
-		  Var data1 As RowSet
+		  tempUserID = app.objectUserID  ' object user is the one we are operating/working on
+		  
+		  Var sqlA As String
+		  
+		  sqlA = "SELECT u_user_id, u_user_name, p_first_name, p_last_name FROM srv2_vwUserAdmin WHERE u_user_id = " + tempUserID.ToString + ";"
+		  
+		  //MessageBox (sqlA)
+		  
+		  Var data As RowSet
 		  Try
-		    data1 = db.SelectSQL(sql1)
+		    data = db.SelectSQL(sqlA)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowTowers | Method: PopulateListBox | DB error fetching unringable towers row count")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowViewCourses | Method: Retrieve User Info | DB error fetching user")
 		  End Try
 		  
-		  If data1 <> Nil Then
+		  If data <> Nil Then
 		    
-		    For Each row As Databaserow In data1
+		    For Each row As Databaserow In data
+		      tempUserID = row.Column("u_user_id").IntegerValue
+		      tempUserName = row.Column("u_user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempLastName = row.Column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      
-		      tempURCount = row.columnat(0).IntegerValue 'unringable rings
-		      //MessageBox (tempURCount.ToString)
+		      lblUserInfo.Text = "Courses for  " + tempUserID.ToString + "   " + tempUserName + "   " + tempLastName + ", " + tempFirstName
 		      
 		    Next row
-		    data1.close
 		    
-		  End If 'data <> nil
-		  
-		  // check the total number of rings In tblDove
-		  
-		  Var sql2 As String = "SELECT COUNT(*) FROM srv2_tblDove;"
-		  
-		  Var data2 As RowSet
-		  Try
-		    data2 = db.SelectSQL(sql2)
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowTowers | Method: PopulateListBox | DB error fetching towers row count")
-		  End Try
-		  
-		  If data1 <> Nil Then
-		    
-		    For Each row As Databaserow In data2
-		      
-		      tempTowerCount = row.columnat(0).IntegerValue 'all rows
-		      
-		    Next row
-		    data1.close
+		    data.close
 		    
 		  End If 'data <> nil then
 		  
-		  // update the on-screen data...
-		  Self.lblTowerInfo.Text = tempTowerCount.ToString("###,###") + " towers incl " + tempURCount.tostring("###,###") + " unringable"
-		  
-		  self.SearchTower.SetFocus
-		  
+		  populateCourses
 		  
 		End Sub
 	#tag EndEvent
 
 
 	#tag Method, Flags = &h0
-		Sub populateListBox()
-		  // populate list box
+		Sub populateCourses()
+		  // populateCourses
 		  
-		  If Self.SearchTower.Text.length <=2 Then
-		    // not enough entered yet - do nothing
-		    Self.ListBoxTowers.RemoveAllRows
-		    Self.lblTowerInfo.Text = ""
-		    
-		    Return
-		    
-		  End 'length = 0
+		  Var tempCourseID As Integer
+		  Var tempStartDate As DateTime
+		  Var tempLocationComposite As String
+		  Var tempProgrammeShortTitle As String
+		  Var tempCountryCode As String
+		  Var tempCbcsText As String
 		  
-		  Var tempTowerCount As Integer
-		  Var tempFetchedCount As Integer
-		  Var tempURCount As Integer
-		  
-		  // check the number of unringable towers in tblDove
-		  
-		  Var sql1 As String = "SELECT COUNT(*) FROM srv2_tblDove where ur = 'u/r';"
+		  Var sql1 As String = "SELECT course_id, start_date, location_composite, programme_short_title, cbcs_text, country_code FROM srv2_vwUserCourseBooking WHERE user_id = ? ;"
 		  
 		  Var data1 As RowSet
 		  Try
-		    data1 = db.SelectSQL(sql1)
+		    data1 = db.SelectSQL(sql1,app.objectUserID.ToString)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowTowers | Method: PopulateListBox | DB error fetching unringable towers row count")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowViewCourses | Method: PopulateCourses | DB error fetching course info")
 		  End Try
 		  
+		  // MessageBox("Rows: " + data1.RowCount.ToString)
+		  
 		  If data1 <> Nil Then
+		    
+		    lbxCourses.RemoveAllRows
 		    
 		    For Each row As Databaserow In data1
 		      
-		      tempURCount = row.columnat(0).IntegerValue 'unringable rings
-		      //MessageBox (tempURCount.ToString)
+		      tempCourseID = row.Column("course_id").IntegerValue
+		      tempStartDate = row.column("start_date").DateTimeValue
+		      tempProgrammeShortTitle = row.column("programme_short_title").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempLocationComposite = row.column("location_composite").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempCountryCode = row.column("country_code").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempCbcsText = row.column("cbcs_text").StringValue.DefineEncoding(Encodings.UTF8)
 		      
-		    Next row
-		    data1.close
-		    
-		  End If 'data <> nil
-		  
-		  // check the total number of rings In tblDove
-		  
-		  Var sql2 As String = "SELECT COUNT(*) FROM srv2_tblDove;"
-		  
-		  Var data2 As RowSet
-		  Try
-		    data2 = db.SelectSQL(sql2)
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowTowers | Method: PopulateListBox | DB error fetching towers row count")
-		  End Try
-		  
-		  If data1 <> Nil Then
-		    
-		    For Each row As Databaserow In data2
-		      
-		      tempTowerCount = row.columnat(0).IntegerValue 'all rows
+		      Self.lbxCourses.AddRow(tempCourseID.ToString, sr2DateTime(tempStartDate,false,false), tempProgrammeShortTitle, tempLocationComposite + ", " + tempCountryCode, tempCbcsText)
 		      
 		    Next row
 		    data1.close
 		    
 		  End If 'data <> nil then
 		  
-		  // fall through
-		  // there is something in the list box therefore towerSearchWhere will be populated
-		  
-		  Var sql3 As String
-		  
-		  sql3 = "SELECT dove_id, composite FROM srv2_vwDoveTowers WHERE compPlace LIKE """ + "%" + Self.towerSearchWhere + "%" + """ ;"
-		  
-		  // MessageBox (sql2)
-		  
-		  Var data3 As RowSet
-		  Try
-		    data3 = db.SelectSQL(sql3)
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowDove | Method: PopulateListBox | DB error fetching info from view")
-		  End Try
-		  
-		  Var tempDoveID As String
-		  Var tempComposite As String
-		  // Var tempRight As Integer
-		  
-		  If data3 <> Nil Then
-		    
-		    Self.ListBoxTowers.RemoveAllRows
-		    
-		    For Each row As Databaserow In data3
-		      
-		      tempDoveID = row.column("dove_id").StringValue
-		      tempComposite = row.Column("composite").StringValue.DefineEncoding(Encodings.UTF8)
-		      
-		      // populate the list box row
-		      Self.ListBoxTowers.AddRow(tempDoveID, tempComposite)
-		      
-		    Next row
-		    
-		    tempFetchedCount = data3.RowCount ' how many we retrieved
-		    data3.close
-		    
-		  End If 'data <> nil then
-		  
-		  // update the on-screen data...
-		  Self.lblTowerInfo.Text = tempFetchedCount.ToString("###,###") + " of " + tempTowerCount.ToString("###,###") + " towers incl " + tempURCount.tostring("###,###") + " unringable"
 		  
 		End Sub
 	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub selectTower()
-		  If ListBoxTowers.RowCount = 0 Then
-		    
-		    MessageBox("Enter some characaters in the search box")
-		    
-		    Return
-		    
-		  End If 
-		  
-		  If ListBoxTowers.SelectedRowIndex = Listbox.NoSelection Then
-		    
-		    MessageBox("Please select a tower first!")
-		    
-		    Return
-		    
-		  Else ' user has selected something
-		    
-		    //MessageBox("Selected " + Self.ListBoxTowers.SelectedRowText)
-		    
-		    //pass back the new selectec value via app properties
-		    
-		    app.setTowerNew = True ' we have something to pass back
-		    app.selectedTower = Self.ListBoxTowers.SelectedRowText
-		    
-		  End If
-		  Self.close
-		End Sub
-	#tag EndMethod
-
-
-	#tag Property, Flags = &h0
-		towerSearchWhere As String
-	#tag EndProperty
 
 
 #tag EndWindowCode
 
-#tag Events SearchTower
-	#tag Event
-		Sub TextChanged()
-		  Self.towerSearchWhere = Me.Text '
-		  //MessageBox(Me.Text)
-		  populateListBox
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events ListBoxTowers
-	#tag Event
-		Sub DoublePressed()
-		  selectTower
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnSelect
-	#tag Event
-		Sub Pressed()
-		  // btnSelect pushed
-		  
-		  selectTower
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Name"
@@ -678,13 +666,5 @@ End
 		InitialValue="False"
 		Type="Boolean"
 		EditorType=""
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="towerSearchWhere"
-		Visible=false
-		Group="Behavior"
-		InitialValue=""
-		Type="String"
-		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 #tag EndViewBehavior

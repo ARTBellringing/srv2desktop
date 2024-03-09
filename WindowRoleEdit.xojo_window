@@ -47,62 +47,14 @@ Begin DesktopWindow WindowRoleEdit
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "User"
-      TextAlignment   =   3
+      TextAlignment   =   1
       TextColor       =   &c000000
       Tooltip         =   ""
       Top             =   20
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   79
-   End
-   Begin DesktopListBox ListBoxUserInfo
-      AllowAutoDeactivate=   True
-      AllowAutoHideScrollbars=   True
-      AllowExpandableRows=   False
-      AllowFocusRing  =   True
-      AllowResizableColumns=   False
-      AllowRowDragging=   False
-      AllowRowReordering=   False
-      Bold            =   False
-      ColumnCount     =   3
-      ColumnWidths    =   "40,95,200"
-      DefaultRowHeight=   -1
-      DropIndicatorVisible=   False
-      Enabled         =   False
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      GridLineStyle   =   0
-      HasBorder       =   True
-      HasHeader       =   False
-      HasHorizontalScrollbar=   False
-      HasVerticalScrollbar=   True
-      HeadingIndex    =   -1
-      Height          =   20
-      Index           =   -2147483648
-      InitialValue    =   ""
-      Italic          =   False
-      Left            =   117
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      RequiresSelection=   False
-      RowSelectionType=   0
-      Scope           =   0
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Tooltip         =   ""
-      Top             =   20
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   309
-      _ScrollOffset   =   0
-      _ScrollWidth    =   -1
+      Width           =   403
    End
    Begin DesktopTextField txtRoleType
       AllowAutoDeactivate=   True
@@ -517,7 +469,7 @@ Begin DesktopWindow WindowRoleEdit
       Bold            =   False
       Cancel          =   False
       Caption         =   "Save"
-      Default         =   True
+      Default         =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -533,7 +485,7 @@ Begin DesktopWindow WindowRoleEdit
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   20
+      TabIndex        =   19
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -548,7 +500,7 @@ Begin DesktopWindow WindowRoleEdit
       Bold            =   False
       Cancel          =   False
       Caption         =   "Cancel"
-      Default         =   True
+      Default         =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -564,9 +516,9 @@ Begin DesktopWindow WindowRoleEdit
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   19
+      TabIndex        =   20
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Tooltip         =   ""
       Top             =   322
       Transparent     =   False
@@ -760,16 +712,15 @@ End
 		Sub Opening()
 		  // Edit Role Window Opening
 		  
+		  // get user info
+		  // display user info
 		  
-		  Var tempUserID As Integer 
-		  tempUserID = app.objectUserID
+		  Var tempUserID As Integer
+		  Var tempUserName As String
+		  Var tempFirstName As String
+		  Var tempLastName As String
 		  
-		  Var tempIUserID As Integer
-		  Var tempIUserName As String
-		  Var tempIFirstName As String
-		  Var tempILastName As String
-		  
-		  //MessageBox("Selected user is: " + tempUserID)
+		  tempUserID = app.objectUserID  ' object user is the one we are operating/working on
 		  
 		  Var sqlA As String
 		  
@@ -778,32 +729,30 @@ End
 		  //MessageBox (sqlA)
 		  
 		  Var data As RowSet
-		  
 		  Try
 		    data = db.SelectSQL(sqlA)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAllRolses | Method: Retrieve User | DB error fetching user")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowViewCourses | Method: Retrieve User Info | DB error fetching user")
 		  End Try
-		  
-		  Self.ListBoxUserInfo.RemoveAllRows
 		  
 		  If data <> Nil Then
 		    
-		    
 		    For Each row As Databaserow In data
-		      tempIUserID = row.Column("u_user_id").IntegerValue
-		      tempIUserName = row.Column("u_user_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempIFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempILastName = row.Column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempUserID = row.Column("u_user_id").IntegerValue
+		      tempUserName = row.Column("u_user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempLastName = row.Column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      
-		      Self.ListBoxUserInfo.AddRow(tempUserID.ToString, tempIUserName, tempILastName + ", " + tempIFirstName)
+		      lblUserInfo.Text = "Edit role for  " + tempUserID.ToString + "   " + tempUserName + "   " + tempLastName + ", " + tempFirstName
 		      
 		    Next row
 		    
 		    data.close
 		    
 		  End If 'data <> nil then
+		  
+		  //////////////////////
 		  
 		  //messagebox("Role: ")
 		  populateRoleType

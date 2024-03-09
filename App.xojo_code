@@ -149,10 +149,6 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		activeUserTower As String
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
 		appVersion As String
 	#tag EndProperty
 
@@ -169,7 +165,23 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		reloadUser As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		RoleToEdit As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		selectedTower As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		setTowerNew As Boolean
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		setUserTower As Boolean = False
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -178,6 +190,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		windowChangePasswordP As WindowChangePassword
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowChangeUsernameP As WindowChangeUsername
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -201,6 +217,10 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		windowNewUserP As WindowNewUser
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		windowNotesP As WindowNotes
 	#tag EndProperty
 
@@ -218,6 +238,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		windowRolesP As WindowRoles
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowViewStatusP As WindowViewStatus
 	#tag EndProperty
 
 
@@ -462,19 +486,43 @@ Inherits DesktopApplication
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="activeUserTower"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="String"
-			EditorType="MultiLineEditor"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="RoleToEdit"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
 			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="reloadUser"
+			Visible=false
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="setUserTower"
+			Visible=false
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="setTowerNew"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="selectedTower"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="String"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

@@ -93,7 +93,7 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   0
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "All roles for"
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -102,55 +102,7 @@ Begin DesktopWindow WindowRoles
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   74
-   End
-   Begin DesktopListBox ListBoxUserInfo
-      AllowAutoDeactivate=   True
-      AllowAutoHideScrollbars=   True
-      AllowExpandableRows=   False
-      AllowFocusRing  =   True
-      AllowResizableColumns=   False
-      AllowRowDragging=   False
-      AllowRowReordering=   False
-      Bold            =   False
-      ColumnCount     =   3
-      ColumnWidths    =   "40,95,200"
-      DefaultRowHeight=   -1
-      DropIndicatorVisible=   False
-      Enabled         =   False
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      GridLineStyle   =   0
-      HasBorder       =   True
-      HasHeader       =   False
-      HasHorizontalScrollbar=   False
-      HasVerticalScrollbar=   True
-      HeadingIndex    =   -1
-      Height          =   20
-      Index           =   -2147483648
-      InitialValue    =   ""
-      Italic          =   False
-      Left            =   96
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      RequiresSelection=   False
-      RowSelectionType=   0
-      Scope           =   0
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Tooltip         =   ""
-      Top             =   20
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   277
-      _ScrollOffset   =   0
-      _ScrollWidth    =   -1
+      Width           =   302
    End
    Begin DesktopLabel lblRoleCaption
       AllowAutoDeactivate=   True
@@ -173,7 +125,7 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   2
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "Role"
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -205,7 +157,7 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "Until"
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -237,7 +189,7 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "State"
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -269,7 +221,7 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "Detail"
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -337,7 +289,7 @@ Begin DesktopWindow WindowRoles
       Scope           =   0
       TabIndex        =   10
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   ""
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -370,7 +322,7 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   9
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "ID"
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -402,7 +354,7 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   11
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "Group(s)"
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -442,7 +394,7 @@ Begin DesktopWindow WindowRoles
       Scope           =   0
       TabIndex        =   12
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   ""
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -464,7 +416,7 @@ Begin DesktopWindow WindowRoles
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   13
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -475,9 +427,9 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   13
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "Assignment"
-      TextAlignment   =   0
+      TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
       Top             =   229
@@ -515,7 +467,7 @@ Begin DesktopWindow WindowRoles
       Scope           =   0
       TabIndex        =   14
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   ""
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -548,16 +500,16 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   15
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "Revocation"
-      TextAlignment   =   0
+      TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
       Top             =   265
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   95
+      Width           =   62
    End
    Begin DesktopTextField txtRevocationText
       AllowAutoDeactivate=   True
@@ -588,7 +540,7 @@ Begin DesktopWindow WindowRoles
       Scope           =   0
       TabIndex        =   16
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   ""
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -621,7 +573,7 @@ Begin DesktopWindow WindowRoles
       Selectable      =   False
       TabIndex        =   17
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   "Role"
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -661,7 +613,7 @@ Begin DesktopWindow WindowRoles
       Scope           =   0
       TabIndex        =   18
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Text            =   ""
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -678,7 +630,7 @@ Begin DesktopWindow WindowRoles
       Bold            =   False
       Cancel          =   False
       Caption         =   "Edit"
-      Default         =   True
+      Default         =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -709,7 +661,7 @@ Begin DesktopWindow WindowRoles
       Bold            =   False
       Cancel          =   False
       Caption         =   "New Role..."
-      Default         =   True
+      Default         =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -798,7 +750,7 @@ Begin DesktopWindow WindowRoles
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
+         TabStop         =   False
          Text            =   ""
          TextAlignment   =   0
          TextColor       =   &c000000
@@ -874,7 +826,7 @@ Begin DesktopWindow WindowRoles
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
+         TabStop         =   False
          Text            =   ""
          TextAlignment   =   0
          TextColor       =   &c000000
@@ -904,22 +856,21 @@ End
 		Sub Opening()
 		  // All Roles Window opening
 		  
-		  app.windowMainP.preventInitialUserStateSave = True
+		  //app.windowMainP.preventInitialUserStateSave = True
 		  
-		  Var tempUserID As Integer 
-		  tempUserID = app.objectUserID
+		  // get user info
+		  // display user info
 		  
-		  Var tempIUserID As Integer
-		  Var tempIUserName As String
-		  Var tempIFirstName As String
-		  Var tempILastName As String
+		  Var tempUserID As Integer
+		  Var tempUserName As String
+		  Var tempFirstName As String
+		  Var tempLastName As String
 		  
-		  
-		  //MessageBox("Selected user is: " + tempUserID)
+		  tempUserID = app.objectUserID  ' object user is the one we are operating/working on
 		  
 		  Var sqlA As String
 		  
-		  sqlA = "SELECT u_user_id, u_user_name, p_first_name, p_last_name FROM srv2_vwUserAdmin WHERE u_user_id = " + tempUserID.ToString
+		  sqlA = "SELECT u_user_id, u_user_name, p_first_name, p_last_name FROM srv2_vwUserAdmin WHERE u_user_id = " + tempUserID.ToString + ";"
 		  
 		  //MessageBox (sqlA)
 		  
@@ -928,21 +879,18 @@ End
 		    data = db.SelectSQL(sqlA)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAllRolses | Method: Retrieve User | DB error fetching user")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowViewAllRoles | Method: Retrieve User Info | DB error fetching user")
 		  End Try
-		  
-		  Self.ListBoxUserInfo.RemoveAllRows
 		  
 		  If data <> Nil Then
 		    
-		    
 		    For Each row As Databaserow In data
-		      tempIUserID = row.Column("u_user_id").IntegerValue
-		      tempIUserName = row.Column("u_user_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempIFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempILastName = row.Column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempUserID = row.Column("u_user_id").IntegerValue
+		      tempUserName = row.Column("u_user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempLastName = row.Column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      
-		      Self.ListBoxUserInfo.AddRow(tempUserID.ToString, tempIUserName, tempILastName + ", " + tempIFirstName)
+		      lblUserInfo.Text = "All roles for  " + tempUserID.ToString + "   " + tempUserName + "   " + tempLastName + ", " + tempFirstName
 		      
 		    Next row
 		    

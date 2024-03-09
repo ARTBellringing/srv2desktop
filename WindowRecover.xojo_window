@@ -198,7 +198,7 @@ Begin DesktopWindow WindowRecover
       Bold            =   False
       Cancel          =   False
       Caption         =   "Cancel"
-      Default         =   True
+      Default         =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -216,7 +216,7 @@ Begin DesktopWindow WindowRecover
       Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Tooltip         =   ""
       Top             =   234
       Transparent     =   False

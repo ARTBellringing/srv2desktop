@@ -256,7 +256,7 @@ Begin DesktopWindow WindowCodeLogin
       Scope           =   0
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Tooltip         =   ""
       Top             =   120
       Transparent     =   False

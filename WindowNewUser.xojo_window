@@ -1,5 +1,5 @@
 #tag DesktopWindow
-Begin DesktopWindow WindowLogin
+Begin DesktopWindow WindowNewUser
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF
    Composite       =   False
@@ -10,8 +10,8 @@ Begin DesktopWindow WindowLogin
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   False
-   Height          =   317
-   ImplicitInstance=   True
+   Height          =   187
+   ImplicitInstance=   False
    MacProcID       =   0
    MaximumHeight   =   32000
    MaximumWidth    =   32000
@@ -20,11 +20,11 @@ Begin DesktopWindow WindowLogin
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Login"
+   Title           =   "Add new user"
    Type            =   0
    Visible         =   True
-   Width           =   350
-   Begin DesktopTextField txtUsername
+   Width           =   468
+   Begin DesktopTextField txtFirstname
       AllowAutoDeactivate=   True
       AllowFocusRing  =   True
       AllowSpellChecking=   False
@@ -32,7 +32,7 @@ Begin DesktopWindow WindowLogin
       BackgroundColor =   &cFFFFFF
       Bold            =   False
       Enabled         =   True
-      FontName        =   "Consolas"
+      FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
       Format          =   ""
@@ -41,7 +41,48 @@ Begin DesktopWindow WindowLogin
       Hint            =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   107
+      Left            =   106
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   1
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   18
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   194
+   End
+   Begin DesktopTextField txtLastname
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   22
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   106
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -58,55 +99,14 @@ Begin DesktopWindow WindowLogin
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   175
+      Top             =   52
       Transparent     =   False
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
-      Width           =   195
+      Width           =   194
    End
-   Begin DesktopTextField txtPassword
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "C"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   107
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   True
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   4
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   209
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   195
-   End
-   Begin DesktopLabel lblUsername
+   Begin DesktopLabel lblFirstname
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
@@ -116,7 +116,7 @@ Begin DesktopWindow WindowLogin
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   33
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -125,20 +125,20 @@ Begin DesktopWindow WindowLogin
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   1
+      TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Username:"
+      Text            =   "First name"
       TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   177
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   75
+      Width           =   61
    End
-   Begin DesktopLabel lblPassword
+   Begin DesktopLabel lblLastname
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
@@ -148,7 +148,7 @@ Begin DesktopWindow WindowLogin
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   33
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -160,141 +160,122 @@ Begin DesktopWindow WindowLogin
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Password:"
+      Text            =   "Last name"
       TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   209
+      Top             =   52
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   75
+      Width           =   61
    End
-   Begin DesktopButton btnLogin
+   Begin DesktopTextField txtSuggestedUsername
       AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
       Bold            =   False
-      Cancel          =   False
-      Caption         =   "Login"
-      Default         =   True
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
       Height          =   22
+      Hint            =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   234
+      Left            =   106
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      MacButtonStyle  =   0
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
       Scope           =   0
+      TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   128
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   194
+   End
+   Begin DesktopLabel lblSuggestedUsername
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   39
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   33
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
+      Text            =   "Suggested username"
+      TextAlignment   =   3
+      TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   275
+      Top             =   128
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   80
+      Width           =   61
    End
-   Begin DesktopLabel lblUserInfo
+   Begin DesktopSeparator Separator1
+      Active          =   False
       AllowAutoDeactivate=   True
-      Bold            =   False
+      AllowTabStop    =   True
       Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
+      Height          =   9
       Index           =   -2147483648
-      Italic          =   False
-      Left            =   107
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   5
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "MESSAGE"
-      TextAlignment   =   2
-      TextColor       =   &cFF000000
-      Tooltip         =   ""
-      Top             =   243
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   195
-   End
-   Begin DesktopCanvas Canvas1
-      AllowAutoDeactivate=   True
-      AllowFocus      =   False
-      AllowFocusRing  =   True
-      AllowTabs       =   False
-      Backdrop        =   768671743
-      Enabled         =   True
-      Height          =   100
-      Index           =   -2147483648
-      Left            =   125
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   6
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   20
-      Transparent     =   True
-      Visible         =   True
-      Width           =   100
-   End
-   Begin DesktopLabel lblVersion
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   10.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   20
+      InitialParent   =   ""
+      Left            =   33
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Multiline       =   False
+      PanelIndex      =   0
       Scope           =   0
-      Selectable      =   False
-      TabIndex        =   0
+      TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   False
-      Text            =   "Untitled"
-      TextAlignment   =   2
-      TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   143
+      Top             =   110
       Transparent     =   False
-      Underline       =   False
       Visible         =   True
-      Width           =   310
+      Width           =   267
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
    End
-   Begin DesktopButton btnHaveCode
+   Begin DesktopButton btnSuggest
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "I have a code"
+      Caption         =   "Suggest username"
       Default         =   False
       Enabled         =   True
       FontName        =   "System"
@@ -303,7 +284,70 @@ Begin DesktopWindow WindowLogin
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   137
+      Left            =   323
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   52
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   117
+   End
+   Begin DesktopLabel lblMessage
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   106
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "MESSAGE"
+      TextAlignment   =   2
+      TextColor       =   &cFF000000
+      Tooltip         =   ""
+      Top             =   86
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   194
+   End
+   Begin DesktopButton btnAddUser
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Add user"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   323
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -313,358 +357,301 @@ Begin DesktopWindow WindowLogin
       Scope           =   0
       TabIndex        =   9
       TabPanelIndex   =   0
-      TabStop         =   False
+      TabStop         =   True
       Tooltip         =   ""
-      Top             =   275
+      Top             =   128
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   89
-   End
-   Begin DesktopButton btnRecover
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Forgot login?"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   36
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   8
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Tooltip         =   ""
-      Top             =   275
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   89
+      Width           =   117
    End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
-	#tag Event
-		Sub Closing()
-		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowLogin | window closed")
-		  
-		End Sub
-	#tag EndEvent
-
-	#tag Event
-		Sub Opening()
-		  Var stage As String
-		  Select Case app.StageCode
-		  Case 0 ' Development
-		    stage = "D"
-		  Case 1  'Alpha
-		    stage = "A"
-		  Case 2 ' Beta
-		    stage = "B"
-		  Case 3 ' Production
-		    stage = "P"
-		  Case else
-		    stage = ""
-		  End Select 
-		  
-		  
-		  lblVersion.Text = "v" + app.MajorVersion.ToString + "." + app.MinorVersion.ToString _
-		  + "." + app.BugVersion.ToString + "." + stage + " Build " + app.NonReleaseVersion.ToString + " X " + XojoVersionString
-		  
-		  me.txtUsername.SetFocus
-		  
-		End Sub
-	#tag EndEvent
-
-
 #tag EndWindowCode
 
-#tag Events txtUsername
-	#tag Event
-		Function KeyDown(key As String) As Boolean
-		  If key = chr(13) or key = chr(3) then 
-		    //do whatever 
-		    //MessageBox ("Enter pressed in username")
-		    
-		    WindowLogin.txtPassword.SetFocus
-		    
-		  End If 
-		  Self.lblUserInfo.Text = ""
-		End Function
-	#tag EndEvent
-#tag EndEvents
-#tag Events txtPassword
-	#tag Event
-		Function KeyDown(key As String) As Boolean
-		  If key = chr(13) or key = chr(3) then 
-		    
-		    //MessageBox ("Enter pressed")
-		    
-		    self.btnLogin.SetFocus
-		    
-		  End if
-		  Self.lblUserInfo.Text = ""
-		End Function
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnLogin
+#tag Events btnSuggest
 	#tag Event
 		Sub Pressed()
-		  If Self.txtUsername.Text.Length = 0  Then
+		  // btnSuggest pressed
+		  
+		  lblMessage.Text = "MESSAGE"
+		  
+		  // trim off any trailing spaces
+		  
+		  
+		  txtFirstname.Text = txtFirstname.Text.Trim
+		  txtLastname.Text = txtLastname.Text.Trim
+		  
+		  If txtFirstname.Text.Contains(" ") Then
 		    
-		    // user hasn't typed anything
-		    Self.lblUserInfo.Text = "Blank username is not allowed"
-		    Self.txtUsername.Text = ""
-		    Self.txtPassword.Text = ""
-		    Self.txtUsername.SetFocus
-		    
-		    Module1.DecAppLoginTries("login")
-		    
+		    lblMessage.Text = "Spaces not allowed in first name"
+		    txtFirstname.SetFocus
 		    Return
 		    
 		  End If
 		  
-		  If Self.txtPassword.Text.Length = 0  Then
+		  If txtFirstname.Text.Contains("-") Then
 		    
-		    // user hasn't typed anything
-		    Self.lblUserInfo.Text = "Blank password is not allowed"
-		    Self.txtPassword.Text = ""
-		    Self.txtPassword.SetFocus
-		    
-		    Module1.DecAppLoginTries("login")
-		    
+		    lblMessage.Text = "Hyphens not allowed in first name"
+		    txtFirstname.SetFocus
 		    Return
 		    
 		  End If
 		  
-		  // now see if there is a matching row for the username in tblUser...
+		  If txtLastname.Text.Contains("-") Then
+		    
+		    lblMessage.Text = "Hyphens not allowed in last name"
+		    txtLastname.SetFocus
+		    Return
+		    
+		  End If
+		  
+		  If txtLastname.Text.Contains(" ") Then
+		    
+		    lblMessage.Text = "Spaces not allowed in last name"
+		    txtLastname.SetFocus
+		    Return
+		    
+		  End If
+		  
+		  If txtFirstname.Text.Length = 0 Then
+		    
+		    lblMessage.Text = "First name cannot be blank"
+		    txtFirstname.SetFocus
+		    Return
+		    
+		  End If 
+		  
+		  If txtLastname.Text.length = 0 Then
+		    
+		    lblMessage.Text = "Last name cannot be blank"
+		    txtLastname.SetFocus
+		    Return
+		    
+		  End If 
+		  
+		  Var tempSuggestedName As String
+		  Var tempSuggestedNameUserPart As String
+		  
+		  tempSuggestedName = txtFirstname.Text.Left(1).Lowercase + txtLastname.Text.Lowercase
+		  tempSuggestedNameUserPart = tempSuggestedName  ' initial value with no digits
+		  
+		  txtSuggestedUsername.Text = tempSuggestedName
+		  
+		  // set variables for db check
+		  
+		  Var tempRowCount As Integer
+		  Var tempUsername As String
+		  Var tempMaxDigit As Integer
+		  Var tempUserAddInteger As Integer
+		  
+		  Var sqlA As String
+		  
+		  sqlA = "SELECT user_name FROM srv2_tblUser WHERE user_name LIKE ? ;"
 		  
 		  Var data As RowSet
+		  
 		  Try
-		    data = db.SelectSQL("SELECT * FROM srv2_vwUserLogin WHERE user_name = ?;", self.txtUsername.text)
+		    
+		    data = db.SelectSQL(sqlA, tempSuggestedNameUserPart + "%")
+		    
 		  Catch error As DatabaseException
+		    
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(1,"System","WindowLogin | btnLogin | DB error fetching username")
-		    Module1.AppClose
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddNewUser | Method: Check for existing usernames  | DB error fetching usernames")
+		    module1.AppClose
 		    
 		  End Try
 		  
-		  if data.RowCount = 0 then
+		  tempRowCount = data.RowCount
+		  
+		  //MessageBox("Row count: " + tempRowCount.ToString)
+		  
+		  If tempRowCount = 0 Then
 		    
-		    '// no match match in DB...
-		    Module1.writeDBLog(1,"","Attempted Login with bad username: " + self.txtUsername.Text)
-		    Self.lblUserInfo.Text = "Invalid username or password"
-		    Self.txtUsername.Text = ""
-		    Self.txtPassword.Text = ""
-		    Self.txtUsername.SetFocus
-		    
-		    //MessageBox ("No match")
-		    data.close
-		    
-		    Module1.DecAppLoginTries("login")
-		    
+		    //match without a digit
+		    MessageBox("Match without digit")
+		    data.Close
 		    Return
 		    
-		  Else
-		    
-		    //MessageBox(data.RowCount.ToString)
-		    
-		  End If 'rowcount = 0 
+		  End If
 		  
-		  // now determine if this user is allowed to login...
+		  // fall through and need to add some digits to make the name unique...
 		  
-		  Var tempUserID As Integer
-		  Var tempUserName As String
-		  var tempPassword as string '2
-		  Var tempDesktopLoginPermitted As Boolean
-		  Var tempLoginCode As String
-		  Var tempUserState As Integer '5
-		  Var tempPasswordTriesRemaining As Integer
-		  Var tempAccountLockedOut As Boolean
-		  Var tempUserStateName As String
-		  Var tempAllowLogin As Boolean '9
-		  Var tempLoginRejectionMessage As String 
+		  Var tempNamelength As Integer = tempSuggestedNameUserPart.Length
 		  
 		  If data <> Nil Then
-		    for each row as Databaserow in data
+		    
+		    For Each row As Databaserow In data
 		      
-		      tempUserID = row.Column("sr2_user_id").IntegerValue
-		      tempUserName = row.Column("user_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempPassword = row.Column("password").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempDesktopLoginPermitted = row.Column("desktop_login_permitted").BooleanValue
-		      tempLoginCode = row.Column("login_code").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempUserState = row.Column("user_state").IntegerValue
-		      tempPasswordTriesRemaining = row.Column("password_tries_remaining").IntegerValue
-		      tempAccountLockedOut = row.Column("account_locked_out").BooleanValue
-		      tempUserStateName = row.Column("user_state_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempAllowLogin = row.Column("allow_login").BooleanValue
-		      tempLoginRejectionMessage = row.Column("login_rejection_message").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempUsername = row.column("user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempUsername = Mid(tempUsername, tempNamelength + 1)
+		      tempUserAddInteger = tempUserName.ToInteger
 		      
-		    next row
+		      If tempUserAddInteger > tempMaxDigit Then
+		        
+		        tempMaxDigit = tempUserAddInteger
+		        
+		      End If 
+		      
+		    Next row
 		    data.close
-		    
-		    If tempAllowLogin = False Or tempDesktopLoginPermitted = False Then 
-		      // user is not allowed to login
-		      
-		      Var md As New MessageDialog                      // declare the MessageDialog object
-		      Var b As MessageDialogButton                     // for handling the result
-		      md.Title = "Account Information"
-		      md.IconType = MessageDialog.IconTypes.Stop       // display warning icon
-		      md.ActionButton.Caption = "Quit"
-		      md.CancelButton.Visible = False                  // show the Cancel button
-		      md.AlternateActionButton.Visible = False         // show the "Don't Save" button
-		      md.AlternateActionButton.Caption = "Don't Save"
-		      md.Message = "You cannot login as " + tempUserName + "."
-		      md.Explanation = tempLoginRejectionMessage
-		      
-		      If tempDesktopLoginPermitted = False Then 
-		        
-		        md.Explanation = "User " + tempUserName + " is not authorised to use the SRv2 Desktop Application."
-		        Module1.writeDBLog(tempUserID,tempUserName,"Attempted login via desktop when not authorised")
-		        
-		      Else  'allowLogin = false
-		        
-		        Module1.writeDBLog(tempUserID,tempUserName,"User state " + tempUserState.ToString + " prevented login")
-		        
-		      End If ' tempDesktopLoginPermitted = false
-		      
-		      b = md.ShowModal                                 // display the dialog
-		      Select Case b                                    // determine which button was pressed.
-		      Case md.ActionButton
-		        // user pressed OK
-		        Module1.AppClose
-		        Quit
-		        
-		      Case md.AlternateActionButton
-		        // user pressed Don't Save
-		      Case md.CancelButton
-		        // user pressed Cancel
-		      End Select
-		      
-		    End If ' tempAllowLogin = false or temoDesktopLoginPermitted = false
-		    
-		    // now check if account is locked out...
-		    If tempAccountLockedOut = True Then
-		      
-		      Var md As New MessageDialog                      // declare the MessageDialog object
-		      Var b As MessageDialogButton                     // for handling the result
-		      md.Title = "Account Information"
-		      md.IconType = MessageDialog.IconTypes.Stop       // display warning icon
-		      md.ActionButton.Caption = "Quit"
-		      md.CancelButton.Visible = False                  // show the Cancel button
-		      md.AlternateActionButton.Visible = False         // show the "Don't Save" button
-		      md.AlternateActionButton.Caption = "Don't Save"
-		      md.Message = "You cannot login as " + tempUserName + "."
-		      md.Explanation = "Account " + tempUserName + " is locked out.  Please contact admin@bellringing.org for assistance."
-		      
-		      b = md.ShowModal                                 // display the dialog
-		      Select Case b                                    // determine which button was pressed.
-		      Case md.ActionButton
-		        // user pressed Exit
-		        Module1.writeDBLog(tempUserID, tempUserName, "Attempted login when account locked out")
-		        Module1.AppClose
-		        
-		      Case md.AlternateActionButton
-		        // user pressed Don't Save
-		      Case md.CancelButton
-		        // user pressed Cancel
-		      End Select
-		      
-		    End If ' Account locked out
 		    
 		  End If 'data <> nil then
 		  
-		  // Now we need to see if the password matches...
-		  //Compare the supplied password with the stored value in the db...
+		  tempMaxDigit = tempMaxDigit + 1  ' this is the next free digit
 		  
-		  If tempPassword <> EncodeHex(MD5(Self.txtPassword.Text)) Then // password is wrong...
+		  txtSuggestedUsername.Text = tempSuggestedName + tempMaxDigit.ToString
+		  
+		  // if we get to here, the txtSuggested name is now not in the database...
+		  
+		  btnAddUser.SetFocus
+		  
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnAddUser
+	#tag Event
+		Sub Pressed()
+		  // btnAddUser - pressed
+		  
+		  If txtSuggestedUsername.Text.Length = 0 Then
 		    
-		    // not a valid password
-		    Module1.writeDBLog(1,self.txtUsername.text,"Attempted login with bad password: "+self.txtPassword.Text)
-		    Self.lblUserInfo.Text = "Invalid username or password "
-		    self.txtUsername.Text = ""
-		    Self.txtPassword.Text = ""
-		    Self.txtUsername.SetFocus
-		    
-		    //decrement the user's password_tries_remaining value, and the app_login tries values
-		    Module1.DecAppLoginTries("login")
-		    Module1.DecUserPasswordTries(tempUserID)
-		    
+		    lblMessage.Text = "Username cannot be blank"
+		    txtSuggestedUsername.SetFocus
 		    Return
 		    
-		  end if
+		  End If 
 		  
-		  // fall though again - password is correct if we get to here...
-		  // set the app properties
-		  app.activeUserID = tempUserID
-		  app.activeUserName = tempUserName
-		  app.activeUserPassword = tempPassword
+		  Var tempSuggestedName As String
+		  tempSuggestedName = txtSuggestedUsername.Text.Lowercase.Trim
 		  
-		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in")
-		  Module1.writeDBNote(app.activeUserID, 1, "Logged in", Nil, True)
+		  // set variables for db check
 		  
-		  //reset the user's password_tries_remaining value
-		  Module1.ResetUserPasswordTries(app.activeUserID)
-		  // update the last login datetime
-		  Module1.UpdateLoginDateTime
-		  // Module1.activateUser - only needed when logging in via code
+		  Var tempRowCount As Integer
 		  
-		  app.windowMainP = New WindowMain
-		  app.windowMainP.Show
+		  Var sqlA As String
 		  
-		  WindowLogin.close
+		  sqlA = "SELECT user_name FROM srv2_tblUser WHERE user_name = ?;"
 		  
+		  Var data As RowSet
 		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events Canvas1
-	#tag Event
-		Sub Opening()
-		  var p as Picture = new picture(me.width, me.height)
-		  p.Graphics.DrawPicture(SR2v2Logo, 0, 0, me.width, me.height, 0, 0, SR2v2Logo.width, SR2v2Logo.height)
-		  me.Backdrop = p
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnHaveCode
-	#tag Event
-		Sub Pressed()
-		  //open close self and open the have code window
+		  Try
+		    
+		    data = db.SelectSQL(sqlA, tempSuggestedName)
+		    
+		  Catch error As DatabaseException
+		    
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddNewUser | Method: Check2 for existing username  | DB error fetching usernames")
+		    module1.AppClose
+		    
+		  End Try
 		  
-		  module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowLogin | Have code button pressed")
+		  If data <> Nil Then
+		    
+		    tempRowcount = data.RowCount
+		    
+		  End If ' data <> nil
 		  
-		  app.windowCodeLoginP = new WindowCodeLogin
-		  app.windowCodeLoginP.Show
-		  windowLogin.close
+		  //MessageBox("Row count: " + tempRowCount.ToString)
 		  
+		  If tempRowCount <> 0 Then
+		    
+		    // can't use this username
+		    lblMessage.Text = "This username is already in use"
+		    txtSuggestedUsername.SetFocus
+		    data.Close
+		    Return
+		    
+		  End If
 		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnRecover
-	#tag Event
-		Sub Pressed()
-		  //open close self and open the have recover window
+		  data.close
 		  
-		  module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowLogin | Recover button pressed")
+		  // MessageBox("Add user: " + tempSuggestedName)
 		  
-		  app.windowRecoverP = New WindowRecover
-		  app.windowRecoverP.show
-		  windowLogin.close
+		  // fall through - go ahead and add row to the database
 		  
+		  Var sqlB As String
+		  
+		  sqlB = "INSERT INTO srv2_tblUser SET user_name = ?, created_by = ?, updated_by = ?;"
+		  
+		  Try
+		    
+		    db.BeginTransaction
+		    db.ExecuteSQL(sqlB, tempSuggestedName, app.activeUserID, app.activeUserID)
+		    
+		  Catch error As DatabaseException
+		    
+		    MessageBox("DB Error: " + error.Message)
+		    db.RollbackTransaction
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddNewUser | Method: Add user to DB | DB error writing new user")
+		    module1.AppClose
+		    
+		  End Try
+		  db.CommitTransaction
+		  
+		  // get back the user ID number you just wrote to the db
+		  
+		  Var sqlC As String
+		  
+		  sqlC = "SELECT sr2_user_id FROM srv2_vwUserRecent;"
+		  
+		  Var data3 As RowSet
+		  Try
+		    data3 = db.SelectSQL(sqlC)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddUser | Method: Get sr2_user_id for latest user | DB error fetching username")
+		  End Try
+		  
+		  Var tempUserID As Integer
+		  
+		  If data3 <> Nil Then
+		    
+		    For Each row As Databaserow In data3
+		      
+		      tempUserID = row.column("sr2_user_id").IntegerValue
+		      
+		    Next row
+		    
+		    data3.close
+		    
+		  End If 'data <> nil then
+		  
+		  // MessageBox(tempUserID.ToString)
+		  
+		  // now write a minimal profile row
+		  
+		  Var sqlD As String
+		  
+		  sqlD = "INSERT INTO srv2_tblPersonProfile SET sr2_user_id = ?, first_name = ?, last_name = ?, created_by = ?;"
+		  
+		  Try
+		    
+		    db.BeginTransaction
+		    db.ExecuteSQL(sqlD, tempUserID, txtFirstname.Text, txtLastname.Text, app.activeUserID)
+		    
+		  Catch error As DatabaseException
+		    
+		    MessageBox("DB Error: " + error.Message)
+		    db.RollbackTransaction
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddNewUser | Method: Add Profile | DB error writing profile")
+		    module1.AppClose
+		    
+		  End Try
+		  db.CommitTransaction
+		  Module1.writeDBLog(app.activeUserID,app.activeUserName, "New user added:  " + tempSuggestedName)
+		  
+		  MessageBox("New user " + tempSuggestedName + " added")
+		  
+		  app.objectUserID = tempUserID
+		  app.reloadUser = True
+		  Self.close
 		  
 		End Sub
 	#tag EndEvent

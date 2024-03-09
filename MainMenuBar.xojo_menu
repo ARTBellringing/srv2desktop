@@ -105,10 +105,34 @@ Begin Menu MainMenuBar
          Visible = True
       End
    End
-   Begin DesktopMenuItem HelpMenu
+   Begin DesktopMenuItem Users
       SpecialMenu = 0
       Index = -2147483648
-      Text = "&Help"
+      Text = "Users"
+      AutoEnabled = True
+      AutoEnable = True
+      Visible = True
+   End
+   Begin DesktopMenuItem Courses
+      SpecialMenu = 0
+      Index = -2147483648
+      Text = "Courses"
+      AutoEnabled = True
+      AutoEnable = True
+      Visible = True
+   End
+   Begin DesktopMenuItem Safeguarding
+      SpecialMenu = 0
+      Index = -2147483648
+      Text = "Safeguarding"
+      AutoEnabled = True
+      AutoEnable = True
+      Visible = True
+   End
+   Begin DesktopMenuItem Membership
+      SpecialMenu = 0
+      Index = -2147483648
+      Text = "Membership"
       AutoEnabled = True
       AutoEnable = True
       Visible = True

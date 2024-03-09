@@ -288,7 +288,7 @@ Begin DesktopWindow WindowChangePassword
       Scope           =   0
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
+      TabStop         =   False
       Tooltip         =   ""
       Top             =   215
       Transparent     =   False
