@@ -153,7 +153,27 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		blLloadSingleCourse As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		courseDelegateAddID As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		loginTriesRemaining As Integer = 3
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		objectCourseAttendanceID As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		objectCourseID As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		objectTutorAttendanceID As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -174,6 +194,14 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		selectedTower As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		selectedUserID As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		setCourseTower As Boolean = false
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -201,6 +229,26 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		windowCourseEditP As WindowCourseEdit
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowCourseNewP As WindowCourseNew
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowCoursesP As WindowCourses
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowDelegateAddP As WindowDelegateAdd
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowDelegateEditP As WindowDelegateEdit
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		windowDoveP As WindowDove
 	#tag EndProperty
 
@@ -214,6 +262,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		windowMainP As WindowMain
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowMembershipP As WindowMembership
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -238,6 +290,26 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		windowRolesP As WindowRoles
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowSafeguardingP As WindowSafeguarding
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowSelectUserP As WindowSelectUser
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowTutorAddP As WindowTutorAdd
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowTutorEditP As WindowTutorEdit
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowViewLearnerStatusP As WindowViewLearnerStatus
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -523,6 +595,62 @@ Inherits DesktopApplication
 			Group="Behavior"
 			InitialValue=""
 			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="selectedUserID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="objectCourseID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="setCourseTower"
+			Visible=false
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="blLloadSingleCourse"
+			Visible=false
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="objectTutorAttendanceID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="objectCourseAttendanceID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="courseDelegateAddID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

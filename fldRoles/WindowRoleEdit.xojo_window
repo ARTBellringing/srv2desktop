@@ -21,7 +21,7 @@ Begin DesktopWindow WindowRoleEdit
    MinimumWidth    =   64
    Resizeable      =   False
    Title           =   "Edit Role"
-   Type            =   0
+   Type            =   1
    Visible         =   True
    Width           =   462
    Begin DesktopLabel lblUserInfo
@@ -744,7 +744,7 @@ End
 		      tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempLastName = row.Column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      
-		      lblUserInfo.Text = "Edit role for  " + tempUserID.ToString + "   " + tempUserName + "   " + tempLastName + ", " + tempFirstName
+		      lblUserInfo.Text = tempUserID.ToString + "   " + tempUserName + "   " + tempLastName + ", " + tempFirstName
 		      
 		    Next row
 		    

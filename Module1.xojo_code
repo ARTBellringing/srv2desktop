@@ -260,6 +260,64 @@ Protected Module Module1
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function getUserInfo(userID as integer, parameter as string) As string
+		  // module1.getUserInfo
+		  
+		  //MessageBox(userID.ToString)
+		  //MessageBox(parameter)
+		  
+		  // setup local variables
+		  
+		  Var tempUserName As String
+		  Var tempUserNiceName As String
+		  Var tempUserNiceSurname As String
+		  
+		  Var sql1 As String
+		  
+		  sql1 = "SELECT user_name, user_nice_name, user_nice_surname FROM srv2_vwUserNiceName WHERE sr2_user_id = ? ;"
+		  
+		  Var data1 As RowSet
+		  Try
+		    data1 = db.SelectSQL(sql1,userID)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "Module1.getUserInfo | DB error fetching user info")
+		  End Try
+		  
+		  
+		  If data1 <> Nil Then
+		    
+		    For Each row As Databaserow In data1
+		      
+		      tempUserName = row.Column("user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempUserNiceName = row.Column("user_nice_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempUserNiceSurname = row.Column("user_nice_surname").StringValue.DefineEncoding(Encodings.UTF8)
+		      
+		    Next row
+		    
+		    data1.close
+		    
+		  End If 'data <> nil then
+		  
+		  Select Case parameter.Lowercase
+		    
+		  Case "username"
+		    Return tempUsername
+		    
+		  Case "usernicename"
+		    Return tempUserNiceName
+		    
+		  Case "usernicesurname"
+		    Return tempUserNiceSurname
+		    
+		  End Select
+		  
+		  
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub ResetUserPasswordTries(input as Integer)
 		  // reset the user's password_tries_remaining
 		  // called on successful login

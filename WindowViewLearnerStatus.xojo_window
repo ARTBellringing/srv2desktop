@@ -1,5 +1,5 @@
 #tag DesktopWindow
-Begin DesktopWindow WindowChangeUsername
+Begin DesktopWindow WindowViewLearnerStatus
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF
    Composite       =   False
@@ -10,7 +10,7 @@ Begin DesktopWindow WindowChangeUsername
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   False
-   Height          =   210
+   Height          =   517
    ImplicitInstance=   False
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -20,354 +20,13 @@ Begin DesktopWindow WindowChangeUsername
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Change Username"
+   Title           =   "Learner Status Detail"
    Type            =   1
    Visible         =   True
-   Width           =   468
-   Begin DesktopTextField txtFirstname
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   106
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   41
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   194
-   End
-   Begin DesktopTextField txtLastname
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   106
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   4
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   75
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   194
-   End
-   Begin DesktopLabel lblFirstname
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   7
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "New first name"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   43
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   87
-   End
-   Begin DesktopLabel lblLastname
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   7
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   3
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "New last name"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   75
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   87
-   End
-   Begin DesktopTextField txtSuggestedUsername
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   106
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   9
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   151
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   194
-   End
-   Begin DesktopLabel lblSuggestedUsername
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   39
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   33
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   8
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Suggested username"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   151
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   61
-   End
-   Begin DesktopSeparator Separator1
-      Active          =   False
-      AllowAutoDeactivate=   True
-      AllowTabStop    =   True
-      Enabled         =   True
-      Height          =   9
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   33
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      PanelIndex      =   0
-      Scope           =   0
-      TabIndex        =   7
-      TabPanelIndex   =   0
-      Tooltip         =   ""
-      Top             =   133
-      Transparent     =   False
-      Visible         =   True
-      Width           =   267
-      _mIndex         =   0
-      _mInitialParent =   ""
-      _mName          =   ""
-      _mPanelIndex    =   0
-   End
-   Begin DesktopButton btnSuggest
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Suggest username"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   323
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   6
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   75
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   117
-   End
+   Width           =   1224
    Begin DesktopLabel lblMessage
       AllowAutoDeactivate=   True
       Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   106
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   5
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "MESSAGE"
-      TextAlignment   =   2
-      TextColor       =   &cFF000000
-      Tooltip         =   ""
-      Top             =   109
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   194
-   End
-   Begin DesktopButton btnChangeUsername
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Change username"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   323
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   10
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   151
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   117
-   End
-   Begin DesktopLabel lblUserInfo
-      AllowAutoDeactivate=   True
-      Bold            =   True
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -384,18 +43,356 @@ Begin DesktopWindow WindowChangeUsername
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   0
+      TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Untitled"
-      TextAlignment   =   1
-      TextColor       =   &c000000
+      Text            =   "MESSAGE"
+      TextAlignment   =   2
+      TextColor       =   &cFF000000
       Tooltip         =   ""
-      Top             =   11
+      Top             =   477
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   428
+      Width           =   533
+   End
+   Begin DesktopLabel lblUserInfo
+      AllowAutoDeactivate=   True
+      Bold            =   True
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   25
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "User Info"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   12
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   530
+   End
+   Begin DesktopLabel lblEnrolmentStatus
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   25
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   13
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Enrolment(s)"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   40
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   146
+   End
+   Begin DesktopListBox lbxEnrolments
+      AllowAutoDeactivate=   True
+      AllowAutoHideScrollbars=   True
+      AllowExpandableRows=   False
+      AllowFocusRing  =   True
+      AllowResizableColumns=   False
+      AllowRowDragging=   False
+      AllowRowReordering=   False
+      Bold            =   False
+      ColumnCount     =   6
+      ColumnWidths    =   "35,35,80,80,80"
+      DefaultRowHeight=   -1
+      DropIndicatorVisible=   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      GridLineStyle   =   3
+      HasBorder       =   True
+      HasHeader       =   False
+      HasHorizontalScrollbar=   False
+      HasVerticalScrollbar=   True
+      HeadingIndex    =   -1
+      Height          =   66
+      Index           =   -2147483648
+      InitialValue    =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      RequiresSelection=   False
+      RowSelectionType=   0
+      Scope           =   0
+      TabIndex        =   14
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   84
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   533
+      _ScrollOffset   =   0
+      _ScrollWidth    =   -1
+   End
+   Begin DesktopLabel lblEnrolmentID
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   28
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   15
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "ID"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   64
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   22
+   End
+   Begin DesktopLabel lblEnrolmentMod
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   59
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   16
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Mod"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   64
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   28
+   End
+   Begin DesktopLabel lblStartDate
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   96
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   18
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Start"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   64
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   66
+   End
+   Begin DesktopLabel lblEndDate
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   175
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   19
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "End"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   64
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   66
+   End
+   Begin DesktopLabel lblCompletionDate
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   254
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   20
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Completion"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   64
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   66
+   End
+   Begin DesktopLabel lblEnrolmentText
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   333
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   21
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Text"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   64
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   66
+   End
+   Begin DesktopButton btnEnrolmentLoad
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Fetch"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   497
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   22
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   162
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   56
    End
 End
 #tag EndDesktopWindow
@@ -403,7 +400,7 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
-		  // windowChangeUsername - Opening
+		  // Window View Courses - Opening
 		  
 		  // get user info
 		  // display user info
@@ -445,257 +442,64 @@ End
 		    
 		  End If 'data <> nil then
 		  
+		  populateEnrolments
+		  
 		End Sub
 	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub populateEnrolments()
+		  // populateEnrolments (Learner)
+		  
+		  Var tempID As Integer
+		  Var tempStartDate As DateTime
+		  Var tempEndDate As DateTime
+		  Var tempCompletionDate As DateTime
+		  Var tempProgrammeShortTitle As String
+		  Var TempEnrolmentText As String
+		  
+		  Var sql1 As String = "SELECT enrolment_id, enrolment_start_date, enrolment_end_date, enrolment_completion_date, programme_short_title, enrolment_text  FROM srv2_vwEnrolmentLearner WHERE user_id = ? ;"
+		  
+		  Var data1 As RowSet
+		  Try
+		    data1 = db.SelectSQL(sql1,app.objectUserID.ToString)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowViewLearnerStatus | Method: PopulateEnrolments | DB error fetching enrolment info")
+		  End Try
+		  
+		  // MessageBox("Rows: " + data1.RowCount.ToString)
+		  
+		  If data1 <> Nil Then
+		    
+		    lbxEnrolments.RemoveAllRows
+		    
+		    For Each row As Databaserow In data1
+		      
+		      tempID = row.Column("enrolment_id").IntegerValue
+		      tempStartDate = row.column("enrolment_start_date").DateTimeValue
+		      tempEndDate = row.column("enrolment_end_date").DateTimeValue
+		      tempCompletionDate = row.column("enrolment_completion_date").DateTimeValue
+		      tempProgrammeShortTitle = row.column("programme_short_title").StringValue.DefineEncoding(Encodings.UTF8)
+		      TempEnrolmentText = row.column("enrolment_text").StringValue.DefineEncoding(Encodings.UTF8)
+		      
+		      Self.lbxEnrolments.AddRow(tempID.ToString, tempProgrammeShortTitle, _
+		      sr2DateTime(tempStartDate,False,False), sr2DateTime(tempEndDate,False,False), sr2DateTime(tempCompletionDate,False,False),  _
+		      TempEnrolmentText)
+		      
+		    Next row
+		    data1.close
+		    
+		  End If 'data <> nil then
+		  
+		  
+		End Sub
+	#tag EndMethod
 
 
 #tag EndWindowCode
 
-#tag Events btnSuggest
-	#tag Event
-		Sub Pressed()
-		  // btnSuggest pressed
-		  
-		  // btnSuggest pressed
-		  
-		  lblMessage.Text = "MESSAGE"
-		  Var tempFirstName As String
-		  Var tempLastName As String
-		  
-		  // trim off any leading or trailing spaces
-		  
-		  txtFirstname.Text = txtFirstname.Text.Trim
-		  txtLastname.Text = txtLastname.Text.Trim
-		  
-		  // If txtFirstname.Text.Contains(" ") Then
-		  // 
-		  // lblMessage.Text = "Spaces not allowed in first name"
-		  // txtFirstname.SetFocus
-		  // Return
-		  // 
-		  // End If
-		  // 
-		  // If txtFirstname.Text.Contains("-") Then
-		  // 
-		  // lblMessage.Text = "Hyphens not allowed in first name"
-		  // txtFirstname.SetFocus
-		  // Return
-		  // 
-		  // End If
-		  
-		  // take any hyphens, dots or spaces out of the lastname and lowercase it
-		  
-		  tempLastname = Self.txtLastname.Text
-		  tempLastName = tempLastName.ReplaceAll("-", "")
-		  tempLastName = tempLastName.ReplaceAll(".", "")
-		  tempLastName = tempLastName.ReplaceAll(" ", "").Lowercase
-		  
-		  If txtFirstname.Text.Length = 0 Then
-		    
-		    lblMessage.Text = "First name cannot be blank"
-		    txtFirstname.SetFocus
-		    Return
-		    
-		  End If 
-		  
-		  If txtLastname.Text.length = 0 Then
-		    
-		    lblMessage.Text = "Last name cannot be blank"
-		    txtLastname.SetFocus
-		    Return
-		    
-		  End If 
-		  
-		  Var tempSuggestedName As String
-		  Var tempSuggestedNameUserPart As String
-		  
-		  tempSuggestedName = txtFirstname.Text.Left(1).Lowercase + tempLastName
-		  tempSuggestedNameUserPart = tempSuggestedName  ' initial value with no digits
-		  
-		  txtSuggestedUsername.Text = tempSuggestedName
-		  
-		  // set variables for db check
-		  
-		  Var tempRowCount As Integer
-		  Var tempUsername As String
-		  Var tempMaxInteger As Integer
-		  Var tempUserAddInteger As Integer
-		  
-		  Var sqlA As String
-		  
-		  sqlA = "SELECT user_name FROM srv2_tblUser WHERE user_name LIKE ? ;"
-		  
-		  Var data As RowSet
-		  
-		  Try
-		    
-		    data = db.SelectSQL(sqlA, tempSuggestedNameUserPart + "%")
-		    
-		  Catch error As DatabaseException
-		    
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddNewUser | Method: Check for existing usernames  | DB error fetching usernames")
-		    module1.AppClose
-		    
-		  End Try
-		  
-		  tempRowCount = data.RowCount
-		  
-		  //MessageBox("Row count: " + tempRowCount.ToString)
-		  
-		  If tempRowCount = 0 Then
-		    
-		    //match without a digit
-		    //MessageBox("Match without digit")
-		    data.Close
-		    Return
-		    
-		  End If
-		  
-		  // fall through and need to add some digits to make the name unique...
-		  
-		  Var tempNamelength As Integer = tempSuggestedNameUserPart.Length
-		  
-		  If data <> Nil Then
-		    
-		    For Each row As Databaserow In data
-		      
-		      tempUsername = row.column("user_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempUsername = Mid(tempUsername, tempNamelength + 1)
-		      tempUserAddInteger = tempUserName.ToInteger
-		      
-		      If tempUserAddInteger > tempMaxInteger Then
-		        
-		        tempMaxInteger = tempUserAddInteger
-		        
-		      End If 
-		      
-		    Next row
-		    data.close
-		    
-		  End If 'data <> nil then
-		  
-		  tempMaxInteger = tempMaxInteger + 1  ' this is the next free integer
-		  
-		  txtSuggestedUsername.Text = tempSuggestedName + tempMaxInteger.ToString
-		  
-		  // if we get to here, the txtSuggested name is now not in the database...btnChangeUsername.SetFocus
-		  
-		  
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnChangeUsername
-	#tag Event
-		Sub Pressed()
-		  // btnChangeUsername - pressed
-		  
-		  If txtSuggestedUsername.Text.Length = 0 Then
-		    
-		    lblMessage.Text = "Username cannot be blank"
-		    txtSuggestedUsername.SetFocus
-		    Return
-		    
-		  End If 
-		  
-		  If txtSuggestedUsername.Text.Contains(" ") Then
-		    
-		    lblMessage.Text = "Space not allowed in username"
-		    txtFirstname.SetFocus
-		    Return
-		    
-		  End If
-		  
-		  If txtSuggestedUsername.Text.Contains("-") Then
-		    
-		    lblMessage.Text = "Hyphen not allowed in username"
-		    txtFirstname.SetFocus
-		    Return
-		    
-		  End If
-		  
-		  Var tempSuggestedName As String
-		  tempSuggestedName = txtSuggestedUsername.Text.Lowercase.Trim
-		  
-		  // set variables for db check
-		  
-		  Var tempRowCount As Integer
-		  
-		  Var sqlA As String
-		  
-		  sqlA = "SELECT user_name FROM srv2_tblUser WHERE user_name = ?;"
-		  
-		  Var data As RowSet
-		  
-		  Try
-		    
-		    data = db.SelectSQL(sqlA, tempSuggestedName)
-		    
-		  Catch error As DatabaseException
-		    
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowChangeUsername | Method: Check2 for existing username  | DB error fetching usernames")
-		    module1.AppClose
-		    
-		  End Try
-		  
-		  If data <> Nil Then
-		    
-		    tempRowcount = data.RowCount
-		    
-		  End If ' data <> nil
-		  
-		  //MessageBox("Row count: " + tempRowCount.ToString)
-		  
-		  If tempRowCount <> 0 Then
-		    
-		    // can't use this username
-		    lblMessage.Text = "This username is already in use"
-		    txtSuggestedUsername.SetFocus
-		    data.Close
-		    Return
-		    
-		  End If
-		  
-		  data.close
-		  
-		  // MessageBox("Add user: " + tempSuggestedName)
-		  
-		  // fall through - go ahead and update the row in the database
-		  
-		  Var sqlB As String
-		  
-		  sqlB = "UPDATE srv2_tblUser SET user_name = ?, updated_by = ? WHERE sr2_user_id = ?;"
-		  
-		  Try
-		    
-		    db.BeginTransaction
-		    db.ExecuteSQL(sqlB, tempSuggestedName, app.activeUserID, app.objectUserID)
-		    
-		  Catch error As DatabaseException
-		    
-		    MessageBox("DB Error: " + error.Message)
-		    db.RollbackTransaction
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddNewUser | Method: Add user to DB | DB error writing new user")
-		    module1.AppClose
-		    
-		  End Try
-		  db.CommitTransaction
-		  
-		  Module1.writeDBLog(app.activeUserID,app.activeUserName, "Username changed for " + tempSuggestedName)
-		  
-		  //(action_on As Integer, note_type As Integer, note_text As String, note_due_date As DateTime, note_closed As Boolean)
-		  module1.writeDBNote(app.objectUserID, 1, "Username changed to " + tempSuggestedName, Nil, True)
-		  
-		  MessageBox("Username changed to " + tempSuggestedName)
-		  
-		  app.reloadUser = True
-		  Self.close
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Name"

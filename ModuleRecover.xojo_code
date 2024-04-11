@@ -74,6 +74,70 @@ Protected Module ModuleRecover
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
+		#tag ViewProperty
+			Name="acEmailAddress"
+			Visible=false
+			Group="Behavior"
+			InitialValue="Nil"
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="acFirstName"
+			Visible=false
+			Group="Behavior"
+			InitialValue="Nil"
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="acID"
+			Visible=false
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="acLastName"
+			Visible=false
+			Group="Behavior"
+			InitialValue="Nil"
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="userEmailAddress"
+			Visible=false
+			Group="Behavior"
+			InitialValue="nil"
+			Type="string"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UserFirstName"
+			Visible=false
+			Group="Behavior"
+			InitialValue="nil"
+			Type="string"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="userID"
+			Visible=false
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="userLastName"
+			Visible=false
+			Group="Behavior"
+			InitialValue="nil"
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Module
 #tag EndModule

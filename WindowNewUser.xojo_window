@@ -21,7 +21,7 @@ Begin DesktopWindow WindowNewUser
    MinimumWidth    =   64
    Resizeable      =   False
    Title           =   "Add new user"
-   Type            =   0
+   Type            =   1
    Visible         =   True
    Width           =   468
    Begin DesktopTextField txtFirstname
@@ -377,44 +377,36 @@ End
 		  // btnSuggest pressed
 		  
 		  lblMessage.Text = "MESSAGE"
+		  Var tempFirstName As String
+		  Var tempLastName As String
 		  
-		  // trim off any trailing spaces
-		  
+		  // trim off any leading or trailing spaces
 		  
 		  txtFirstname.Text = txtFirstname.Text.Trim
 		  txtLastname.Text = txtLastname.Text.Trim
 		  
-		  If txtFirstname.Text.Contains(" ") Then
-		    
-		    lblMessage.Text = "Spaces not allowed in first name"
-		    txtFirstname.SetFocus
-		    Return
-		    
-		  End If
+		  // If txtFirstname.Text.Contains(" ") Then
+		  // 
+		  // lblMessage.Text = "Spaces not allowed in first name"
+		  // txtFirstname.SetFocus
+		  // Return
+		  // 
+		  // End If
+		  // 
+		  // If txtFirstname.Text.Contains("-") Then
+		  // 
+		  // lblMessage.Text = "Hyphens not allowed in first name"
+		  // txtFirstname.SetFocus
+		  // Return
+		  // 
+		  // End If
 		  
-		  If txtFirstname.Text.Contains("-") Then
-		    
-		    lblMessage.Text = "Hyphens not allowed in first name"
-		    txtFirstname.SetFocus
-		    Return
-		    
-		  End If
+		  // take any hyphens, dots or spaces out of the lastname and lowercase it
 		  
-		  If txtLastname.Text.Contains("-") Then
-		    
-		    lblMessage.Text = "Hyphens not allowed in last name"
-		    txtLastname.SetFocus
-		    Return
-		    
-		  End If
-		  
-		  If txtLastname.Text.Contains(" ") Then
-		    
-		    lblMessage.Text = "Spaces not allowed in last name"
-		    txtLastname.SetFocus
-		    Return
-		    
-		  End If
+		  tempLastname = Self.txtLastname.Text
+		  tempLastName = tempLastName.ReplaceAll("-", "")
+		  tempLastName = tempLastName.ReplaceAll(".", "")
+		  tempLastName = tempLastName.ReplaceAll(" ", "").Lowercase
 		  
 		  If txtFirstname.Text.Length = 0 Then
 		    
@@ -435,7 +427,7 @@ End
 		  Var tempSuggestedName As String
 		  Var tempSuggestedNameUserPart As String
 		  
-		  tempSuggestedName = txtFirstname.Text.Left(1).Lowercase + txtLastname.Text.Lowercase
+		  tempSuggestedName = txtFirstname.Text.Left(1).Lowercase + tempLastName
 		  tempSuggestedNameUserPart = tempSuggestedName  ' initial value with no digits
 		  
 		  txtSuggestedUsername.Text = tempSuggestedName
@@ -444,7 +436,7 @@ End
 		  
 		  Var tempRowCount As Integer
 		  Var tempUsername As String
-		  Var tempMaxDigit As Integer
+		  Var tempMaxInteger As Integer
 		  Var tempUserAddInteger As Integer
 		  
 		  Var sqlA As String
@@ -472,7 +464,7 @@ End
 		  If tempRowCount = 0 Then
 		    
 		    //match without a digit
-		    MessageBox("Match without digit")
+		    //MessageBox("Match without digit")
 		    data.Close
 		    Return
 		    
@@ -490,9 +482,9 @@ End
 		      tempUsername = Mid(tempUsername, tempNamelength + 1)
 		      tempUserAddInteger = tempUserName.ToInteger
 		      
-		      If tempUserAddInteger > tempMaxDigit Then
+		      If tempUserAddInteger > tempMaxInteger Then
 		        
-		        tempMaxDigit = tempUserAddInteger
+		        tempMaxInteger = tempUserAddInteger
 		        
 		      End If 
 		      
@@ -501,9 +493,9 @@ End
 		    
 		  End If 'data <> nil then
 		  
-		  tempMaxDigit = tempMaxDigit + 1  ' this is the next free digit
+		  tempMaxInteger = tempMaxInteger + 1  ' this is the next free integer
 		  
-		  txtSuggestedUsername.Text = tempSuggestedName + tempMaxDigit.ToString
+		  txtSuggestedUsername.Text = tempSuggestedName + tempMaxInteger.ToString
 		  
 		  // if we get to here, the txtSuggested name is now not in the database...
 		  

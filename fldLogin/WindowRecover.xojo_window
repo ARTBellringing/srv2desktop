@@ -21,7 +21,7 @@ Begin DesktopWindow WindowRecover
    MinimumWidth    =   64
    Resizeable      =   False
    Title           =   "Forgot login?"
-   Type            =   0
+   Type            =   1
    Visible         =   True
    Width           =   350
    Begin DesktopTextField txtUsername

@@ -1,5 +1,5 @@
 #tag DesktopWindow
-Begin DesktopWindow WindowChangeUsername
+Begin DesktopWindow WindowTutorEdit
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF
    Composite       =   False
@@ -10,272 +10,25 @@ Begin DesktopWindow WindowChangeUsername
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   False
-   Height          =   210
+   Height          =   180
    ImplicitInstance=   False
    MacProcID       =   0
    MaximumHeight   =   32000
    MaximumWidth    =   32000
-   MenuBar         =   ""
+   MenuBar         =   0
    MenuBarVisible  =   False
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Change Username"
+   Title           =   "Edit tutor attendance"
    Type            =   1
    Visible         =   True
-   Width           =   468
-   Begin DesktopTextField txtFirstname
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   106
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   41
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   194
-   End
-   Begin DesktopTextField txtLastname
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   106
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   4
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   75
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   194
-   End
-   Begin DesktopLabel lblFirstname
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   7
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "New first name"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   43
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   87
-   End
-   Begin DesktopLabel lblLastname
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   7
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   3
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "New last name"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   75
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   87
-   End
-   Begin DesktopTextField txtSuggestedUsername
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   106
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   9
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   151
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   194
-   End
-   Begin DesktopLabel lblSuggestedUsername
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   39
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   33
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   8
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Suggested username"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   151
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   61
-   End
-   Begin DesktopSeparator Separator1
-      Active          =   False
-      AllowAutoDeactivate=   True
-      AllowTabStop    =   True
-      Enabled         =   True
-      Height          =   9
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   33
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      PanelIndex      =   0
-      Scope           =   0
-      TabIndex        =   7
-      TabPanelIndex   =   0
-      Tooltip         =   ""
-      Top             =   133
-      Transparent     =   False
-      Visible         =   True
-      Width           =   267
-      _mIndex         =   0
-      _mInitialParent =   ""
-      _mName          =   ""
-      _mPanelIndex    =   0
-   End
-   Begin DesktopButton btnSuggest
+   Width           =   492
+   Begin DesktopButton btnSave
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Suggest username"
+      Caption         =   "Save"
       Default         =   False
       Enabled         =   True
       FontName        =   "System"
@@ -284,7 +37,38 @@ Begin DesktopWindow WindowChangeUsername
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   323
+      Left            =   356
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   128
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin DesktopButton btnCancel
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Cancel"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   60
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -296,11 +80,11 @@ Begin DesktopWindow WindowChangeUsername
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   75
+      Top             =   128
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   117
+      Width           =   80
    End
    Begin DesktopLabel lblMessage
       AllowAutoDeactivate=   True
@@ -312,7 +96,7 @@ Begin DesktopWindow WindowChangeUsername
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   106
+      Left            =   152
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -328,46 +112,15 @@ Begin DesktopWindow WindowChangeUsername
       TextAlignment   =   2
       TextColor       =   &cFF000000
       Tooltip         =   ""
-      Top             =   109
+      Top             =   90
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   194
+      Width           =   192
    End
-   Begin DesktopButton btnChangeUsername
+   Begin DesktopLabel lblTutorName
       AllowAutoDeactivate=   True
       Bold            =   False
-      Cancel          =   False
-      Caption         =   "Change username"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   323
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   10
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   151
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   117
-   End
-   Begin DesktopLabel lblUserInfo
-      AllowAutoDeactivate=   True
-      Bold            =   True
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -387,57 +140,236 @@ Begin DesktopWindow WindowChangeUsername
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Untitled"
-      TextAlignment   =   1
+      Text            =   "Attendance by"
+      TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   11
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   428
+      Width           =   92
+   End
+   Begin DesktopTextField txtTutorName
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   22
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   137
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   True
+      Scope           =   0
+      TabIndex        =   1
+      TabPanelIndex   =   0
+      TabStop         =   False
+      Text            =   ""
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   20
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   299
+   End
+   Begin DesktopLabel lblRoleName
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   2
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "As"
+      TextAlignment   =   3
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   52
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   92
+   End
+   Begin DesktopTextField txtRoleID
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   22
+      Hint            =   ""
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   137
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   True
+      Scope           =   0
+      TabIndex        =   3
+      TabPanelIndex   =   0
+      TabStop         =   False
+      Text            =   ""
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   52
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   34
+   End
+   Begin DesktopPopupMenu pmAttendanceType
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      InitialValue    =   ""
+      Italic          =   False
+      Left            =   183
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      SelectedRowIndex=   0
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   52
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   150
+   End
+   Begin DesktopButton btnUnassign
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Unassign..."
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   206
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   7
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   "Unassign tutor from course"
+      Top             =   128
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
    End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
+		Sub Closing()
+		  // closing
+		  app.blLloadSingleCourse = TRUE
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Opening()
-		  // windowChangeUsername - Opening
+		  // opening event
 		  
-		  // get user info
-		  // display user info
+		  populateAttendanceType // load the pm
 		  
-		  Var tempUserID As Integer
-		  Var tempUserName As String
-		  Var tempFirstName As String
-		  Var tempLastName As String
-		  
-		  tempUserID = app.objectUserID  ' object user is the one we are operating/working on
+		  // load the attendance info
 		  
 		  Var sqlA As String
 		  
-		  sqlA = "SELECT u_user_id, u_user_name, p_first_name, p_last_name FROM srv2_vwUserAdmin WHERE u_user_id = " + tempUserID.ToString + ";"
+		  Var tempID As Integer
+		  Var tempCourseID As Integer
+		  Var tempTutorID As Integer
+		  Var tempAttendanceType As Integer
+		  Var tempTutorName As String
 		  
-		  //MessageBox (sqlA)
+		  sqlA = "SELECT tutor_attendance_record_id, course_id, tutor_id, tutor_attendance_type, user_nice_surname FROM srv2_vwTutorAttendanceDetail WHERE tutor_attendance_record_id = ? ;"
 		  
 		  Var data As RowSet
 		  Try
-		    data = db.SelectSQL(sqlA)
+		    data = db.SelectSQL(sqlA, app.objectTutorAttendanceID)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowViewCourses | Method: Retrieve User Info | DB error fetching user")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "Window Tutor Attednance Edit | Method: Load Attendance Info | DB error fetching attendance info")
 		  End Try
 		  
 		  If data <> Nil Then
 		    
 		    For Each row As Databaserow In data
-		      tempUserID = row.Column("u_user_id").IntegerValue
-		      tempUserName = row.Column("u_user_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempLastName = row.Column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      
-		      lblUserInfo.Text = tempUserID.ToString + "   " + tempUserName + "   " + tempLastName + ", " + tempFirstName
+		      tempID = row.column("tutor_attendance_record_id").IntegerValue
+		      tempCourseID = row.column("course_id").IntegerValue
+		      tempTutorID = row.column("tutor_id").IntegerValue
+		      tempAttendanceType = row.column("tutor_attendance_type").IntegerValue
+		      tempTutorName = row.column("user_nice_surname").StringValue.DefineEncoding(Encodings.UTF8)
 		      
 		    Next row
 		    
@@ -445,253 +377,262 @@ End
 		    
 		  End If 'data <> nil then
 		  
+		  Self.txtTutorName.Text = tempTutorName
+		  tutorName = tempTutorName
+		  
+		  Self.txtRoleID.Text = tempAttendanceType.ToString
+		  tutorRole = tempAttendanceType
+		  
+		  Self.pmAttendanceType.SelectRowWithTag(tempAttendanceType) // set the pm to match the role text
+		  
 		End Sub
 	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub populateAttendanceType()
+		  //populate pmAttendanceType
+		  
+		  Var sql1 As String
+		  
+		  sql1 = "SELECT tutor_attendance_id, tutor_attendance_type_text FROM srv2_vwTutorAttendanceTypeLive ;"
+		  
+		  Var data1 As RowSet
+		  Try
+		    data1 = db.SelectSQL(sql1)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "Window Edit Tutor | Method: Populate AttendanceType  | DB error fetching attendance types")
+		  End Try
+		  
+		  Var tempID  As Integer
+		  Var tempAttendanceTypeName As String
+		  
+		  If data1 <> Nil Then
+		    
+		    Self.pmAttendanceType.RemoveAllRows
+		    
+		    For Each row As Databaserow In data1
+		      
+		      tempID = row.column("tutor_attendance_id").IntegerValue 
+		      tempAttendanceTypeName = row.Column("tutor_attendance_type_text").StringValue.DefineEncoding(Encodings.UTF8)
+		      
+		      // populate the pm row
+		      Self.pmAttendanceType.AddRow(tempAttendanceTypeName)
+		      Self.pmAttendanceType.RowTagAt(Self.pmAttendanceType.LastAddedRowIndex) = tempID
+		      
+		    Next row
+		    data1.close
+		    
+		  End If 'data <> nil then
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+
+	#tag Property, Flags = &h0
+		tutorID As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		tutorName As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		tutorRole As Integer
+	#tag EndProperty
 
 
 #tag EndWindowCode
 
-#tag Events btnSuggest
+#tag Events btnSave
 	#tag Event
 		Sub Pressed()
-		  // btnSuggest pressed
+		  // btnSave - pressed
 		  
-		  // btnSuggest pressed
+		  // get the username of the tutor
 		  
-		  lblMessage.Text = "MESSAGE"
-		  Var tempFirstName As String
-		  Var tempLastName As String
+		  Var tempTutorUserName As String
+		  Var tempTutorID As Integer
 		  
-		  // trim off any leading or trailing spaces
+		  Var sql1 As String
 		  
-		  txtFirstname.Text = txtFirstname.Text.Trim
-		  txtLastname.Text = txtLastname.Text.Trim
+		  sql1 = "SELECT user_name, tutor_id FROM srv2_vwTutorAttendanceDetail WHERE tutor_attendance_record_id = ? ;"
 		  
-		  // If txtFirstname.Text.Contains(" ") Then
-		  // 
-		  // lblMessage.Text = "Spaces not allowed in first name"
-		  // txtFirstname.SetFocus
-		  // Return
-		  // 
-		  // End If
-		  // 
-		  // If txtFirstname.Text.Contains("-") Then
-		  // 
-		  // lblMessage.Text = "Hyphens not allowed in first name"
-		  // txtFirstname.SetFocus
-		  // Return
-		  // 
-		  // End If
-		  
-		  // take any hyphens, dots or spaces out of the lastname and lowercase it
-		  
-		  tempLastname = Self.txtLastname.Text
-		  tempLastName = tempLastName.ReplaceAll("-", "")
-		  tempLastName = tempLastName.ReplaceAll(".", "")
-		  tempLastName = tempLastName.ReplaceAll(" ", "").Lowercase
-		  
-		  If txtFirstname.Text.Length = 0 Then
-		    
-		    lblMessage.Text = "First name cannot be blank"
-		    txtFirstname.SetFocus
-		    Return
-		    
-		  End If 
-		  
-		  If txtLastname.Text.length = 0 Then
-		    
-		    lblMessage.Text = "Last name cannot be blank"
-		    txtLastname.SetFocus
-		    Return
-		    
-		  End If 
-		  
-		  Var tempSuggestedName As String
-		  Var tempSuggestedNameUserPart As String
-		  
-		  tempSuggestedName = txtFirstname.Text.Left(1).Lowercase + tempLastName
-		  tempSuggestedNameUserPart = tempSuggestedName  ' initial value with no digits
-		  
-		  txtSuggestedUsername.Text = tempSuggestedName
-		  
-		  // set variables for db check
-		  
-		  Var tempRowCount As Integer
-		  Var tempUsername As String
-		  Var tempMaxInteger As Integer
-		  Var tempUserAddInteger As Integer
-		  
-		  Var sqlA As String
-		  
-		  sqlA = "SELECT user_name FROM srv2_tblUser WHERE user_name LIKE ? ;"
-		  
-		  Var data As RowSet
-		  
+		  Var data1 As RowSet
 		  Try
-		    
-		    data = db.SelectSQL(sqlA, tempSuggestedNameUserPart + "%")
-		    
+		    data1 = db.SelectSQL(sql1, app.objectTutorAttendanceID)
 		  Catch error As DatabaseException
-		    
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddNewUser | Method: Check for existing usernames  | DB error fetching usernames")
-		    module1.AppClose
-		    
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "Window Edit Tutor Attendance | Method: Load detail | DB error fetching tutor detail")
 		  End Try
 		  
-		  tempRowCount = data.RowCount
-		  
-		  //MessageBox("Row count: " + tempRowCount.ToString)
-		  
-		  If tempRowCount = 0 Then
+		  If data1 <> Nil Then
 		    
-		    //match without a digit
-		    //MessageBox("Match without digit")
-		    data.Close
-		    Return
-		    
-		  End If
-		  
-		  // fall through and need to add some digits to make the name unique...
-		  
-		  Var tempNamelength As Integer = tempSuggestedNameUserPart.Length
-		  
-		  If data <> Nil Then
-		    
-		    For Each row As Databaserow In data
+		    For Each row As Databaserow In data1
 		      
-		      tempUsername = row.column("user_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempUsername = Mid(tempUsername, tempNamelength + 1)
-		      tempUserAddInteger = tempUserName.ToInteger
-		      
-		      If tempUserAddInteger > tempMaxInteger Then
-		        
-		        tempMaxInteger = tempUserAddInteger
-		        
-		      End If 
+		      tempTutorUserName = row.column("user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempTutorID = row.column("tutor_id").IntegerValue
 		      
 		    Next row
-		    data.close
+		    data1.close
 		    
 		  End If 'data <> nil then
 		  
-		  tempMaxInteger = tempMaxInteger + 1  ' this is the next free integer
+		  //MessageBox (tempTutorUserName)
 		  
-		  txtSuggestedUsername.Text = tempSuggestedName + tempMaxInteger.ToString
+		  // now save the (possibly updated) record
 		  
-		  // if we get to here, the txtSuggested name is now not in the database...btnChangeUsername.SetFocus
+		  Var sql2 As String
 		  
-		  
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnChangeUsername
-	#tag Event
-		Sub Pressed()
-		  // btnChangeUsername - pressed
-		  
-		  If txtSuggestedUsername.Text.Length = 0 Then
-		    
-		    lblMessage.Text = "Username cannot be blank"
-		    txtSuggestedUsername.SetFocus
-		    Return
-		    
-		  End If 
-		  
-		  If txtSuggestedUsername.Text.Contains(" ") Then
-		    
-		    lblMessage.Text = "Space not allowed in username"
-		    txtFirstname.SetFocus
-		    Return
-		    
-		  End If
-		  
-		  If txtSuggestedUsername.Text.Contains("-") Then
-		    
-		    lblMessage.Text = "Hyphen not allowed in username"
-		    txtFirstname.SetFocus
-		    Return
-		    
-		  End If
-		  
-		  Var tempSuggestedName As String
-		  tempSuggestedName = txtSuggestedUsername.Text.Lowercase.Trim
-		  
-		  // set variables for db check
-		  
-		  Var tempRowCount As Integer
-		  
-		  Var sqlA As String
-		  
-		  sqlA = "SELECT user_name FROM srv2_tblUser WHERE user_name = ?;"
-		  
-		  Var data As RowSet
-		  
-		  Try
-		    
-		    data = db.SelectSQL(sqlA, tempSuggestedName)
-		    
-		  Catch error As DatabaseException
-		    
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowChangeUsername | Method: Check2 for existing username  | DB error fetching usernames")
-		    module1.AppClose
-		    
-		  End Try
-		  
-		  If data <> Nil Then
-		    
-		    tempRowcount = data.RowCount
-		    
-		  End If ' data <> nil
-		  
-		  //MessageBox("Row count: " + tempRowCount.ToString)
-		  
-		  If tempRowCount <> 0 Then
-		    
-		    // can't use this username
-		    lblMessage.Text = "This username is already in use"
-		    txtSuggestedUsername.SetFocus
-		    data.Close
-		    Return
-		    
-		  End If
-		  
-		  data.close
-		  
-		  // MessageBox("Add user: " + tempSuggestedName)
-		  
-		  // fall through - go ahead and update the row in the database
-		  
-		  Var sqlB As String
-		  
-		  sqlB = "UPDATE srv2_tblUser SET user_name = ?, updated_by = ? WHERE sr2_user_id = ?;"
+		  sql2 = "UPDATE srv2_tblTutorAttendance SET tutor_attendance_type = ?, updated_by = ? WHERE tutor_attendance_record_id = ?;"
 		  
 		  Try
 		    
 		    db.BeginTransaction
-		    db.ExecuteSQL(sqlB, tempSuggestedName, app.activeUserID, app.objectUserID)
+		    db.ExecuteSQL(sql2, Self.txtRoleID.Text, app.activeUserID, app.objectTutorAttendanceID)
 		    
 		  Catch error As DatabaseException
 		    
 		    MessageBox("DB Error: " + error.Message)
 		    db.RollbackTransaction
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddNewUser | Method: Add user to DB | DB error writing new user")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowEditTutorAttendance | Method: Save edited recordto DB | DB error writing updated attendance record")
 		    module1.AppClose
 		    
 		  End Try
 		  db.CommitTransaction
 		  
-		  Module1.writeDBLog(app.activeUserID,app.activeUserName, "Username changed for " + tempSuggestedName)
+		  Module1.writeDBLog(tempTutorID, tempTutorUserName, "Tutor attendance type on course " + app.objectCourseID.ToString + "changed to " + Self.txtRoleID.Text)
 		  
 		  //(action_on As Integer, note_type As Integer, note_text As String, note_due_date As DateTime, note_closed As Boolean)
-		  module1.writeDBNote(app.objectUserID, 1, "Username changed to " + tempSuggestedName, Nil, True)
+		  module1.writeDBNote(tempTutorID, 1, "Attendance type on course " + app.objectCourseID.ToString + " changed to " + Self.txtRoleID.Text, Nil, True)
 		  
-		  MessageBox("Username changed to " + tempSuggestedName)
+		  app.blLloadSingleCourse = True
 		  
-		  app.reloadUser = True
 		  Self.close
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnCancel
+	#tag Event
+		Sub Pressed()
+		  // btnCancelPressed
+		  
+		  app.blLloadSingleCourse = TRUE
+		  
+		  self.close
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events pmAttendanceType
+	#tag Event
+		Sub SelectionChanged(item As DesktopMenuItem)
+		  // pmRole - selection changed
+		  
+		  Var i As Integer
+		  i = Me.RowTagAt(Me.SelectedRowIndex)
+		  //MessageBox("Row Index: " + Me.SelectedRowIndex.ToString + " Row Tag: " + i.ToString)
+		  Self.txtRoleID.Text = i.ToString
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnUnassign
+	#tag Event
+		Sub Pressed()
+		  // btnUnassign.pressed
+		  
+		  // get the surname and non-surname fields for this attendance
+		  // get the tutor ID
+		  
+		  Var tempTutorID As Integer
+		  Var tempTutorNiceName As String
+		  Var tempTutorNiceSurname As String
+		  Var tempUserName As String
+		  
+		  Var sql1 As String
+		  sql1 = "select tutor_id, user_nice_name, user_nice_surname, user_name FROM srv2_vwTutorAttendanceDetail WHERE tutor_attendance_record_id = ?;"
+		  
+		  Var data1 As RowSet
+		  Try
+		    data1 = db.SelectSQL(sql1, app.objectTutorAttendanceID)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "Window Edit Tutor | Method: Retrieve Tutor Name | DB error fetching tutor ID")
+		  End Try
+		  
+		  If data1 <> Nil Then
+		    
+		    For Each row As Databaserow In data1
+		      
+		      tempTutorID = row.column("tutor_id").IntegerValue
+		      tempTutorNiceName = row.column("user_nice_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempTutorNiceSurname = row.column("user_nice_surname").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempUserName = row.column("user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      
+		    Next row
+		    data1.close
+		    
+		  End If 'data <> nil then
+		  
+		  Var md As New MessageDialog                      // declare the MessageDialog object
+		  Var b As MessageDialogButton                     // for handling the result
+		  md.Title = "Are you sure?"
+		  md.IconType = MessageDialog.IconTypes.Question       // display warning icon
+		  md.ActionButton.Caption = "Leave it"
+		  md.CancelButton.Visible = True                  // show the Cancel button
+		  md.CancelButton.Caption = "Unassign"
+		  md.AlternateActionButton.Visible = False         // show the "Don't Save" button
+		  md.AlternateActionButton.Caption = "Don't Save"
+		  md.Message = "Unassign " + tempTutorNiceName + " from attending this course?"
+		  md.Explanation = "This action cannot be undone"
+		  
+		  b = md.ShowModal                                 // display the dialog
+		  Select Case b                                    // determine which button was pressed.
+		  Case md.ActionButton
+		    // do nothing.
+		    
+		  Case md.AlternateActionButton
+		    // not used in this example
+		    
+		  Case md.CancelButton
+		    // user pressed Cancel
+		    //MessageBox("Unassign")
+		    // mark the record as no-longer live
+		    
+		    Var sql2 As String
+		    
+		    sql2 = "UPDATE srv2_tblTutorAttendance SET tutor_attendance_is_live = FALSE, updated_by = ? WHERE tutor_attendance_record_id = ? ;"
+		    
+		    Try
+		      
+		      db.BeginTransaction
+		      db.ExecuteSQL(sql2, app.activeUserID, app.objectTutorAttendanceID)
+		      
+		    Catch error As DatabaseException
+		      
+		      MessageBox("DB Error: " + error.Message)
+		      db.RollbackTransaction
+		      Module1.writeDBLog(app.activeUserID,app.activeUserName, "Window Edit Tutor Attendance | Method: Unassign Tutor | DB error writing updated to DB")
+		      module1.AppClose
+		      
+		    End Try
+		    db.CommitTransaction
+		    
+		    //(action_on as integer, action_on_name as string, log_action as string)
+		    Module1.writeDBLog(tempTutorID, tempUserName, "Tutor unassigned from course " + app.objectCourseID.ToString)
+		    
+		    //(action_on As Integer, note_type As Integer, note_text As String, note_due_date As DateTime, note_closed As Boolean)
+		    module1.writeDBNote(tempTutorID, 1, tempUserName + " unassigned from course " + app.objectCourseID.ToString, Nil, True)
+		    
+		    app.blLloadSingleCourse = TRUE
+		    Self.close
+		    
+		  End Select
+		  
+		  
+		  
 		  
 		End Sub
 	#tag EndEvent
@@ -930,6 +871,30 @@ End
 		Group="Deprecated"
 		InitialValue="False"
 		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="tutorName"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="String"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="tutorID"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="tutorRole"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
 		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

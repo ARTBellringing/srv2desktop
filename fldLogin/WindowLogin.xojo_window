@@ -1,16 +1,16 @@
 #tag DesktopWindow
-Begin DesktopWindow WindowCodeLogin
+Begin DesktopWindow WindowLogin
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF
    Composite       =   False
    DefaultLocation =   2
    FullScreen      =   False
    HasBackgroundColor=   False
-   HasCloseButton  =   False
+   HasCloseButton  =   True
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   False
-   Height          =   162
+   Height          =   317
    ImplicitInstance=   True
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -20,8 +20,8 @@ Begin DesktopWindow WindowCodeLogin
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Enter your username and one-time code"
-   Type            =   0
+   Title           =   "Login"
+   Type            =   1
    Visible         =   True
    Width           =   350
    Begin DesktopTextField txtUsername
@@ -51,21 +51,21 @@ Begin DesktopWindow WindowCodeLogin
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
-      TabIndex        =   1
+      TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   20
+      Top             =   175
       Transparent     =   False
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
       Width           =   195
    End
-   Begin DesktopTextField txtCode
+   Begin DesktopTextField txtPassword
       AllowAutoDeactivate=   True
       AllowFocusRing  =   True
       AllowSpellChecking=   False
@@ -92,14 +92,14 @@ Begin DesktopWindow WindowCodeLogin
       Password        =   True
       ReadOnly        =   False
       Scope           =   0
-      TabIndex        =   3
+      TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   54
+      Top             =   209
       Transparent     =   False
       Underline       =   False
       ValidationMask  =   ""
@@ -125,20 +125,20 @@ Begin DesktopWindow WindowCodeLogin
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   0
+      TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Username:"
       TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   22
+      Top             =   177
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   75
    End
-   Begin DesktopLabel lblCode
+   Begin DesktopLabel lblPassword
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
@@ -160,21 +160,21 @@ Begin DesktopWindow WindowCodeLogin
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Code:"
+      Text            =   "Password:"
       TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   54
+      Top             =   209
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   75
    End
-   Begin DesktopButton btnCodeLogin
+   Begin DesktopButton btnLogin
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Login with code"
+      Caption         =   "Login"
       Default         =   True
       Enabled         =   True
       FontName        =   "System"
@@ -183,7 +183,7 @@ Begin DesktopWindow WindowCodeLogin
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   217
+      Left            =   234
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -191,15 +191,15 @@ Begin DesktopWindow WindowCodeLogin
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   5
+      TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   120
+      Top             =   275
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   113
+      Width           =   80
    End
    Begin DesktopLabel lblUserInfo
       AllowAutoDeactivate=   True
@@ -220,24 +220,81 @@ Begin DesktopWindow WindowCodeLogin
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   4
+      TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "MESSAGE"
       TextAlignment   =   2
       TextColor       =   &cFF000000
       Tooltip         =   ""
-      Top             =   88
+      Top             =   243
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   195
    End
-   Begin DesktopButton btnCancel
+   Begin DesktopCanvas Canvas1
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   768671743
+      Enabled         =   True
+      Height          =   100
+      Index           =   -2147483648
+      Left            =   125
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   20
+      Transparent     =   True
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopLabel lblVersion
       AllowAutoDeactivate=   True
       Bold            =   False
-      Cancel          =   True
-      Caption         =   "Cancel"
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   10.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   False
+      Text            =   "Untitled"
+      TextAlignment   =   2
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   143
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   310
+   End
+   Begin DesktopButton btnHaveCode
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "I have a code"
       Default         =   False
       Enabled         =   True
       FontName        =   "System"
@@ -246,7 +303,7 @@ Begin DesktopWindow WindowCodeLogin
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   15
+      Left            =   137
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -254,22 +311,78 @@ Begin DesktopWindow WindowCodeLogin
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   6
+      TabIndex        =   9
       TabPanelIndex   =   0
       TabStop         =   False
       Tooltip         =   ""
-      Top             =   120
+      Top             =   275
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   80
+      Width           =   89
+   End
+   Begin DesktopButton btnRecover
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Forgot login?"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   36
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   False
+      Tooltip         =   ""
+      Top             =   275
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   89
    End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
+		Sub Closing()
+		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowLogin | window closed")
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Opening()
+		  Var stage As String
+		  Select Case app.StageCode
+		  Case 0 ' Development
+		    stage = "D"
+		  Case 1  'Alpha
+		    stage = "A"
+		  Case 2 ' Beta
+		    stage = "B"
+		  Case 3 ' Production
+		    stage = "P"
+		  Case else
+		    stage = ""
+		  End Select 
+		  
+		  
+		  lblVersion.Text = "v" + app.MajorVersion.ToString + "." + app.MinorVersion.ToString _
+		  + "." + app.BugVersion.ToString + "." + stage + " Build " + app.NonReleaseVersion.ToString + " X " + XojoVersionString
+		  
 		  me.txtUsername.SetFocus
 		  
 		End Sub
@@ -285,56 +398,56 @@ End
 		    //do whatever 
 		    //MessageBox ("Enter pressed in username")
 		    
-		    self.txtCode.SetFocus
+		    WindowLogin.txtPassword.SetFocus
 		    
 		  End If 
 		  Self.lblUserInfo.Text = ""
 		End Function
 	#tag EndEvent
 #tag EndEvents
-#tag Events txtCode
+#tag Events txtPassword
 	#tag Event
 		Function KeyDown(key As String) As Boolean
 		  If key = chr(13) or key = chr(3) then 
 		    
 		    //MessageBox ("Enter pressed")
 		    
-		    self.btnCodeLogin.SetFocus
+		    self.btnLogin.SetFocus
 		    
 		  End if
 		  Self.lblUserInfo.Text = ""
 		End Function
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnCodeLogin
+#tag Events btnLogin
 	#tag Event
 		Sub Pressed()
 		  If Self.txtUsername.Text.Length = 0  Then
 		    
 		    // user hasn't typed anything
-		    self.lblUserInfo.Text = "Blank username is not allowed"
+		    Self.lblUserInfo.Text = "Blank username is not allowed"
 		    Self.txtUsername.Text = ""
-		    self.txtCode.Text = ""
+		    Self.txtPassword.Text = ""
 		    Self.txtUsername.SetFocus
 		    
-		    Module1.DecAppLoginTries("login with a code")
+		    Module1.DecAppLoginTries("login")
 		    
 		    Return
 		    
-		  end if
+		  End If
 		  
-		  if self.txtCode.Text.Length = 0  then
+		  If Self.txtPassword.Text.Length = 0  Then
 		    
 		    // user hasn't typed anything
-		    self.lblUserInfo.Text = "Blank code is not allowed"
-		    self.txtCode.Text = ""
-		    Self.txtCode.SetFocus
+		    Self.lblUserInfo.Text = "Blank password is not allowed"
+		    Self.txtPassword.Text = ""
+		    Self.txtPassword.SetFocus
 		    
-		    Module1.DecAppLoginTries("login with a code")
+		    Module1.DecAppLoginTries("login")
 		    
 		    Return
 		    
-		  end if
+		  End If
 		  
 		  // now see if there is a matching row for the username in tblUser...
 		  
@@ -343,7 +456,7 @@ End
 		    data = db.SelectSQL("SELECT * FROM srv2_vwUserLogin WHERE user_name = ?;", self.txtUsername.text)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(1,"System","WindowCodeLogin | btnLogin | DB error fetching username")
+		    Module1.writeDBLog(1,"System","WindowLogin | btnLogin | DB error fetching username")
 		    Module1.AppClose
 		    
 		  End Try
@@ -352,39 +465,39 @@ End
 		    
 		    '// no match match in DB...
 		    Module1.writeDBLog(1,"","Attempted Login with bad username: " + self.txtUsername.Text)
-		    self.lblUserInfo.Text = "Invalid username or code"
+		    Self.lblUserInfo.Text = "Invalid username or password"
 		    Self.txtUsername.Text = ""
-		    Self.txtCode.Text = ""
+		    Self.txtPassword.Text = ""
 		    Self.txtUsername.SetFocus
-		    
-		    Module1.DecAppLoginTries("login with a code")
 		    
 		    //MessageBox ("No match")
 		    data.close
+		    
+		    Module1.DecAppLoginTries("login")
+		    
 		    Return
 		    
 		  Else
 		    
 		    //MessageBox(data.RowCount.ToString)
 		    
-		  end if
+		  End If 'rowcount = 0 
 		  
-		  // now determine if this user is allowed to login - look at user state in the view
+		  // now determine if this user is allowed to login...
 		  
 		  Var tempUserID As Integer
 		  Var tempUserName As String
-		  Var tempPassword As String
+		  var tempPassword as string '2
 		  Var tempDesktopLoginPermitted As Boolean
 		  Var tempLoginCode As String
-		  Var tempUserState As Integer
+		  Var tempUserState As Integer '5
 		  Var tempPasswordTriesRemaining As Integer
 		  Var tempAccountLockedOut As Boolean
 		  Var tempUserStateName As String
-		  Var tempAllowLogin As Boolean
+		  Var tempAllowLogin As Boolean '9
 		  Var tempLoginRejectionMessage As String 
 		  
-		  
-		  if data <> nil then
+		  If data <> Nil Then
 		    for each row as Databaserow in data
 		      
 		      tempUserID = row.Column("sr2_user_id").IntegerValue
@@ -402,13 +515,7 @@ End
 		    next row
 		    data.close
 		    
-		    // // update the app property for user state (used later to determine if we need to activate this user)
-		    // app.activeUserState = tempUserState
-		    // 
-		    // // update app property for login code
-		    // app.activeUserLoginCode = tempLoginCode
-		    
-		    if tempAllowLogin = false or tempDesktopLoginPermitted = false then 
+		    If tempAllowLogin = False Or tempDesktopLoginPermitted = False Then 
 		      // user is not allowed to login
 		      
 		      Var md As New MessageDialog                      // declare the MessageDialog object
@@ -422,30 +529,51 @@ End
 		      md.Message = "You cannot login as " + tempUserName + "."
 		      md.Explanation = tempLoginRejectionMessage
 		      
-		      if tempDesktopLoginPermitted = False then 
-		        
-		        md.Explanation = "User " + tempUserName + " is not authorised to use the SRv2 Desktop Application."
-		        
-		      end if ' tempDesktopLoginPermitted = false
-		      
-		      // write an entry to the log that the user tried to login
-		      
 		      If tempDesktopLoginPermitted = False Then 
 		        
-		        Module1.writeDBLog(tempUserID, tempUserName, "User not authorised for desktop app")
+		        md.Explanation = "User " + tempUserName + " is not authorised to use the SRv2 Desktop Application."
+		        Module1.writeDBLog(tempUserID,tempUserName,"Attempted login via desktop when not authorised")
 		        
-		      else
+		      Else  'allowLogin = false
 		        
-		        Module1.writeDBLog(tempUserID, tempUserName, "User state " + tempUserState.ToString + " prevented login")
-		        //action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean)
-		        Module1.writeDBNote(tempUserID,1,"Attempted code login when account state " + tempUserState.ToString + ": login not permitted",Nil,True)
+		        Module1.writeDBLog(tempUserID,tempUserName,"User state " + tempUserState.ToString + " prevented login")
 		        
-		      end if ' tempDesktopLoginPermitted = false
+		      End If ' tempDesktopLoginPermitted = false
+		      
+		      b = md.ShowModal                                 // display the dialog
+		      Select Case b                                    // determine which button was pressed.
+		      Case md.ActionButton
+		        // user pressed OK
+		        Module1.AppClose
+		        Quit
+		        
+		      Case md.AlternateActionButton
+		        // user pressed Don't Save
+		      Case md.CancelButton
+		        // user pressed Cancel
+		      End Select
+		      
+		    End If ' tempAllowLogin = false or temoDesktopLoginPermitted = false
+		    
+		    // now check if account is locked out...
+		    If tempAccountLockedOut = True Then
+		      
+		      Var md As New MessageDialog                      // declare the MessageDialog object
+		      Var b As MessageDialogButton                     // for handling the result
+		      md.Title = "Account Information"
+		      md.IconType = MessageDialog.IconTypes.Stop       // display warning icon
+		      md.ActionButton.Caption = "Quit"
+		      md.CancelButton.Visible = False                  // show the Cancel button
+		      md.AlternateActionButton.Visible = False         // show the "Don't Save" button
+		      md.AlternateActionButton.Caption = "Don't Save"
+		      md.Message = "You cannot login as " + tempUserName + "."
+		      md.Explanation = "Account " + tempUserName + " is locked out.  Please contact admin@bellringing.org for assistance."
 		      
 		      b = md.ShowModal                                 // display the dialog
 		      Select Case b                                    // determine which button was pressed.
 		      Case md.ActionButton
 		        // user pressed Exit
+		        Module1.writeDBLog(tempUserID, tempUserName, "Attempted login when account locked out")
 		        Module1.AppClose
 		        
 		      Case md.AlternateActionButton
@@ -454,116 +582,89 @@ End
 		        // user pressed Cancel
 		      End Select
 		      
-		    end if ' tempAllowLogin = false
+		    End If ' Account locked out
 		    
 		  End If 'data <> nil then
 		  
-		  // now check if account is locked out...
-		  If tempAccountLockedOut = True Then
-		    
-		    Var md As New MessageDialog                      // declare the MessageDialog object
-		    Var b As MessageDialogButton                     // for handling the result
-		    md.Title = "Account Information"
-		    md.IconType = MessageDialog.IconTypes.Stop       // display warning icon
-		    md.ActionButton.Caption = "Quit"
-		    md.CancelButton.Visible = False                  // show the Cancel button
-		    md.AlternateActionButton.Visible = False         // show the "Don't Save" button
-		    md.AlternateActionButton.Caption = "Don't Save"
-		    md.Message = "You cannot login as " + tempUserName + "."
-		    md.Explanation = "Account " + tempUserName + " is locked out.  Please contact admin@bellringing.org for assistance."
-		    
-		    b = md.ShowModal                                 // display the dialog
-		    Select Case b                                    // determine which button was pressed.
-		    Case md.ActionButton
-		      // user pressed Exit
-		      Module1.writeDBLog(tempUserID, tempUserName, "Attempted login with code when account locked out")
-		      Module1.writeDBNote(tempUserID,1,"Attempted login when account locked out",Nil,True)
-		      Module1.AppClose
-		      Quit
-		      
-		    Case md.AlternateActionButton
-		      // user pressed Don't Save
-		    Case md.CancelButton
-		      // user pressed Cancel
-		    End Select
-		    
-		  End If ' Account locked out
+		  // Now we need to see if the password matches...
+		  //Compare the supplied password with the stored value in the db...
 		  
-		  // is code login permitted for this user?
-		  
-		  If tempLoginCode.Length = 0 Then
+		  If tempPassword <> EncodeHex(MD5(Self.txtPassword.Text)) Then // password is wrong...
 		    
-		    '// no code in DB
-		    Module1.writeDBLog(1,"","Attempted Login via code when code not set for: " + self.txtUsername.Text)
-		    self.lblUserInfo.Text = "Invalid username or code"
+		    // not a valid password
+		    Module1.writeDBLog(1,self.txtUsername.text,"Attempted login with bad password: "+self.txtPassword.Text)
+		    Self.lblUserInfo.Text = "Invalid username or password "
 		    self.txtUsername.Text = ""
-		    self.txtCode.Text = ""
+		    Self.txtPassword.Text = ""
 		    Self.txtUsername.SetFocus
 		    
-		    Module1.DecAppLoginTries("login with a code")
-		    Module1.DecUserPasswordTries(tempUserID)
-		    
-		    //MessageBox ("No code")
-		    Return
-		    
-		  End If 'tempLoginCode.length = 0
-		  
-		  // now check if the code matches
-		  
-		  If tempLoginCode <> Self.txtCode.Text Then // code is wrong...
-		    
-		    // not a valid code
-		    Module1.writeDBLog(1,Self.txtUsername.Text,"Attempted login with bad code: "+Self.txtCode.Text)
-		    Self.lblUserInfo.Text = "Invalid username or code"
-		    Self.txtUsername.Text = ""
-		    Self.txtCode.Text = ""
-		    Self.txtUsername.SetFocus
-		    
-		    Module1.DecAppLoginTries("login with a code")
+		    //decrement the user's password_tries_remaining value, and the app_login tries values
+		    Module1.DecAppLoginTries("login")
 		    Module1.DecUserPasswordTries(tempUserID)
 		    
 		    Return
 		    
 		  end if
 		  
-		  // fall though again - code is correct if we get to here...
+		  // fall though again - password is correct if we get to here...
 		  // set the app properties
 		  app.activeUserID = tempUserID
 		  app.activeUserName = tempUserName
-		  //app.activeUserLoginCode = tempLoginCode
+		  app.activeUserPassword = tempPassword
 		  
-		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in with code")
-		  Module1.writeDBNote(app.activeUserID, 1, "Logged in with code", Nil, True)
+		  module1.writeDBLog(app.activeUserID, app.activeUserName,"User logged in")
+		  Module1.writeDBNote(app.activeUserID, 1, "Logged in", Nil, True)
 		  
-		  // reset password tries value for user
+		  //reset the user's password_tries_remaining value
 		  Module1.ResetUserPasswordTries(app.activeUserID)
-		  
-		  // update last login date time
+		  // update the last login datetime
 		  Module1.UpdateLoginDateTime
+		  // Module1.activateUser - only needed when logging in via code
 		  
-		  // activate the user
-		  Module1.activateUser
+		  app.windowMainP = New WindowMain
+		  app.windowMainP.Show
 		  
-		  // need to clear the login code
-		  Module1.clearLoginCode
-		  
-		  self.close
-		  
-		  app.windowForceChangePasswordP = new WindowForceChangePassword
-		  app.windowForceChangePasswordP.Show
-		  
+		  WindowLogin.close
 		  
 		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnCancel
+#tag Events Canvas1
+	#tag Event
+		Sub Opening()
+		  var p as Picture = new picture(me.width, me.height)
+		  p.Graphics.DrawPicture(SR2v2Logo, 0, 0, me.width, me.height, 0, 0, SR2v2Logo.width, SR2v2Logo.height)
+		  me.Backdrop = p
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnHaveCode
 	#tag Event
 		Sub Pressed()
-		  Module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowCodeLogin | Cancel button pressed")
+		  //open close self and open the have code window
 		  
-		  Self.Close
-		  WindowLogin.Show
+		  module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowLogin | Have code button pressed")
+		  
+		  app.windowCodeLoginP = new WindowCodeLogin
+		  app.windowCodeLoginP.Show
+		  windowLogin.close
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnRecover
+	#tag Event
+		Sub Pressed()
+		  //open close self and open the have recover window
+		  
+		  module1.writeDBLog(app.activeUserID, app.activeUserName,"WindowLogin | Recover button pressed")
+		  
+		  app.windowRecoverP = New WindowRecover
+		  app.windowRecoverP.show
+		  windowLogin.close
+		  
 		  
 		End Sub
 	#tag EndEvent
