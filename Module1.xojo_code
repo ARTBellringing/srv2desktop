@@ -493,7 +493,7 @@ Protected Module Module1
 		  //action_on as integer, action_on_name as string, log_action as string
 		  Module1.writeDBLog(tempUserID, tempUserName, "User account unlocked and tries reset")
 		  app.windowMainP.lblLockedOut.visible = False
-		  app.WindowMainP.btnUnlock.visible = False
+		  app.WindowMainP.btnUnlock.enabled = False
 		  MessageBox("User " + tempUserName + " has been unlocked")
 		  
 		  Return 

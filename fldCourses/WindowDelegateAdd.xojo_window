@@ -1040,7 +1040,7 @@ End
 		    
 		  End If
 		  
-		  populateEnrolments
+		  populateEnrolments ' for this user
 		End Sub
 	#tag EndEvent
 
@@ -1239,9 +1239,10 @@ End
 		  //(action_on as integer, action_on_name as string, log_action as string)
 		  module1.writeDBLog(tempUserID, getUserInfo(tempUserID, "username"), "User attendance added to course " + app.objectCourseID.ToString)
 		  
+		  app.blLloadCourse = True
 		  Self.close
 		  
-		   
+		  
 		  
 		End Sub
 	#tag EndEvent
@@ -1251,7 +1252,7 @@ End
 		Sub Pressed()
 		  // btnCancelPressed
 		  
-		  app.blLloadSingleCourse = TRUE
+		  app.blLloadCourse = True
 		  
 		  Self.close
 		End Sub

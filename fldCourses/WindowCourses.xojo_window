@@ -1995,7 +1995,7 @@ Begin DesktopWindow WindowCourses
       Hint            =   "3 chars or more"
       Index           =   -2147483648
       InitialParent   =   ""
-      Left            =   1210
+      Left            =   1245
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -2005,11 +2005,11 @@ Begin DesktopWindow WindowCourses
       PanelIndex      =   0
       RecentItemsValue=   ""
       Scope           =   0
-      TabIndex        =   58
+      TabIndex        =   59
       TabPanelIndex   =   0
       Text            =   ""
       Tooltip         =   ""
-      Top             =   231
+      Top             =   234
       Transparent     =   False
       Visible         =   True
       Width           =   168
@@ -2054,7 +2054,7 @@ Begin DesktopWindow WindowCourses
       RequiresSelection=   False
       RowSelectionType=   0
       Scope           =   0
-      TabIndex        =   59
+      TabIndex        =   60
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -2065,39 +2065,6 @@ Begin DesktopWindow WindowCourses
       Width           =   400
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
-   End
-   Begin DesktopLabel lblDelegateSearch
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   1071
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   60
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Username or lastname:"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   231
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   126
    End
    Begin DesktopLabel LblAddUserFrame
       AllowAutoDeactivate=   True
@@ -2259,21 +2226,108 @@ Begin DesktopWindow WindowCourses
       Visible         =   True
       Width           =   248
    End
+   Begin DesktopRadioGroup rgSearchType
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   False
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   45
+      Horizontal      =   False
+      Index           =   -2147483648
+      InitialValue    =   "Username or lastname\r\nEmail address"
+      Italic          =   False
+      Left            =   1091
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      SelectedIndex   =   0
+      TabIndex        =   58
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   222
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   140
+   End
+   Begin DesktopLabel lblMessage3
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   576
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   65
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "MESSAGE3"
+      TextAlignment   =   2
+      TextColor       =   &cFF000000
+      Tooltip         =   ""
+      Top             =   668
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   467
+   End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
 		Sub Activated()
-		  ' reload 10 most recent
-		  populateCoursesOnOpen
+		  // windouwCourse - opening - load 10 most recent
 		  
-		  If app.blLloadSingleCourse = True Then ' want to load a specific course - course no will be in app.objectCourseID
+		  If app.blLloadCourse = True Then
 		    
+		    //lblMessage1.Text = "True"
 		    loadSingleCourse
-		    app.blLloadSingleCourse = False
+		    app.blLloadCourse = False
+		    
+		    
+		  Else
+		    
+		    //lblMessage1.Text = "False"
 		    
 		  End If
+		  
+		  //lblMessage3.Text = app.objectCourseID.ToString
+		  
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Closing()
+		  ' reload windowCourses if needed
+		  If app.blReloadStatus = True Then
+		    app.blReloadStatus = False
+		    
+		    app.windowViewStatusP = New WindowViewStatus
+		    app.windowViewStatusP.ShowModal
+		    
+		  End If
+		  
+		  Self.close
+		  
 		End Sub
 	#tag EndEvent
 
@@ -2283,17 +2337,6 @@ End
 		  
 		  populateCountry
 		  populateCoursesOnOpen
-		  
-		  If app.blLloadSingleCourse = True Then
-		    
-		    loadSingleCourse
-		    app.blLloadSingleCourse = False
-		    
-		  Else
-		    
-		    ' do nothing
-		    
-		  End If
 		  
 		  
 		  
@@ -2419,14 +2462,14 @@ End
 		  
 		  If tempRowCount > 0 Then
 		    
-		    app.blLloadSingleCourse = True
+		    app.blLloadCourse = True
 		    MessageBox(tempUserNiceName + " is already a delegate on this course.")
 		    Beep
 		    Return
 		    
 		  End If
 		  
-		  app.blLloadSingleCourse = True
+		  app.blLloadCourse = True
 		  
 		  app.courseDelegateAddID = tempDelegateID  ' set up the app property to pass the delegate ID
 		  
@@ -2543,7 +2586,7 @@ End
 		  Self.txtDoveCode.Text = tempLocationDove
 		  Self.txtTowerFull.Text = tempLocationDoveFull
 		  
-		  app.objectCourseID = tempCourseID '' set app property
+		  app.objectCourseID = tempCourseID '' set app property for the selected course
 		  
 		  Self.btnEditCourse.enabled = True ' switch on edit button
 		  
@@ -2553,6 +2596,22 @@ End
 		  // allow the adding of delegates
 		  Self.fldUserSearch.enabled = True
 		  Self.ListBoxUser.enabled = True
+		  Self.rgSearchType.enabled = True
+		  
+		  /// debug
+		  If app.blLloadCourse = True Then
+		    
+		    lblMessage1.Text = "True"
+		    
+		  Else
+		    
+		    lblMessage1.Text = "False"
+		    
+		  End If
+		  
+		  lblMessage3.Text = app.objectCourseID.ToString
+		  
+		  // end debug //
 		  
 		  
 		End Sub
@@ -2611,9 +2670,6 @@ End
 		    data1.close
 		    
 		  End If 'data <> nil then
-		  
-		  //Self.btnAddAttendee.enabled = True
-		  //Self.btnAttendeeEdit.enabled = True
 		  
 		End Sub
 	#tag EndMethod
@@ -2904,8 +2960,7 @@ End
 
 	#tag Method, Flags = &h0
 		Sub populateListBoxDelegate()
-		  // populatListBoxDelegate
-		  // populate list box
+		  // populateListBoxDelegate
 		  
 		  Var tempMRowCount As Integer
 		  Var tempMRetrCount As Integer
@@ -2937,7 +2992,6 @@ End
 		    // not enough entered yet - do nothing
 		    
 		    Self.ListBoxUser.RemoveAllRows
-		    //Self.btnFetch.enabled = False
 		    Return
 		    
 		  End If
@@ -2945,21 +2999,49 @@ End
 		  // fall through if len 3 or more..
 		  // there is something in the list box therefore searchwhere will be populated
 		  
+		  ////////////////////////////////////////////////////
+		  
 		  Var sql2 As String
 		  
-		  sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name,  p_organisation_attachment, composite FROM srv2_vwUserAdmin WHERE u_user_name LIKE ? or p_last_name LIKE ? ;"
+		  If Self.rgSearchType.SelectedItem.Caption.Left(1) = "U" Then '' we are searching for username
+		    
+		    sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name,  p_organisation_attachment, composite, p_email_address FROM srv2_vwUserAdmin WHERE u_user_name LIKE ? or p_last_name LIKE ? ;"
+		    
+		  Else ' we are searching for email
+		    
+		    sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name,  p_organisation_attachment, composite, p_email_address FROM srv2_vwUserAdmin WHERE p_email_address LIKE ? ;"
+		    
+		  End If
+		  
 		  
 		  Var searchString As String
 		  searchString = searchwhere + "%"
 		  
 		  Var data2 As RowSet
-		  Try
-		    data2 = db.SelectSQL(sql2, searchString, searchString)
+		  
+		  If Self.rgSearchType.SelectedItem.Caption.Left(1) = "U" Then '' we are searching for username
 		    
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowCourses | Method: PopulateListBox | DB error fetching usernames")
-		  End Try
+		    Try
+		      data2 = db.SelectSQL(sql2, searchString, searchString)
+		      
+		    Catch error As DatabaseException
+		      MessageBox("DB Error: " + error.Message)
+		      Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching username")
+		    End Try
+		    
+		  Else ' we are searching for email
+		    
+		    searchString = "%" + searchwhere + "%"
+		    
+		    Try
+		      data2 = db.SelectSQL(sql2, searchString)
+		      
+		    Catch error As DatabaseException
+		      MessageBox("DB Error: " + error.Message)
+		      Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching email")
+		    End Try
+		    
+		  End If
 		  
 		  Var tempLUserID As Integer
 		  Var tempUserName As String
@@ -2967,6 +3049,7 @@ End
 		  Var tempFirstName As String
 		  Var tempOrgAttachment As String
 		  Var tempTowerComposite As String
+		  Var tempEmail As String
 		  
 		  If data2 <> Nil Then
 		    
@@ -2980,6 +3063,7 @@ End
 		      tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempOrgAttachment = row.Column("p_organisation_attachment").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempTowerComposite = row.Column("composite").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempEmail = row.Column("p_email_address").StringValue.DefineEncoding(Encodings.UTF8)
 		      
 		      Var tempTowerString As String
 		      
@@ -2993,9 +3077,16 @@ End
 		        
 		      End If
 		      
-		      
 		      // populate the list box row
-		      Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName + "   [" + tempTowerString +"]")
+		      If Self.rgSearchType.SelectedItem.Caption.Left(1) = "U" Then '' we are searching for username
+		        
+		        Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName + "   [" + tempTowerString +"]")
+		        
+		      Else ' we are searching for email
+		        
+		        Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName + "   <" + tempEmail +">")
+		        
+		      End If
 		      
 		    Next row
 		    
@@ -3021,7 +3112,7 @@ End
 		  
 		  lbxTutors.RemoveAllRows
 		  
-		  Var sql1 As String = "SELECT tutor_attendance_record_id, user_nice_surname, tutor_attendance_type_text FROM srv2_vwTutorAttendanceDetail WHERE course_id =? ;"
+		  Var sql1 As String = "SELECT tutor_attendance_record_id, user_nice_surname, tutor_attendance_type_text FROM srv2_vwTutorAttendanceDetail WHERE course_id = ? ;"
 		  
 		  Var data1 As RowSet
 		  Try
@@ -3128,6 +3219,8 @@ End
 		    
 		    
 		  End If ' no text in row
+		  
+		  // as we are changing course, clar our any previous user search
 		  
 		  Self.fldUserSearch.Text = ""
 		  self.ListBoxUser.RemoveAllRows
@@ -3375,6 +3468,17 @@ End
 		  //btnAddDelegate pressed
 		  
 		  AddDelegate
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events rgSearchType
+	#tag Event
+		Sub SelectionChanged(button As DesktopRadioButton)
+		  // rgSearchType Selection Changed
+		  
+		  Self.ListBoxUser.RemoveAllRows
+		  Self.fldUserSearch.Text = ""
+		  Self.fldUserSearch.SetFocus
 		End Sub
 	#tag EndEvent
 #tag EndEvents

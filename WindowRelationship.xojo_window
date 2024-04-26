@@ -1,5 +1,5 @@
 #tag DesktopWindow
-Begin DesktopWindow WindowCourseEdit
+Begin DesktopWindow WindowRelationship
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF
    Composite       =   False
@@ -10,772 +10,20 @@ Begin DesktopWindow WindowCourseEdit
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   False
-   Height          =   411
+   Height          =   725
    ImplicitInstance=   False
    MacProcID       =   0
    MaximumHeight   =   32000
    MaximumWidth    =   32000
-   MenuBar         =   0
+   MenuBar         =   ""
    MenuBarVisible  =   False
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Edit Course"
+   Title           =   "Manage Relationships"
    Type            =   1
    Visible         =   True
-   Width           =   492
-   Begin DesktopTextField txtCourseID
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   124
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   True
-      Scope           =   0
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   19
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   48
-   End
-   Begin DesktopLabel lblCourseID
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   60
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   0
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "ID"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   20
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   52
-   End
-   Begin DesktopTextField txtProgramme
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   124
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   True
-      Scope           =   0
-      TabIndex        =   3
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   53
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   48
-   End
-   Begin DesktopLabel lblProgrammeID
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   40
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Programme"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   53
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   72
-   End
-   Begin DesktopDateTimePicker dtPickerStartDate
-      Active          =   False
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   False
-      AllowTabStop    =   False
-      DisplayMode     =   1
-      DisplaySeconds  =   False
-      Enabled         =   True
-      GraphicalDisplay=   True
-      Height          =   22
-      HourMode        =   2
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   124
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      PanelIndex      =   0
-      Scope           =   0
-      TabIndex        =   5
-      TabPanelIndex   =   0
-      TodayButtonCaption=   ""
-      Tooltip         =   ""
-      Top             =   120
-      Transparent     =   False
-      Visible         =   True
-      Width           =   113
-      _mIndex         =   0
-      _mInitialParent =   ""
-      _mName          =   ""
-      _mPanelIndex    =   0
-   End
-   Begin DesktopLabel lblStartDate
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   40
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   6
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Start date"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   121
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   72
-   End
-   Begin DesktopDateTimePicker dtPickerEndDate
-      Active          =   False
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   False
-      AllowTabStop    =   True
-      DisplayMode     =   1
-      DisplaySeconds  =   False
-      Enabled         =   True
-      GraphicalDisplay=   True
-      Height          =   22
-      HourMode        =   2
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   124
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      PanelIndex      =   0
-      Scope           =   0
-      TabIndex        =   7
-      TabPanelIndex   =   0
-      TodayButtonCaption=   ""
-      Tooltip         =   ""
-      Top             =   154
-      Transparent     =   False
-      Visible         =   True
-      Width           =   113
-      _mIndex         =   0
-      _mInitialParent =   ""
-      _mName          =   ""
-      _mPanelIndex    =   0
-   End
-   Begin DesktopLabel lblEndDate
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   40
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   8
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "End date"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   155
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   72
-   End
-   Begin DesktopTextField txtLocationName
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   124
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   10
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   188
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   220
-   End
-   Begin DesktopLabel lblLocationName
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   52
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   9
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Location"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   188
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   60
-   End
-   Begin DesktopLabel lblLocationCounty
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   52
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   11
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "County"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   222
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   60
-   End
-   Begin DesktopLabel lblCountry
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   40
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   13
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Country"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   256
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   72
-   End
-   Begin DesktopTextField txtLocationCountry
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   124
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   True
-      Scope           =   0
-      TabIndex        =   14
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   256
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   26
-   End
-   Begin DesktopPopupMenu pmCountry
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      InitialValue    =   ""
-      Italic          =   False
-      Left            =   162
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      SelectedRowIndex=   0
-      TabIndex        =   15
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   256
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   182
-   End
-   Begin DesktopTextField txtDoveCode
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   False
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   124
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   17
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   289
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   97
-   End
-   Begin DesktopLabel lblDove
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   40
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   16
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Dove"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   289
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   72
-   End
-   Begin DesktopTextField txtTowerFull
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   False
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   124
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   18
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   323
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   298
-   End
-   Begin DesktopButton btnSave
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Save"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   356
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   21
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   369
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
-   Begin DesktopButton btnCancel
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Cancel"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   60
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   22
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   369
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
-   Begin DesktopPopupMenu pmAvailableProgrammes
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   False
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      InitialValue    =   ""
-      Italic          =   False
-      Left            =   184
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      SelectedRowIndex=   0
-      TabIndex        =   4
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   53
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   252
-   End
-   Begin DesktopButton btnDoveSet
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Set"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   349
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   19
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   289
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   28
-   End
-   Begin DesktopButton btnDoveClear
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Clear"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   382
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   20
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   289
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   40
-   End
+   Width           =   607
    Begin DesktopLabel lblMessage
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -786,7 +34,7 @@ Begin DesktopWindow WindowCourseEdit
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   152
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -795,20 +43,166 @@ Begin DesktopWindow WindowCourseEdit
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   23
+      TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "MESSAGE"
       TextAlignment   =   2
       TextColor       =   &cFF000000
       Tooltip         =   ""
-      Top             =   369
+      Top             =   318
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   192
+      Width           =   567
    End
-   Begin DesktopLabel lblEventsCourseID
+   Begin DesktopLabel lblUserInfo
+      AllowAutoDeactivate=   True
+      Bold            =   True
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   25
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "User Info"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   12
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   530
+   End
+   Begin DesktopListBox lbxActiveRelationships
+      AllowAutoDeactivate=   True
+      AllowAutoHideScrollbars=   True
+      AllowExpandableRows=   False
+      AllowFocusRing  =   True
+      AllowResizableColumns=   False
+      AllowRowDragging=   False
+      AllowRowReordering=   False
+      Bold            =   False
+      ColumnCount     =   9
+      ColumnWidths    =   "45,80,80,25,25,45,130,35"
+      DefaultRowHeight=   -1
+      DropIndicatorVisible=   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      GridLineStyle   =   3
+      HasBorder       =   True
+      HasHeader       =   False
+      HasHorizontalScrollbar=   False
+      HasVerticalScrollbar=   True
+      HeadingIndex    =   -1
+      Height          =   193
+      Index           =   -2147483648
+      InitialParent   =   ""
+      InitialValue    =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      RequiresSelection=   False
+      RowSelectionType=   0
+      Scope           =   0
+      TabIndex        =   45
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   88
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   567
+      _ScrollOffset   =   0
+      _ScrollWidth    =   -1
+   End
+   Begin DesktopLabel lblRelationships1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   46
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Active relationship(s)"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   44
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   124
+   End
+   Begin DesktopLabel lblPreviousRelationships
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   25
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   48
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Previous relationship(s)"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   372
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   148
+   End
+   Begin DesktopLabel LBLaID
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
@@ -827,91 +221,768 @@ Begin DesktopWindow WindowCourseEdit
       Multiline       =   True
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   24
+      TabIndex        =   49
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Events Course ID"
-      TextAlignment   =   3
+      Text            =   "ID"
+      TextAlignment   =   1
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   87
+      Top             =   67
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   92
+      Width           =   42
    End
-   Begin DesktopTextField txtEventsCourseID
+   Begin DesktopLabel lblAStartDate
       AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
       Bold            =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   22
-      Hint            =   ""
+      Height          =   21
       Index           =   -2147483648
       Italic          =   False
-      Left            =   124
+      Left            =   74
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
+      Multiline       =   True
       Scope           =   0
-      TabIndex        =   25
+      Selectable      =   False
+      TabIndex        =   50
       TabPanelIndex   =   0
-      TabStop         =   False
-      Text            =   ""
-      TextAlignment   =   0
+      TabStop         =   True
+      Text            =   "Start"
+      TextAlignment   =   1
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   87
+      Top             =   67
       Transparent     =   False
       Underline       =   False
-      ValidationMask  =   ""
       Visible         =   True
-      Width           =   48
+      Width           =   42
    End
-   Begin DesktopComboBox cboCounty
-      AllowAutoComplete=   True
+   Begin DesktopLabel lblAEndDate
       AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
       Bold            =   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   22
-      Hint            =   ""
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   156
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   51
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "End"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   67
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   42
+   End
+   Begin DesktopLabel lblAHist
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   231
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   52
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "H"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   67
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   17
+   End
+   Begin DesktopLabel lblADir
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   253
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   53
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Dir"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   67
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   17
+   End
+   Begin DesktopLabel lblAUser
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   282
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   54
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "User"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   67
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   37
+   End
+   Begin DesktopLabel lblAName
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   323
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   55
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Name"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   67
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   37
+   End
+   Begin DesktopLabel lblAProg
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   451
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   56
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Prog"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   67
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   37
+   End
+   Begin DesktopLabel lblARel
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   490
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   57
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Relationship"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   67
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   75
+   End
+   Begin DesktopListBox lbxPreviousRelationship
+      AllowAutoDeactivate=   True
+      AllowAutoHideScrollbars=   True
+      AllowExpandableRows=   False
+      AllowFocusRing  =   True
+      AllowResizableColumns=   False
+      AllowRowDragging=   False
+      AllowRowReordering=   False
+      Bold            =   False
+      ColumnCount     =   9
+      ColumnWidths    =   "45,80,80,25,25,45,130,35"
+      DefaultRowHeight=   -1
+      DropIndicatorVisible=   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      GridLineStyle   =   3
+      HasBorder       =   True
+      HasHeader       =   False
+      HasHorizontalScrollbar=   False
+      HasVerticalScrollbar=   True
+      HeadingIndex    =   -1
+      Height          =   227
       Index           =   -2147483648
       InitialValue    =   ""
       Italic          =   False
-      Left            =   124
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
+      RequiresSelection=   False
+      RowSelectionType=   0
       Scope           =   0
-      SelectedRowIndex=   0
-      TabIndex        =   26
+      TabIndex        =   58
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   222
+      Top             =   426
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   220
+      Width           =   567
+      _ScrollOffset   =   0
+      _ScrollWidth    =   -1
+   End
+   Begin DesktopLabel LBLaID1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   59
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "ID"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   405
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   42
+   End
+   Begin DesktopLabel lblAStartDate1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   74
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   60
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Start"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   405
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   42
+   End
+   Begin DesktopLabel lblAEndDate1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   156
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   61
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "End"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   405
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   42
+   End
+   Begin DesktopLabel lblAHist1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   231
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   62
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "H"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   405
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   17
+   End
+   Begin DesktopLabel lblADir1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   253
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   63
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Dir"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   405
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   17
+   End
+   Begin DesktopLabel lblAUser1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   282
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   64
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "User"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   405
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   37
+   End
+   Begin DesktopLabel lblAName1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   323
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   65
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Name"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   405
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   37
+   End
+   Begin DesktopLabel lblAProg1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   451
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   66
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Prog"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   405
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   37
+   End
+   Begin DesktopLabel lblARel1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   490
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   67
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Relationship"
+      TextAlignment   =   1
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   405
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   75
+   End
+   Begin DesktopLabel lblMessage2
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   68
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "MESSAGE2"
+      TextAlignment   =   2
+      TextColor       =   &cFF000000
+      Tooltip         =   ""
+      Top             =   685
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   567
+   End
+   Begin DesktopButton btnEnd
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "End"
+      Default         =   False
+      Enabled         =   False
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   507
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   69
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   293
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin DesktopButton btnNew
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "New"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   70
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   293
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin DesktopLabel lblActiveRelationshipCount
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   9.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   112
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   71
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Untitled"
+      TextAlignment   =   2
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   293
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   383
+   End
+   Begin DesktopLabel lblPastReleationshipCount
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   9.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   72
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Untitled"
+      TextAlignment   =   2
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   665
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   565
    End
 End
 #tag EndDesktopWindow
@@ -919,261 +990,50 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Activated()
-		  If app.setTowerNew = True Then
-		    
-		    Self.txtDoveCode.Text = app.selectedTower
-		    
-		    // clear the flags
-		    app.setCourseTower = False
-		    app.setTowerNew = False
-		    app.selectedTower = ""
-		    
-		  End If
+		  // form (re) activated
 		  
+		  populateActiveRelationships
+		  populatePreviousRelationship
 		End Sub
 	#tag EndEvent
 
 	#tag Event
 		Sub Opening()
-		  // window Courses opening
+		  // Window Manage Relationships - Opening
 		  
-		  populateCounty
-		  populateCountry
-		  populateAvailbleProgrammes
-		  loadSingleCourse
-		End Sub
-	#tag EndEvent
-
-
-	#tag Method, Flags = &h0
-		Sub loadSingleCourse()
-		  // loadSingleCourse - for edit
+		  // get user info
+		  // display user info
 		  
-		  //MessageBox ("Loading " + app.objectCourseID.ToString)
+		  Var tempUserID As Integer
+		  Var tempUserName As String
+		  Var tempFirstName As String
+		  Var tempLastName As String
+		  
+		  tempUserID = app.objectUserID  ' object user is the one we are operating/working on
 		  
 		  Var sqlA As String
 		  
-		  Var tempCourseID As Integer
-		  Var tempProgrammeID As Integer
-		  Var tempEventsCourseID As Integer
-		  Var tempStartDate As DateTime
-		  Var tempEndDate As DateTime
-		  Var tempLocationDove As String
-		  Var tempLocationDoveFull As String
-		  Var tempLocationName As String
-		  Var tempLocationCounty As String
-		  Var tempLocationCountry As Integer
-		  Var tempCountryCode As String
-		  Var tempProgrammeShortTitle As String
+		  sqlA = "SELECT u_user_id, u_user_name, p_first_name, p_last_name FROM srv2_vwUserAdmin WHERE u_user_id = " + tempUserID.ToString + ";"
 		  
-		  sqlA = "SELECT sr2_course_id, events_course_id, programme_id, start_date, end_date, location_dove, tower_full, location_name, location_county, location_country, country_code,  programme_short_title FROM srv2_vwCourseLive WHERE sr2_course_id = ? ;"
-		  
-		  Var data As RowSet
-		  Try
-		    data = db.SelectSQL(sqlA, app.objectCourseID)
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowCourses | Method: LoadSingleCourse | DB error fetching course info")
-		  End Try
-		  
-		  If data <> Nil Then
-		    
-		    For Each row As Databaserow In data
-		      
-		      tempCourseID = row.column("sr2_course_id").IntegerValue
-		      tempProgrammeID = row.column("programme_id").IntegerValue
-		      tempEventsCourseID = row.column("events_course_id").IntegerValue
-		      tempStartDate = row.column("start_date").DateTimeValue
-		      tempEndDate = row.column("end_date").DateTimeValue
-		      tempLocationDove = row.column("location_dove").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempLocationDoveFull = row.column("tower_full").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempLocationName = row.column("location_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempLocationCounty = row.column("location_county").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempLocationCountry = row.column("location_country").IntegerValue
-		      tempCountryCode = row.column("country_code").StringValue.DefineEncoding(Encodings.UTF8)
-		      tempProgrammeShortTitle = row.column("programme_short_title").StringValue.DefineEncoding(Encodings.UTF8)
-		      
-		    Next row
-		    
-		    data.close
-		    
-		  End If 'data <> nil then
-		  
-		  Self.txtCourseID.Text = tempCourseID.ToString
-		  Self.txtProgramme.Text = tempProgrammeID.ToString
-		  
-		  If tempEventsCourseID = 0 Then
-		    
-		    Self.txtEventsCourseID.Text = "-"
-		    
-		  Else
-		    
-		    Self.txtEventsCourseID.Text = tempEventsCourseID.ToString
-		    
-		  End If
-		  
-		  Self.pmAvailableProgrammes.SelectRowWithTag(tempProgrammeID)
-		  
-		  Self.dtPickerStartDate.SelectedDate = tempStartDate
-		  
-		  Self.dtPickerEndDate.SelectedDate = tempEndDate
-		  
-		  Self.txtLocationName.Text = tempLocationName
-		  Self.cboCounty.Text = tempLocationCounty
-		  
-		  Self.txtLocationCountry.Text = tempLocationCountry.ToString
-		  Self.pmCountry.SelectRowWithTag(tempLocationCountry)
-		  
-		  Self.txtDoveCode.Text = tempLocationDove
-		  Self.txtTowerFull.Text = tempLocationDoveFull
-		  
-		  Self.txtEventsCourseID.SetFocus
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub populateAvailbleProgrammes()
-		  // populate pmAvailableProgrammes
-		  
-		  Var sql1 As String
-		  
-		  sql1 = "SELECT programme_id, programme_title FROM srv2_vwProgrammeAccreditable;"
-		  Var data As RowSet
-		  Try
-		    data = db.SelectSQL(sql1)
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowAddCourse | Method: PopulateAvailableCourses | DB error fetching course data")
-		  End Try
-		  
-		  Var tempProgrammeID As Integer
-		  Var tempProgrammeTitle As String
-		  
-		  If data <> Nil Then
-		    
-		    Self.pmAvailableProgrammes.RemoveAllRows
-		    
-		    For Each row As Databaserow In data
-		      
-		      tempProgrammeID = row.column("programme_id").IntegerValue 
-		      tempProgrammeTitle = row.Column("programme_title").StringValue.DefineEncoding(Encodings.UTF8)
-		      
-		      // populate the list box row
-		      Self.pmAvailableProgrammes.AddRow(tempProgrammeTitle)
-		      Self.pmAvailableProgrammes.RowTagAt(Self.pmAvailableProgrammes.LastAddedRowIndex) = tempProgrammeID
-		      
-		    Next row
-		    data.close
-		    
-		  End If 'data <> nil then
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub populateCountry()
-		  // populate pmCountry
-		  
-		  Var sql1 As String
-		  
-		  sql1 = "SELECT country_id, country_name FROM srv2_vwCountryLive;"
-		  Var data As RowSet
-		  Try
-		    data = db.SelectSQL(sql1)
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateCountry | DB error fetching country data")
-		  End Try
-		  
-		  Var tempLBCountryID As Integer'0
-		  Var tempLBCountryName As String '1
-		  
-		  If data <> Nil Then
-		    
-		    Self.pmCountry.RemoveAllRows
-		    
-		    For Each row As Databaserow In data
-		      
-		      tempLBCountryID = row.column("country_id").IntegerValue 
-		      tempLBCountryName = row.Column("country_name").StringValue.DefineEncoding(Encodings.UTF8)
-		      
-		      // populate the list box row
-		      Self.pmCountry.AddRow(tempLBCountryName)
-		      Self.pmCountry.RowTagAt(Self.pmCountry.LastAddedRowIndex) = tempLBCountryID
-		      
-		    Next row
-		    data.close
-		    
-		  End If 'data <> nil then
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub populateCounty()
-		  // populate cboCounty
-		  
-		  Var sql1 As String
-		  
-		  sql1 = "SELECT location_county FROM srv2_vwCourseCounty ;"
-		  Var data As RowSet
-		  Try
-		    data = db.SelectSQL(sql1)
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowCourseAdd | Method: PopulateCounty | DB error fetching county data")
-		  End Try
-		  
-		  Var tempCounty As String
-		  
-		  If data <> Nil Then
-		    
-		    Self.cboCounty.RemoveAllRows
-		    
-		    For Each row As Databaserow In data
-		      
-		      tempCounty = row.Column("location_county").StringValue.DefineEncoding(Encodings.UTF8)
-		      
-		      // populate the cbo box row
-		      Self.cboCounty.AddRow(tempCounty)
-		      //Self.pmCountry.RowTagAt(Self.pmCountry.LastAddedRowIndex) = tempLBCountryID
-		      
-		    Next row
-		    data.close
-		    
-		  End If 'data <> nil then
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub populateTower()
-		  // populate Tower Info from txtTower (Dove code)
-		  
-		  If Self.txtDoveCode.Text.Length = 0 Then
-		    
-		    // do nothing
-		    txtTowerFull.Text = ""
-		    Return
-		    
-		  End If
-		  
-		  // fall through if there is a value
-		  
-		  Var sqlA As String
-		  
-		  sqlA = "SELECT composite FROM srv2_vwDoveTowers WHERE dove_id = """ + txtDoveCode.Text + """;"
+		  //MessageBox (sqlA)
 		  
 		  Var data As RowSet
 		  Try
 		    data = db.SelectSQL(sqlA)
 		  Catch error As DatabaseException
 		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowCourseNew | Method: PopulateTower | DB error fetching Tower info")
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowViewCourses | Method: Retrieve User Info | DB error fetching user")
 		  End Try
 		  
 		  If data <> Nil Then
 		    
 		    For Each row As Databaserow In data
+		      tempUserID = row.Column("u_user_id").IntegerValue
+		      tempUserName = row.Column("u_user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempLastName = row.Column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      
-		      txtTowerFull.Text = row.Column("composite").StringValue.DefineEncoding(Encodings.UTF8)
+		      lblUserInfo.Text = tempUserID.ToString + "   " + tempUserName + "   " + tempLastName + ", " + tempFirstName
 		      
 		    Next row
 		    
@@ -1183,177 +1043,310 @@ End
 		  
 		  
 		End Sub
+	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub endRelationship(relationshipID as integer, userNiceName as string)
+		  Var md As New MessageDialog                      // declare the MessageDialog object
+		  Var b As MessageDialogButton                     // for handling the result
+		  md.Title = "End active relationship?"
+		  md.IconType = MessageDialog.IconTypes.Question     // display warning icon
+		  md.ActionButton.Caption = "Leave it"
+		  md.CancelButton.Visible = False                  // show the Cancel button
+		  md.AlternateActionButton.Visible = True         // show the "Don't Save" button
+		  md.AlternateActionButton.Caption = "End relationship"
+		  md.Message = "Are you sure you want to end the relationship with " + userNiceName + "?"
+		  'md.Explanation = "Account " + tempUserName + " is locked out.  Please contact admin@bellringing.org for assistance."
+		  
+		  b = md.ShowModal                                 // display the dialog
+		  Select Case b                                    // determine which button was pressed.
+		  Case md.ActionButton
+		    // user pressed Exit
+		    MessageBox("leave")
+		    
+		    // Module1.writeDBLog(tempUserID, tempUserName, "Attempted login when account locked out")
+		    // Module1.AppClose
+		    
+		  Case md.AlternateActionButton
+		    // user pressed Don't Save
+		    MessageBox("End rel")
+		  Case md.CancelButton
+		    // user pressed Cancel
+		  End Select
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub populateActiveRelationships()
+		  // populateActiveRelationships
+		  
+		  Var sql1 As String
+		  
+		  Var tempRelationshipID As Integer
+		  Var tempFromUser As Integer
+		  Var tempToUser As Integer
+		  Var tempRelationshipType As Integer
+		  Var tempRelationshipTypeName As String
+		  Var tempEnrolmentID As Integer
+		  Var tempStartDate As date
+		  Var tempEndDate As Variant
+		  Var tempHistoricEnd As Boolean
+		  Var tempProgrammeShortTitle As String
+		  Var tempFromUserNiceSurname As String
+		  Var tempFromUserNiceName As String
+		  Var tempToUserNicename As String
+		  Var tempToUserNiceSurname As String
+		  Var tempDirectionText As String
+		  Var tempHistoricText As String
+		  Var tempNameText As String
+		  Var tempToUserText As String
+		  Var tempUserInteger As Integer
+		  Var tempUserNiceNameText As String
+		  
+		  Self.lbxActiveRelationships.RemoveAllRows
+		  
+		  sql1 = "SELECT relationship_id, from_user, to_user, relationship_type, relationship_type_name, enrolment_id, start_date, end_date, historic_end, programme_short_title, from_user_nice_surname, from_user_nice_name, to_user_nice_surname, to_user_nice_name FROM srv2_vwRelationshipLiveDetailActive WHERE from_user = ? OR to_user = ? ;"
+		  Var data As RowSet
+		  Try
+		    data = db.SelectSQL(sql1,app.objectUserID, app.objectUserID)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowRelationships | Method: PopulateActoveRelationships | DB error fetching relationship data")
+		  End Try
+		  
+		  If data <> Nil Then
+		    
+		    For Each row As Databaserow In data
+		      
+		      tempRelationshipID = row.Column("relationship_id").IntegerValue
+		      tempFromUser = row.Column("from_user").IntegerValue
+		      tempToUser = row.Column("to_user").IntegerValue
+		      tempRelationshipType = row.Column("relationship_type").IntegerValue
+		      tempRelationshipTypeName = row.column("relationship_type_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempEnrolmentID = row.column("enrolment_id").IntegerValue
+		      tempStartDate = row.column("start_date").DateTimeValue
+		      tempEndDate = row.column("end_date").Value
+		      tempHistoricEnd = row.column("historic_end").BooleanValue
+		      tempProgrammeShortTitle = row.column("programme_short_title").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempFromUserNiceSurname = row.column("from_user_nice_surname").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempFromUserNiceName = row.column("from_user_nice_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempToUserNiceSurname = row.column("to_user_nice_surname").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempToUserNiceName = row.column("to_user_nice_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      
+		      If tempHistoricEnd = True Then
+		        
+		        tempHistoricText = "H"
+		        
+		      Else
+		        
+		        tempHistoricText = "-"
+		        
+		      End If
+		      
+		      If tempFromUser = app.objectUserID Then
+		        ' it's an outbound row
+		        tempDirectionText = ">>"
+		        tempNameText = tempToUserNiceSurname
+		        tempToUserText = tempToUser.ToString
+		        tempUserInteger = tempToUser
+		        tempUserNicenameText = tempToUserNicename
+		        
+		      Else
+		        ' it's an inbound row
+		        tempDirectionText = "<<"
+		        tempNameText = tempFromUserNiceSurname
+		        tempToUserText = tempFromUser.ToString
+		        tempUserInteger = tempFromUser
+		        tempUserNicenameText = tempFromUserNicename
+		        
+		      End If
+		      
+		      // populate the list box row
+		      
+		      Self.lbxActiveRelationships.AddRow(tempRelationshipID.ToString, sr2DateTime(tempStartDate,False,False), sr2DateTime(tempEndDate, False, False), tempHistoricText, tempDirectionText, tempToUserText, tempNameText, tempProgrammeShortTitle, tempRelationshipTypeName)
+		      Self.lbxActiveRelationships.RowTagAt(Self.lbxActiveRelationships.LastAddedRowIndex) = tempUserNicenameText
+		      
+		    Next row
+		    data.close
+		    
+		  End If 'data <> nil then
+		  
+		  // populate the count label
+		  Self.lblActiveRelationshipCount.Text = Self.lbxActiveRelationships.RowCount.ToString + " active relationship(s)"
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub populatePreviousRelationship()
+		  // populatePreviousRelationships
+		  
+		  Var sql1 As String
+		  
+		  Var tempRelationshipID As Integer
+		  Var tempFromUser As Integer
+		  Var tempToUser As Integer
+		  Var tempRelationshipType As Integer
+		  Var tempRelationshipTypeName As String
+		  Var tempEnrolmentID As Integer
+		  Var tempStartDate As date
+		  Var tempEndDate As Variant
+		  Var tempHistoricEnd As Boolean
+		  Var tempProgrammeShortTitle As String
+		  Var tempFromUserNiceSurname As String
+		  Var tempToUserNiceSurname As String
+		  Var tempDirectionText As String
+		  Var tempHistoricText As String
+		  Var tempNameText As String
+		  Var tempToUserText As String
+		  Self.lbxPreviousRelationship.RemoveAllRows
+		  
+		  sql1 = "SELECT relationship_id, from_user, to_user, relationship_type, relationship_type_name, enrolment_id, start_date, end_date, historic_end, programme_short_title, from_user_nice_surname, to_user_nice_surname FROM srv2_vwRelationshipLiveDetailInactive WHERE from_user = ? OR to_user = ? ;"
+		  Var data As RowSet
+		  Try
+		    data = db.SelectSQL(sql1,app.objectUserID, app.objectUserID)
+		  Catch error As DatabaseException
+		    MessageBox("DB Error: " + error.Message)
+		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowRelationships | Method: PopulateInactiveRelationships | DB error fetching relationship data")
+		  End Try
+		  
+		  If data <> Nil Then
+		    
+		    For Each row As Databaserow In data
+		      
+		      tempRelationshipID = row.Column("relationship_id").IntegerValue
+		      tempFromUser = row.Column("from_user").IntegerValue
+		      tempToUser = row.Column("to_user").IntegerValue
+		      tempRelationshipType = row.Column("relationship_type").IntegerValue
+		      tempRelationshipTypeName = row.column("relationship_type_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempEnrolmentID = row.column("enrolment_id").IntegerValue
+		      tempStartDate = row.column("start_date").DateTimeValue
+		      tempEndDate = row.column("end_date").Value
+		      tempHistoricEnd = row.column("historic_end").BooleanValue
+		      tempProgrammeShortTitle = row.column("programme_short_title").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempFromUserNiceSurname = row.column("from_user_nice_surname").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempToUserNiceSurname = row.column("to_user_nice_surname").StringValue.DefineEncoding(Encodings.UTF8)
+		      
+		      If tempHistoricEnd = True Then
+		        
+		        tempHistoricText = "H"
+		        
+		      Else
+		        
+		        tempHistoricText = "-"
+		        
+		      End If
+		      
+		      If tempFromUser = app.objectUserID Then
+		        ' it's an outbound row
+		        tempDirectionText = ">>"
+		        tempNameText = tempToUserNiceSurname
+		        tempToUserText = tempToUser.ToString
+		        
+		      Else
+		        ' it's an inbound row
+		        tempDirectionText = "<<"
+		        tempNameText = tempFromUserNiceSurname
+		        tempToUserText = tempFromUser.ToString
+		        
+		      End If
+		      
+		      // populate the list box row
+		      
+		      Self.lbxPreviousRelationship.AddRow(tempRelationshipID.ToString, sr2DateTime(tempStartDate,False,False), sr2DateTime(tempEndDate, False, False), tempHistoricText, tempDirectionText, tempToUserText, tempNameText, tempProgrammeShortTitle, tempRelationshipTypeName)
+		      Self.lbxPreviousRelationship.RowTagAt(Self.lbxPreviousRelationship.LastAddedRowIndex) = tempRelationshipID
+		      
+		      
+		    Next row
+		    data.close
+		    
+		  End If 'data <> nil then
+		  
+		  // populate the count label
+		  Self.lblPastReleationshipCount.Text = Self.lbxPreviousRelationship.RowCount.ToString + " previous relationship(s)"
+		End Sub
 	#tag EndMethod
 
 
 	#tag Property, Flags = &h0
-		searchWhere As string
+		selectedName As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		selectedRelationship As Integer
 	#tag EndProperty
 
 
 #tag EndWindowCode
 
-#tag Events pmCountry
+#tag Events lbxActiveRelationships
 	#tag Event
-		Sub SelectionChanged(item As DesktopMenuItem)
-		  // pmCountry - Selection Changed
+		Sub DoublePressed()
+		  // lbxActiveRelationships - double pressed
 		  
-		  Var i As Integer
-		  i = Me.RowTagAt(Me.SelectedRowIndex)
-		  //MessageBox("Row Index: " + Me.SelectedRowIndex.ToString + " Row Tag: " + i.ToString)
-		  Self.txtLocationCountry.Text = i.ToString
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events txtDoveCode
-	#tag Event
-		Sub TextChanged()
-		  populateTower
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnSave
-	#tag Event
-		Sub Pressed()
-		  // btnSave - pressed
-		  // validate the fields
-		  
-		  If txtProgramme.Text.Length = 0 Then
+		  If lbxActiveRelationships.SelectedRowIndex = Listbox.NoSelection Then
 		    
-		    lblMessage.Text = "No programme selected"
-		    Return
-		    
-		  End If
-		  
-		  If dtPickerEndDate.SelectedDate < dtPickerStartDate.SelectedDate Then
-		    
-		    lblMessage.Text = "End date cannot be earlier than start date"
-		    Return
-		    
-		  End If
-		  
-		  If txtLocationName.Text.Length = 0 Then
-		    
-		    lblMessage.Text = "Location cannot be blank"
-		    Return
-		    
-		  End If
-		  
-		  If cboCounty.Text.Length = 0 Then
-		    
-		    lblMessage.Text = "County cannot be blank"
-		    Return
-		    
-		  End If
-		  
-		  // if we've got to here, there is something to save...
-		  
-		  // set up the temp variables to bring the values back...
-		  
-		  Var tempProgrammeID As Integer
-		  Var tempEventsCourseID As Variant
-		  Var tempStartDate As Datetime
-		  Var tempEndDate As DateTime
-		  Var tempLocationName As String
-		  Var tempLocationCounty As String
-		  Var tempLocationCountry As Integer
-		  Var tempDoveCode As String
-		  
-		  // get the values back off the form
-		  
-		  
-		  tempProgrammeID = txtProgramme.Text.tointeger
-		  
-		  If txtEventsCourseID.Text = "-" Then
-		    
-		    tempEventsCourseID = Nil
+		    //Do nothing
+		    Self.btnEnd.enabled = False
 		    
 		  Else
 		    
-		    tempEventsCourseID = txtEventsCourseID.Text.ToInteger
+		    Self.btnEnd.Enabled = True
 		    
-		  End 
-		  
-		  tempStartDate = dtPickerStartDate.SelectedDate
-		  tempEndDate = dtPickerEndDate.SelectedDate
-		  tempLocationName = txtLocationName.Text
-		  tempLocationCounty = cboCounty.Text
-		  tempLocationCountry = txtLocationCountry.Text.ToInteger
-		  tempDoveCode = txtDoveCode.Text
-		  
-		  
-		  Var sqlA As String
-		  
-		  sqlA = "UPDATE srv2_tblCourse SET events_course_id = ?, start_date = ?, end_date = ?, location_dove = ?, location_name = ?, location_county = ?, location_country = ?, updated_by = ?  WHERE sr2_course_id = ? ;"
-		  
-		  Try
+		    Var i As String
+		    i = Me.RowTagAt(Me.SelectedRowIndex)
+		    MessageBox("Row Text: " + Me.SelectedRowText + " Row Tag: " + i)
+		    selectedRelationship = Me.SelectedRowText.ToInteger
+		    endRelationship(selectedRelationship,i)
 		    
-		    db.BeginTransaction
-		    db.ExecuteSQL(sqlA, tempEventsCourseID, tempStartDate, tempEndDate, tempDoveCode, tempLocationName, tempLocationCounty, tempLocationCountry, app.activeUserID, app.objectCourseID)
+		  End If
+		  
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub SelectionChanged()
+		  // lbxActiveRelationships - selection changed
+		  
+		  If lbxActiveRelationships.SelectedRowIndex = Listbox.NoSelection Then
 		    
-		  Catch error As DatabaseException
+		    //Do nothing
+		    Self.btnEnd.enabled = False
 		    
-		    MessageBox("DB Error: " + error.Message)
-		    db.RollbackTransaction
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowCourseEdit | Method: Save updated course to DB | DB error writing updated course")
-		    module1.AppClose
+		  Else
 		    
-		  End Try
-		  db.CommitTransaction
-		  
-		  // get back the user ID number you just wrote to the db
-		  
-		  // Module1.writeDBLog(action_on as integer, action_on_name as string, log_action as string)
-		  Module1.writeDBLog(1, app.activeUserName, "Course " + app.objectCourseID.ToString + " edited")
-		  
-		  app.blLloadCourse = True ' make courses window reload itself (activation)
-		  
-		  MessageBox("Course " + app.objectCourseID.ToString + " (" + tempLocationName + ") saved.")
-		  
-		  Self.close
+		    Self.btnEnd.Enabled = True
+		    
+		    Var i As Integer
+		    i = Me.RowTagAt(Me.SelectedRowIndex)
+		    //MessageBox("Row Index: " + Me.SelectedRowIndex.ToString + " Row Tag: " + i.ToString)
+		    selectedRelationship = i   ' window property
+		    
+		  End If
 		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnCancel
+#tag Events lbxPreviousRelationship
+	#tag Event
+		Sub DoublePressed()
+		  // // lbxActiveRelationships - double pressed
+		  // 
+		  // Var i As Integer
+		  // i = Me.RowTagAt(Me.SelectedRowIndex)
+		  // //MessageBox("Row Index: " + Me.SelectedRowIndex.ToString + " Row Tag: " + i.ToString)
+		  // app.objectUserID = i
+		  
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnNew
 	#tag Event
 		Sub Pressed()
-		  // btnCancelPressed
-		  
-		  app.blLloadCourse = True
-		  
-		  self.close
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events pmAvailableProgrammes
-	#tag Event
-		Sub SelectionChanged(item As DesktopMenuItem)
-		  // pmUserState - changed selection
-		  
-		  Var i As Integer
-		  i = Me.RowTagAt(Me.SelectedRowIndex)
-		  //MessageBox("Row Index: " + Me.SelectedRowIndex.ToString + " Row Tag: " + i.ToString)
-		  Self.txtProgramme.Text = i.ToString
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnDoveSet
-	#tag Event
-		Sub Pressed()
-		  app.setCourseTower = True ' flag indicates that we want a new course tower
-		  app.windowDoveP = New WindowDove
-		  app.windowDoveP.ShowModal
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnDoveClear
-	#tag Event
-		Sub Pressed()
-		  // Dove clear button text pressed - clear out the value from the DOVE field
-		  
-		  self.txtDoveCode.text = ""
+		  messagebox("Not yet implemented!")
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1592,13 +1585,5 @@ End
 		InitialValue="False"
 		Type="Boolean"
 		EditorType=""
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="searchWhere"
-		Visible=false
-		Group="Behavior"
-		InitialValue=""
-		Type="string"
-		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 #tag EndViewBehavior

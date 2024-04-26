@@ -331,7 +331,7 @@ End
 	#tag Event
 		Sub Closing()
 		  // closing
-		  app.blLloadSingleCourse = TRUE
+		  app.blLloadCourse = True
 		End Sub
 	#tag EndEvent
 
@@ -508,7 +508,7 @@ End
 		  //(action_on As Integer, note_type As Integer, note_text As String, note_due_date As DateTime, note_closed As Boolean)
 		  module1.writeDBNote(tempTutorID, 1, "Attendance type on course " + app.objectCourseID.ToString + " changed to " + Self.txtRoleID.Text, Nil, True)
 		  
-		  app.blLloadSingleCourse = True
+		  app.blLloadCourse = True
 		  
 		  Self.close
 		  
@@ -520,7 +520,7 @@ End
 		Sub Pressed()
 		  // btnCancelPressed
 		  
-		  app.blLloadSingleCourse = TRUE
+		  app.blLloadCourse = True
 		  
 		  self.close
 		End Sub
@@ -626,7 +626,7 @@ End
 		    //(action_on As Integer, note_type As Integer, note_text As String, note_due_date As DateTime, note_closed As Boolean)
 		    module1.writeDBNote(tempTutorID, 1, tempUserName + " unassigned from course " + app.objectCourseID.ToString, Nil, True)
 		    
-		    app.blLloadSingleCourse = TRUE
+		    app.blLloadCourse = TRUE
 		    Self.close
 		    
 		  End Select

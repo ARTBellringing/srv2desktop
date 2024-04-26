@@ -591,7 +591,7 @@ End
 		  // (action_on as integer, note_type as integer, note_text as string, note_due_date as DateTime, note_closed as boolean)
 		  // Module1.writeDBNote(Self.txtTutorID.Text.ToInteger, 2, "Tutor attendance type " + txtRole.Text + " added for course " + app.objectCourseID.ToString, Nil, True)
 		  
-		  app.blLloadSingleCourse = True
+		  app.blLloadCourse = True
 		  
 		  Self.Close 
 		End Sub
@@ -602,7 +602,7 @@ End
 		Sub Pressed()
 		  // btnCancelPressed
 		  
-		  app.blLloadSingleCourse = TRUE
+		  app.blLloadCourse = True
 		  
 		  self.close
 		End Sub

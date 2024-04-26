@@ -66,7 +66,7 @@ Begin DesktopWindow WindowMain
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   1342
+      Left            =   1385
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   False
@@ -75,7 +75,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   132
+      TabIndex        =   125
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Connecting to DB"
@@ -86,7 +86,7 @@ Begin DesktopWindow WindowMain
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   145
+      Width           =   102
    End
    Begin DesktopLabel lblActiveUser
       AllowAutoDeactivate=   True
@@ -107,7 +107,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   133
+      TabIndex        =   126
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "ActiveUser"
@@ -141,7 +141,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   129
+      TabIndex        =   122
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -172,7 +172,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   130
+      TabIndex        =   123
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -203,7 +203,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   131
+      TabIndex        =   124
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -273,7 +273,7 @@ Begin DesktopWindow WindowMain
       Hint            =   "3 chars or more"
       Index           =   -2147483648
       InitialParent   =   ""
-      Left            =   165
+      Left            =   244
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -287,46 +287,14 @@ Begin DesktopWindow WindowMain
       TabPanelIndex   =   0
       Text            =   ""
       Tooltip         =   ""
-      Top             =   41
+      Top             =   31
       Transparent     =   False
       Visible         =   True
-      Width           =   168
+      Width           =   188
       _mIndex         =   0
       _mInitialParent =   ""
       _mName          =   ""
       _mPanelIndex    =   0
-   End
-   Begin DesktopLabel lblSearch
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   26
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Username or lastname:"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   41
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   126
    End
    Begin DesktopButton btnFetch
       AllowAutoDeactivate=   True
@@ -1878,7 +1846,7 @@ Begin DesktopWindow WindowMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   93
+      TabIndex        =   94
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -1908,7 +1876,7 @@ Begin DesktopWindow WindowMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   94
+      TabIndex        =   95
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -1938,7 +1906,7 @@ Begin DesktopWindow WindowMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   95
+      TabIndex        =   96
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -1968,7 +1936,7 @@ Begin DesktopWindow WindowMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   88
+      TabIndex        =   89
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -1998,7 +1966,7 @@ Begin DesktopWindow WindowMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   89
+      TabIndex        =   90
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -2028,7 +1996,7 @@ Begin DesktopWindow WindowMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   90
+      TabIndex        =   91
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -2058,7 +2026,7 @@ Begin DesktopWindow WindowMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   91
+      TabIndex        =   92
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -2080,9 +2048,9 @@ Begin DesktopWindow WindowMain
       Height          =   21
       Index           =   -2147483648
       Italic          =   False
-      Left            =   271
+      Left            =   324
       LockBottom      =   False
-      LockedInPosition=   True
+      LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -2096,7 +2064,7 @@ Begin DesktopWindow WindowMain
       TextAlignment   =   0
       TextColor       =   &cFF000000
       Tooltip         =   ""
-      Top             =   403
+      Top             =   402
       Transparent     =   False
       Underline       =   False
       Visible         =   False
@@ -2108,7 +2076,7 @@ Begin DesktopWindow WindowMain
       Cancel          =   False
       Caption         =   "Unlock"
       Default         =   False
-      Enabled         =   True
+      Enabled         =   False
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
@@ -2116,9 +2084,9 @@ Begin DesktopWindow WindowMain
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   341
+      Left            =   269
       LockBottom      =   False
-      LockedInPosition=   True
+      LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -2131,7 +2099,7 @@ Begin DesktopWindow WindowMain
       Top             =   402
       Transparent     =   False
       Underline       =   False
-      Visible         =   False
+      Visible         =   True
       Width           =   46
    End
    Begin DesktopPopupMenu pmCountry
@@ -2490,7 +2458,7 @@ Begin DesktopWindow WindowMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   92
+      TabIndex        =   93
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -2538,7 +2506,7 @@ Begin DesktopWindow WindowMain
       RequiresSelection=   False
       RowSelectionType=   0
       Scope           =   0
-      TabIndex        =   97
+      TabIndex        =   98
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -2569,7 +2537,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   True
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   96
+      TabIndex        =   97
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "This user is\r\nalt contact for"
@@ -2603,7 +2571,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   98
+      TabIndex        =   99
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -2629,7 +2597,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       PanelIndex      =   0
       Scope           =   0
-      TabIndex        =   86
+      TabIndex        =   87
       TabPanelIndex   =   0
       Tooltip         =   ""
       Top             =   183
@@ -2811,7 +2779,7 @@ Begin DesktopWindow WindowMain
       TabIndex        =   24
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Active roles"
+      Text            =   "Active role(s)"
       TextAlignment   =   1
       TextColor       =   &c000000
       Tooltip         =   ""
@@ -2935,7 +2903,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   80
+      TabIndex        =   81
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Reason"
@@ -2967,7 +2935,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   84
+      TabIndex        =   85
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Email option"
@@ -3005,7 +2973,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       MaximumCharactersAllowed=   0
       Password        =   False
-      ReadOnly        =   False
+      ReadOnly        =   True
       Scope           =   0
       TabIndex        =   77
       TabPanelIndex   =   0
@@ -3048,7 +3016,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   81
+      TabIndex        =   82
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -3080,7 +3048,7 @@ Begin DesktopWindow WindowMain
       LockRight       =   False
       LockTop         =   True
       Scope           =   0
-      TabIndex        =   83
+      TabIndex        =   84
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -3112,7 +3080,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       Scope           =   0
       SelectedIndex   =   0
-      TabIndex        =   85
+      TabIndex        =   86
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -3141,7 +3109,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       Scope           =   0
       SelectedRowIndex=   0
-      TabIndex        =   82
+      TabIndex        =   83
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -3149,7 +3117,7 @@ Begin DesktopWindow WindowMain
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   126
+      Width           =   170
    End
    Begin DesktopTextField txtAltContactInfo
       AllowAutoDeactivate=   True
@@ -3158,7 +3126,7 @@ Begin DesktopWindow WindowMain
       AllowTabs       =   False
       BackgroundColor =   &cFFFFFF
       Bold            =   False
-      Enabled         =   False
+      Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
@@ -3176,7 +3144,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       MaximumCharactersAllowed=   0
       Password        =   False
-      ReadOnly        =   False
+      ReadOnly        =   True
       Scope           =   0
       TabIndex        =   78
       TabPanelIndex   =   0
@@ -3205,7 +3173,7 @@ Begin DesktopWindow WindowMain
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   1314
+      Left            =   1313
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -3217,7 +3185,7 @@ Begin DesktopWindow WindowMain
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   41
+      Top             =   68
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -3245,7 +3213,7 @@ Begin DesktopWindow WindowMain
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Search"
+      Text            =   "Search for"
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
@@ -3253,7 +3221,7 @@ Begin DesktopWindow WindowMain
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   100
+      Width           =   64
    End
    Begin DesktopLabel LblUserFrame
       AllowAutoDeactivate=   True
@@ -3368,7 +3336,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       PanelIndex      =   0
       Scope           =   0
-      TabIndex        =   99
+      TabIndex        =   100
       TabPanelIndex   =   0
       Tooltip         =   ""
       Top             =   361
@@ -3392,14 +3360,14 @@ Begin DesktopWindow WindowMain
       Italic          =   False
       Left            =   908
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   87
+      TabIndex        =   88
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "User Options"
@@ -3490,7 +3458,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       PanelIndex      =   0
       Scope           =   0
-      TabIndex        =   100
+      TabIndex        =   101
       TabPanelIndex   =   0
       Tooltip         =   ""
       Top             =   433
@@ -3560,7 +3528,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   113
+      TabIndex        =   112
       TabPanelIndex   =   0
       TabStop         =   False
       Text            =   ""
@@ -3593,7 +3561,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   True
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   101
+      TabIndex        =   102
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Active Teacher Membership"
@@ -3625,7 +3593,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   112
+      TabIndex        =   111
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Course(s)"
@@ -3657,7 +3625,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   117
+      TabIndex        =   114
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Enrolment(s) | Active"
@@ -3697,7 +3665,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   120
+      TabIndex        =   117
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -3724,7 +3692,7 @@ Begin DesktopWindow WindowMain
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   1313
+      Left            =   1315
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -3732,7 +3700,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   105
+      TabIndex        =   106
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -3769,7 +3737,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   102
+      TabIndex        =   103
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -3802,7 +3770,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   103
+      TabIndex        =   104
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "membership expires"
@@ -3842,7 +3810,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   104
+      TabIndex        =   105
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -3883,7 +3851,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   106
+      TabIndex        =   107
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -3916,7 +3884,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   107
+      TabIndex        =   108
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "safeguarding expires"
@@ -3956,7 +3924,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   108
+      TabIndex        =   109
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -3986,7 +3954,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       PanelIndex      =   0
       Scope           =   0
-      TabIndex        =   123
+      TabIndex        =   118
       TabPanelIndex   =   0
       Tooltip         =   ""
       Top             =   479
@@ -4017,7 +3985,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   124
+      TabIndex        =   119
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Learner"
@@ -4049,7 +4017,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   126
+      TabIndex        =   120
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Enrolment(s) | Active"
@@ -4078,7 +4046,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       PanelIndex      =   0
       Scope           =   0
-      TabIndex        =   128
+      TabIndex        =   121
       TabPanelIndex   =   0
       Tooltip         =   ""
       Top             =   605
@@ -4109,7 +4077,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   111
+      TabIndex        =   110
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Accreditation"
@@ -4143,7 +4111,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   114
+      TabIndex        =   113
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -4173,7 +4141,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   119
+      TabIndex        =   116
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "a TAP"
@@ -4202,7 +4170,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       PanelIndex      =   0
       Scope           =   0
-      TabIndex        =   134
+      TabIndex        =   127
       TabPanelIndex   =   0
       Tooltip         =   ""
       Top             =   569
@@ -4237,7 +4205,7 @@ Begin DesktopWindow WindowMain
       TabIndex        =   27
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Active relationships"
+      Text            =   "Active relationship(s)"
       TextAlignment   =   1
       TextColor       =   &c000000
       Tooltip         =   ""
@@ -4357,37 +4325,6 @@ Begin DesktopWindow WindowMain
       Visible         =   True
       Width           =   45
    End
-   Begin DesktopButton btnWindowSelectUser
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Select User"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   1407
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   135
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Tooltip         =   ""
-      Top             =   159
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
    Begin DesktopButton btnLearnerDetails
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -4410,7 +4347,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   136
+      TabIndex        =   128
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -4448,7 +4385,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   137
+      TabIndex        =   129
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -4490,7 +4427,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   139
+      TabIndex        =   130
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -4524,7 +4461,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   141
+      TabIndex        =   131
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "ANJ | Active"
@@ -4557,7 +4494,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   142
+      TabIndex        =   132
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "M"
@@ -4590,7 +4527,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   143
+      TabIndex        =   133
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "M"
@@ -4622,7 +4559,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   146
+      TabIndex        =   134
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Accreditation(s)"
@@ -4662,7 +4599,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   147
+      TabIndex        =   135
       TabPanelIndex   =   0
       TabStop         =   False
       Text            =   ""
@@ -4704,7 +4641,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   118
+      TabIndex        =   115
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -4737,7 +4674,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   148
+      TabIndex        =   136
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "M"
@@ -4769,7 +4706,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   149
+      TabIndex        =   137
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "M"
@@ -4798,7 +4735,7 @@ Begin DesktopWindow WindowMain
       LockTop         =   True
       PanelIndex      =   0
       Scope           =   0
-      TabIndex        =   150
+      TabIndex        =   138
       TabPanelIndex   =   0
       Tooltip         =   ""
       Top             =   680
@@ -4829,7 +4766,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   True
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   151
+      TabIndex        =   139
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Active Other\r\nMembership"
@@ -4869,7 +4806,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   152
+      TabIndex        =   140
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -4902,7 +4839,7 @@ Begin DesktopWindow WindowMain
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   153
+      TabIndex        =   141
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "membership expires"
@@ -4932,7 +4869,7 @@ Begin DesktopWindow WindowMain
       Hint            =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   1200
+      Left            =   1204
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -4942,7 +4879,7 @@ Begin DesktopWindow WindowMain
       Password        =   False
       ReadOnly        =   True
       Scope           =   0
-      TabIndex        =   154
+      TabIndex        =   142
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -4955,6 +4892,131 @@ Begin DesktopWindow WindowMain
       ValidationMask  =   ""
       Visible         =   True
       Width           =   80
+   End
+   Begin DesktopRadioGroup rgSearchFor
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   45
+      Horizontal      =   False
+      Index           =   -2147483648
+      InitialValue    =   "Username or lastname\r\nEmail address"
+      Italic          =   False
+      Left            =   92
+      LockBottom      =   False
+      LockedInPosition=   True
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      SelectedIndex   =   0
+      TabIndex        =   1
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   20
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   142
+   End
+   Begin DesktopButton btnSetAC
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Set AC"
+      Default         =   False
+      Enabled         =   False
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   1313
+      LockBottom      =   False
+      LockedInPosition=   True
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   80
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   41
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   57
+   End
+   Begin DesktopLabel lblRelationshipCount
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   9.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   33
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   143
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextAlignment   =   2
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   719
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   300
+   End
+   Begin DesktopLabel lblRoleCount
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   9.0
+      FontUnit        =   0
+      Height          =   21
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   33
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   144
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextAlignment   =   2
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   541
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   302
    End
 End
 #tag EndDesktopWindow
@@ -5410,6 +5472,7 @@ End
 		  
 		  sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name FROM srv2_vwUserAdmin WHERE p_alternate_contact LIKE " + app.objectUserID.ToString + ";"
 		  
+		  
 		  Var data2 As RowSet
 		  Try
 		    data2 = db.SelectSQL(sql2)
@@ -5599,24 +5662,52 @@ End
 		    
 		  End If
 		  
+		  // MessageBox(Self.rgSearchFor.SelectedItem.caption.left(1))
+		  
 		  // fall through if len 3 or more..
 		  // there is something in the list box therefore searchwhere will be populated
 		  
 		  Var sql2 As String
 		  
-		  sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name,  p_organisation_attachment, composite FROM srv2_vwUserAdmin WHERE u_user_name LIKE ? or p_last_name LIKE ? ;"
+		  If Self.rgSearchFor.SelectedItem.Caption.Left(1) = "U" THEN '' we are searching for username
+		    
+		    sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name,  p_organisation_attachment, composite, p_email_address FROM srv2_vwUserAdmin WHERE u_user_name LIKE ? or p_last_name LIKE ? ;"
+		    
+		  Else ' we are searching for email
+		    
+		    sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name,  p_organisation_attachment, composite, p_email_address FROM srv2_vwUserAdmin WHERE p_email_address LIKE ? ;"
+		    
+		  End If
+		  
 		  
 		  Var searchString As String
 		  searchString = searchwhere + "%"
 		  
 		  Var data2 As RowSet
-		  Try
-		    data2 = db.SelectSQL(sql2, searchString, searchString)
+		  
+		  If Self.rgSearchFor.SelectedItem.Caption.Left(1) = "U" THEN '' we are searching for username
 		    
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching username")
-		  End Try
+		    Try
+		      data2 = db.SelectSQL(sql2, searchString, searchString)
+		      
+		    Catch error As DatabaseException
+		      MessageBox("DB Error: " + error.Message)
+		      Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching username")
+		    End Try
+		    
+		  Else ' we are searching for email
+		    
+		    searchString = "%" + searchwhere + "%"
+		    
+		    Try
+		      data2 = db.SelectSQL(sql2, searchString)
+		      
+		    Catch error As DatabaseException
+		      MessageBox("DB Error: " + error.Message)
+		      Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching username")
+		    End Try
+		    
+		  End If
 		  
 		  Var tempLUserID As Integer
 		  Var tempUserName As String
@@ -5624,6 +5715,7 @@ End
 		  Var tempFirstName As String
 		  Var tempOrgAttachment As String
 		  Var tempTowerComposite As String
+		  Var tempEmail As String
 		  
 		  If data2 <> Nil Then
 		    
@@ -5637,6 +5729,7 @@ End
 		      tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempOrgAttachment = row.Column("p_organisation_attachment").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempTowerComposite = row.Column("composite").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempEmail = row.Column("p_email_address").StringValue.DefineEncoding(Encodings.UTF8)
 		      
 		      Var tempTowerString As String
 		      
@@ -5652,7 +5745,15 @@ End
 		      
 		      
 		      // populate the list box row
-		      Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName + "   [" + tempTowerString +"]")
+		      If Self.rgSearchFor.SelectedItem.Caption.Left(1) = "U" Then '' we are searching for username
+		        
+		        Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName + "   [" + tempTowerString +"]")
+		        
+		      Else ' we are searching for email
+		        
+		        Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName + "   <" + tempEmail +">")
+		        
+		      End If
 		      
 		    Next row
 		    
@@ -5740,6 +5841,10 @@ End
 		    data.close
 		    
 		  End If 'data <> nil then
+		  
+		  // populate lblRelationshipCount
+		  self.lblRelationshipCount.text = self.ListBoxRelationships.RowCount.ToString + " active relationship(s)"
+		  
 		End Sub
 	#tag EndMethod
 
@@ -5780,6 +5885,9 @@ End
 		    data.close
 		    
 		  End If 'data <> nil then
+		  
+		  // populate lblRoleCount
+		  Self.lblRoleCount.Text = Self.ListBoxRoles.RowCount.ToString + " active role(s)"
 		End Sub
 	#tag EndMethod
 
@@ -6548,7 +6656,7 @@ End
 		  
 		  If tempIAccountLockedOut = True Then
 		    lblLockedOut.visible = True
-		    btnUnlock.Visible = True ' admin user can click this to unlock the user
+		    btnUnlock.Enabled = True ' admin user can click this to unlock the user
 		    
 		  End If ' account locked out
 		  
@@ -6609,7 +6717,7 @@ End
 		  
 		  Self.pmAltContactReason.SelectedRowIndex = -1 ' no selection
 		  
-		  // now overwrite the defaults if this user as an alt contact therefore something to overwrite them with
+		  // now overwrite the defaults if this user has an alt contact therefore something to overwrite them with
 		  
 		  If tempIAlternateContact <> 0 Then ' populate the alt contact controls
 		    
@@ -6685,12 +6793,13 @@ End
 		  btnChangeUserName.enabled = True
 		  btnRoles.Enabled = True
 		  btnDove.Enabled = True
-		  btnACFetch.enabled = True
+		  //btnACFetch.enabled = True
 		  btnFetchACs.Enabled = True
 		  btnMemberDetail.Enabled = True
 		  btnTeacherDetails.enabled = True
 		  btnLearnerDetails.Enabled = True
 		  btnRelationships.Enabled = True
+		  btnSetAC.enabled = True
 		  
 		  
 		  
@@ -6710,6 +6819,10 @@ End
 
 	#tag Property, Flags = &h0
 		SaveNeeded As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		SearchEmailWhere As string
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -7588,7 +7701,7 @@ End
 		  i = Me.RowTagAt(Me.SelectedRowIndex)
 		  //MessageBox("Row Index: " + Me.SelectedRowIndex.ToString + " Row Tag: " + i.ToString)
 		  app.objectUserID = i
-		  self.userRowSelected
+		  Self.userRowSelected
 		  
 		  
 		End Sub
@@ -7597,7 +7710,9 @@ End
 #tag Events btnRelationships
 	#tag Event
 		Sub Pressed()
-		  MessageBox("Relationships pressed!")
+		  //MessageBox("Relationships pressed!")
+		  app.windowRelationshipP = New WindowRelationship
+		  app.windowRelationshipP.show
 		  
 		End Sub
 	#tag EndEvent
@@ -7608,14 +7723,6 @@ End
 		  // Dove clear button text pressed - clear out the value from the DOVE field
 		  
 		  Self.txtTower.Text = ""
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnWindowSelectUser
-	#tag Event
-		Sub Pressed()
-		  app.windowSelectUserP = New WindowSelectUser
-		  app.windowSelectUserP.show
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -7641,6 +7748,26 @@ End
 		    //Self.btnViewCourses.Enabled = False
 		    
 		  end if 
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events rgSearchFor
+	#tag Event
+		Sub SelectionChanged(button As DesktopRadioButton)
+		  // seachfor selection changed
+		  
+		  Self.ListBoxUser.RemoveAllRows
+		  Self.fldUserSearch.Text = ""
+		  self.fldUserSearch.SetFocus
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnSetAC
+	#tag Event
+		Sub Pressed()
+		  app.windowSelectUserP = New WindowSelectUser
+		  app.windowSelectUserP.show
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -7911,5 +8038,13 @@ End
 		InitialValue="TRUE"
 		Type="Boolean"
 		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="SearchEmailWhere"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="string"
+		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 #tag EndViewBehavior

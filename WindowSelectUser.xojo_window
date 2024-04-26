@@ -10,7 +10,7 @@ Begin DesktopWindow WindowSelectUser
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   True
-   Height          =   257
+   Height          =   262
    ImplicitInstance=   False
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -20,10 +20,10 @@ Begin DesktopWindow WindowSelectUser
    MinimumHeight   =   600
    MinimumWidth    =   800
    Resizeable      =   False
-   Title           =   "Select a user"
+   Title           =   "Select an alt contact"
    Type            =   1
    Visible         =   True
-   Width           =   387
+   Width           =   453
    Begin DesktopListBox ListBoxUser
       AllowAutoDeactivate=   False
       AllowAutoHideScrollbars=   True
@@ -34,7 +34,7 @@ Begin DesktopWindow WindowSelectUser
       AllowRowReordering=   False
       Bold            =   False
       ColumnCount     =   3
-      ColumnWidths    =   "40,95,200"
+      ColumnWidths    =   "40,95"
       DefaultRowHeight=   -1
       DropIndicatorVisible=   False
       Enabled         =   True
@@ -53,7 +53,7 @@ Begin DesktopWindow WindowSelectUser
       Italic          =   False
       Left            =   33
       LockBottom      =   False
-      LockedInPosition=   True
+      LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -64,11 +64,11 @@ Begin DesktopWindow WindowSelectUser
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   76
+      Top             =   75
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   334
+      Width           =   400
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
@@ -84,7 +84,7 @@ Begin DesktopWindow WindowSelectUser
       Hint            =   "3 chars or more"
       Index           =   -2147483648
       InitialParent   =   ""
-      Left            =   165
+      Left            =   191
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -107,38 +107,6 @@ Begin DesktopWindow WindowSelectUser
       _mName          =   ""
       _mPanelIndex    =   0
    End
-   Begin DesktopLabel lblSearch
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   21
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   26
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   True
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Username or lastname:"
-      TextAlignment   =   3
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   41
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   126
-   End
    Begin DesktopButton btnSelectUser
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -152,9 +120,9 @@ Begin DesktopWindow WindowSelectUser
       Height          =   22
       Index           =   -2147483648
       Italic          =   False
-      Left            =   305
+      Left            =   371
       LockBottom      =   False
-      LockedInPosition=   True
+      LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -164,7 +132,7 @@ Begin DesktopWindow WindowSelectUser
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   215
+      Top             =   220
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -213,16 +181,16 @@ Begin DesktopWindow WindowSelectUser
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   107
+      Left            =   33
       LockBottom      =   False
-      LockedInPosition=   True
+      LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   5
+      TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   ""
@@ -233,7 +201,68 @@ Begin DesktopWindow WindowSelectUser
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   185
+      Width           =   330
+   End
+   Begin DesktopRadioGroup rgSearchType
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   45
+      Horizontal      =   False
+      Index           =   -2147483648
+      InitialValue    =   "Username or lastname\r\nEmail address"
+      Italic          =   False
+      Left            =   40
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      SelectedIndex   =   0
+      TabIndex        =   1
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   29
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   149
+   End
+   Begin DesktopButton btnCancel
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Cancel"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   33
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   220
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
    End
 End
 #tag EndDesktopWindow
@@ -278,6 +307,89 @@ End
 
 	#tag Method, Flags = &h0
 		Sub populateListBox()
+		  // // populate list box
+		  // 
+		  // Var tempMRowCount As Integer
+		  // Var tempMRetrCount As Integer
+		  // 
+		  // Var sql1 As String = "SELECT COUNT(*) FROM srv2_tblUser ;"
+		  // 
+		  // Var data1 As RowSet
+		  // Try
+		  // data1 = db.SelectSQL(sql1)
+		  // Catch error As DatabaseException
+		  // MessageBox("DB Error: " + error.Message)
+		  // Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching row count")
+		  // End Try
+		  // 
+		  // If data1 <> Nil Then
+		  // 
+		  // For Each row As Databaserow In data1
+		  // 
+		  // tempMRowCount = row.columnat(0).IntegerValue // row.ColumnAt(0).IntegerValue
+		  // 
+		  // Next row
+		  // data1.close
+		  // 
+		  // End If 'data <> nil then
+		  // 
+		  // Self.lblRowCount.Text = tempMRowCount.ToString("###,###") + " users"
+		  // 
+		  // If Self.SearchWhere.length <=2 Then
+		  // // not enough entered yet - do nothing
+		  // 
+		  // Self.ListBoxUser.RemoveAllRows
+		  // //Self.btnFetch.enabled = False
+		  // Return
+		  // 
+		  // End If
+		  // 
+		  // // fall through if len 3 or more..
+		  // // there is something in the list box therefore searchwhere will be populated
+		  // 
+		  // Var sql2 As String
+		  // 
+		  // SearchWhere = searchwhere + "%"
+		  // 
+		  // sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name FROM srv2_vwUserAdmin WHERE u_user_name LIKE ? OR p_last_name LIKE ? ;"
+		  // 
+		  // Var data2 As RowSet
+		  // Try
+		  // data2 = db.SelectSQL(sql2, SearchWhere, SearchWhere)
+		  // Catch error As DatabaseException
+		  // MessageBox("DB Error: " + error.Message)
+		  // Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching username")
+		  // End Try
+		  // 
+		  // Var tempLUserID As Integer
+		  // Var tempUserName As String
+		  // Var tempLastName As String
+		  // Var tempFirstName As String
+		  // 
+		  // If data2 <> Nil Then
+		  // 
+		  // Self.ListBoxUser.RemoveAllRows
+		  // 
+		  // For Each row As Databaserow In data2
+		  // 
+		  // tempLUserID = row.column("u_user_id").IntegerValue // row.ColumnAt(0).IntegerValue
+		  // tempUserName = row.Column("u_user_name").StringValue.DefineEncoding(Encodings.UTF8)
+		  // tempLastName = row.column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
+		  // tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
+		  // 
+		  // // populate the list box row
+		  // Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName)
+		  // 
+		  // Next row
+		  // 
+		  // tempMRetrCount = data2.RowCount
+		  // //Self.btnFetch.Enabled = True
+		  // 
+		  // data2.close
+		  // 
+		  // End If 'data <> nil then
+		  // 
+		  // Self.lblRowCount.Text = tempMRetrCount.ToString("###,###") + " of " + tempMRowCount.ToString("###,###")  + " users"
 		  // populate list box
 		  
 		  Var tempMRowCount As Integer
@@ -310,30 +422,65 @@ End
 		    // not enough entered yet - do nothing
 		    
 		    Self.ListBoxUser.RemoveAllRows
-		    //Self.btnFetch.enabled = False
+		    Self.btnSelectUser.enabled = False
 		    Return
 		    
 		  End If
+		  
+		  // MessageBox(Self.rgSearchFor.SelectedItem.caption.left(1))
 		  
 		  // fall through if len 3 or more..
 		  // there is something in the list box therefore searchwhere will be populated
 		  
 		  Var sql2 As String
 		  
-		  sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name FROM srv2_vwUserAdmin WHERE u_user_name LIKE """ + SearchWhere + "%" + """ OR p_last_name LIKE """ + SearchWhere + "%" + """ ;"
+		  If Self.rgSearchType.SelectedItem.Caption.Left(1) = "U" Then '' we are searching for username
+		    
+		    sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name,  p_organisation_attachment, composite, p_email_address FROM srv2_vwUserAdmin WHERE u_user_name LIKE ? or p_last_name LIKE ? ;"
+		    
+		  Else ' we are searching for email
+		    
+		    sql2 = "SELECT u_user_id, u_user_name, p_last_name, p_first_name,  p_organisation_attachment, composite, p_email_address FROM srv2_vwUserAdmin WHERE p_email_address LIKE ? ;"
+		    
+		  End If
+		  
+		  
+		  Var searchString As String
+		  searchString = searchwhere + "%"
 		  
 		  Var data2 As RowSet
-		  Try
-		    data2 = db.SelectSQL(sql2)
-		  Catch error As DatabaseException
-		    MessageBox("DB Error: " + error.Message)
-		    Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching username")
-		  End Try
+		  
+		  If Self.rgSearchType.SelectedItem.Caption.Left(1) = "U" Then '' we are searching for username
+		    
+		    Try
+		      data2 = db.SelectSQL(sql2, searchString, searchString)
+		      
+		    Catch error As DatabaseException
+		      MessageBox("DB Error: " + error.Message)
+		      Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching username")
+		    End Try
+		    
+		  Else ' we are searching for email
+		    
+		    searchString = "%" + searchwhere + "%"
+		    
+		    Try
+		      data2 = db.SelectSQL(sql2, searchString)
+		      
+		    Catch error As DatabaseException
+		      MessageBox("DB Error: " + error.Message)
+		      Module1.writeDBLog(app.activeUserID,app.activeUserName, "WindowMain | Method: PopulateListBox | DB error fetching username")
+		    End Try
+		    
+		  End If
 		  
 		  Var tempLUserID As Integer
 		  Var tempUserName As String
 		  Var tempLastName As String
 		  Var tempFirstName As String
+		  Var tempOrgAttachment As String
+		  Var tempTowerComposite As String
+		  Var tempEmail As String
 		  
 		  If data2 <> Nil Then
 		    
@@ -345,14 +492,38 @@ End
 		      tempUserName = row.Column("u_user_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempLastName = row.column("p_last_name").StringValue.DefineEncoding(Encodings.UTF8)
 		      tempFirstName = row.Column("p_first_name").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempOrgAttachment = row.Column("p_organisation_attachment").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempTowerComposite = row.Column("composite").StringValue.DefineEncoding(Encodings.UTF8)
+		      tempEmail = row.Column("p_email_address").StringValue.DefineEncoding(Encodings.UTF8)
+		      
+		      Var tempTowerString As String
+		      
+		      If tempTowerComposite.length = 0 Then
+		        
+		        tempTowerString = tempOrgAttachment
+		        
+		      Else
+		        
+		        tempTowerString = tempTowerComposite
+		        
+		      End If
+		      
 		      
 		      // populate the list box row
-		      Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName)
+		      If Self.rgSearchType.SelectedItem.Caption.Left(1) = "U" Then '' we are searching for username
+		        
+		        Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName + "   [" + tempTowerString +"]")
+		        
+		      Else ' we are searching for email
+		        
+		        Self.ListBoxUser.AddRow(tempLUserID.ToString, tempUserName, tempLastName + ", " + tempFirstName + "   <" + tempEmail +">")
+		        
+		      End If
 		      
 		    Next row
 		    
 		    tempMRetrCount = data2.RowCount
-		    //Self.btnFetch.Enabled = True
+		    Self.btnSelectUser.Enabled = True
 		    
 		    data2.close
 		    
@@ -385,10 +556,11 @@ End
 		    
 		  Else ' there is some text in the row
 		    
-		    app.objectUserID = Self.ListBoxUser.SelectedRowText.ToInteger  ' 0th column
+		    app.windowMainP.txtAlternateContact.Text = Self.ListBoxUser.SelectedRowText ' 0th column
+		    
+		    Self.close
 		    
 		  End If ' no text in row
-		  
 		  
 		  
 		End Sub
@@ -444,11 +616,31 @@ End
 		    
 		    //MessageBox(Self.ListBoxUser.SelectedRowText)
 		    
-		    app.selectedUserID = Self.ListBoxUser.SelectedRowText.ToInteger  ' 0th column
+		    app.windowMainP.txtAlternateContact.Text = Self.ListBoxUser.SelectedRowText  ' 0th column
 		    
-		    MessageBox("User: " + app.selectedUserID.ToString)
+		    Self.close
+		    
+		    // MessageBox("User: " + app.selectedUserID.ToString)
 		    
 		  End If ' no selection
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events rgSearchType
+	#tag Event
+		Sub SelectionChanged(button As DesktopRadioButton)
+		  // rgSerachType selection changed
+		  
+		  Self.fldUserSearch.Text = ""
+		  self.ListBoxUser.RemoveAllRows
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnCancel
+	#tag Event
+		Sub Pressed()
+		  Self.close
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

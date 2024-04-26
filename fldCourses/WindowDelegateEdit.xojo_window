@@ -1113,7 +1113,7 @@ End
 		Sub Closing()
 		  // closing
 		  
-		  app.blLloadSingleCourse = TRUE
+		  app.blLloadCourse = TRUE
 		End Sub
 	#tag EndEvent
 
@@ -1411,7 +1411,7 @@ End
 		  // Module1.writeDBLog(action_on as integer, action_on_name as string, log_action as string)
 		  Module1.writeDBLog(1, app.activeUserName, "Delegate Info for " + Self.txtDelegateName.Text + " on course " + app.objectCourseID.ToString + " edited")
 		  
-		  app.blLloadSingleCourse = True ' make courses window reload itself (activation)
+		  app.blLloadCourse = True ' make courses window reload itself (when activation event fires)
 		  
 		  Self.close
 		  
@@ -1423,7 +1423,7 @@ End
 		Sub Pressed()
 		  // btnCancelPressed
 		  
-		  app.blLloadSingleCourse = TRUE
+		  app.blLloadCourse = TRUE
 		  
 		  Self.close
 		End Sub
@@ -1520,7 +1520,7 @@ End
 		    //(action_on As Integer, note_type As Integer, note_text As String, note_due_date As DateTime, note_closed As Boolean)
 		    module1.writeDBNote(tempUserID, 1, tempUserName + " unassigned from course " + app.objectCourseID.ToString, Nil, True)
 		    
-		    app.blLloadSingleCourse = True
+		    app.blLloadCourse = True ' force parent to reload (activation event)
 		    
 		    Self.close
 		    

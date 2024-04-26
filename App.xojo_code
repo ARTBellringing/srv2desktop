@@ -153,7 +153,11 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		blLloadSingleCourse As Boolean = False
+		blLloadCourse As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		blReloadStatus As boolean = False
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -169,7 +173,7 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		objectCourseID As Integer
+		objectCourseID As Integer = 0
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -210,6 +214,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		setUserTower As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Untitled As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -278,6 +286,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		windowRecoverP As WindowRecover
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		windowRelationshipP As WindowRelationship
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -609,7 +621,7 @@ Inherits DesktopApplication
 			Name="objectCourseID"
 			Visible=false
 			Group="Behavior"
-			InitialValue=""
+			InitialValue="0"
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
@@ -622,7 +634,7 @@ Inherits DesktopApplication
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="blLloadSingleCourse"
+			Name="blLloadCourse"
 			Visible=false
 			Group="Behavior"
 			InitialValue="False"
@@ -647,6 +659,14 @@ Inherits DesktopApplication
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="courseDelegateAddID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Untitled"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""

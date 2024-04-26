@@ -603,37 +603,6 @@ Begin DesktopWindow WindowViewStatus
       Visible         =   True
       Width           =   66
    End
-   Begin DesktopButton btnEnrolmentLoad
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Fetch"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   560
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   22
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   296
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   56
-   End
    Begin DesktopListBox lbxANJ
       AllowAutoDeactivate=   True
       AllowAutoHideScrollbars=   True
@@ -1357,38 +1326,6 @@ Begin DesktopWindow WindowViewStatus
       Underline       =   False
       Visible         =   True
       Width           =   54
-   End
-   Begin DesktopButton btnCourseLoad
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Fetch"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   22
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   560
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   51
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   161
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   56
    End
    Begin DesktopLabel lblAccreditiation
       AllowAutoDeactivate=   True
@@ -2280,7 +2217,7 @@ Begin DesktopWindow WindowViewStatus
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
-   Begin DesktopLabel lblTeacerhMembership
+   Begin DesktopLabel lblTeacherMembership
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
@@ -2536,13 +2473,44 @@ Begin DesktopWindow WindowViewStatus
       Visible         =   True
       Width           =   18
    End
+   Begin DesktopButton btnFetchCourse
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Fetch"
+      Default         =   False
+      Enabled         =   False
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   22
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   536
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   87
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   162
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Opening()
-		  // Window View Courses - Opening
+		Sub Activated()
+		  // windowStatus - activated
 		  
 		  // get user info
 		  // display user info
@@ -2594,7 +2562,12 @@ End
 		  populateAccreditations
 		  populateSafeguarding
 		  populateTeacherMembership
-		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Opening()
+		  // Window View Courses - Opening - see the activated event
 		  
 		End Sub
 	#tag EndEvent
@@ -3183,6 +3156,60 @@ End
 
 #tag EndWindowCode
 
+#tag Events lbxCourses
+	#tag Event
+		Sub SelectionChanged()
+		  // lbxCourses - selection changed
+		  
+		  If lbxCourses.SelectedRowIndex = Listbox.NoSelection Then
+		    
+		    // no row selected - do nothing
+		    
+		  Else ' user has selected something
+		    
+		    //MessageBox("Selected " + lbxCourses.SelectedRowText)
+		    app.objectCourseID = lbxCourses.SelectedRowText.ToInteger
+		    btnFetchCourse.enabled = True
+		    
+		  End If
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub DoublePressed()
+		  // lbxCourses - doublepressed
+		  
+		  If lbxCourses.SelectedRowIndex = Listbox.NoSelection Then
+		    
+		    // no row selected - do nothing
+		    
+		  Else ' user has selected something
+		    
+		    //MessageBox("Selected " + lbxCourses.SelectedRowText)
+		    app.objectCourseID = lbxCourses.SelectedRowText.ToInteger
+		    btnFetchCourse.enabled = True
+		    app.blLloadCourse = True
+		    app.windowCoursesP = New WindowCourses
+		    app.windowCoursesP.show
+		    app.blReloadStatus = True
+		    Self.close
+		    
+		  End If
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnFetchCourse
+	#tag Event
+		Sub Pressed()
+		  app.blLloadCourse = True
+		  app.windowCoursesP = New WindowCourses
+		  app.windowCoursesP.show
+		  app.blReloadStatus = True
+		  Self.close
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Name"

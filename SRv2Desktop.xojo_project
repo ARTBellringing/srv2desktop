@@ -8,6 +8,7 @@ DesktopWindow=WindowNotes;fldAccount/WindowNotes.xojo_window;&h00000000310567FF;
 Folder=fldLogin;fldLogin;&h000000007DF5B7FF;&h0000000000000000;false
 Folder=fldCourses;fldCourses;&h000000002DA587FF;&h0000000000000000;false
 DesktopWindow=WindowDove;WindowDove.xojo_window;&h000000003ABD47FF;&h0000000000000000;false
+DesktopWindow=WindowRelationship;WindowRelationship.xojo_window;&h00000000492527FF;&h0000000000000000;false
 DesktopWindow=WindowCourseNew;fldCourses/WindowCourseNew.xojo_window;&h000000007F1717FF;&h000000002DA587FF;false
 DesktopWindow=WindowDelegateEdit;fldCourses/WindowDelegateEdit.xojo_window;&h00000000576EB7FF;&h000000002DA587FF;false
 DesktopWindow=WindowDelegateAdd;fldCourses/WindowDelegateAdd.xojo_window;&h00000000707F4FFF;&h000000002DA587FF;false

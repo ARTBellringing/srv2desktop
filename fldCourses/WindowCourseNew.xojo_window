@@ -796,7 +796,7 @@ End
 		  populateAvailbleProgrammes
 		  populateCounty
 		  
-		  Self.txtLocationCountry.Text = "22"
+		  Self.txtLocationCountry.Text = "22"  // UK
 		  Self.pmCountry.SelectRowWithTag(txtLocationCountry.text.ToInteger)
 		  
 		End Sub
@@ -1146,7 +1146,7 @@ End
 		  // MessageBox(tempUserID.ToString)
 		  
 		  app.objectCourseID = tempCourseID
-		  app.blLloadSingleCourse = True
+		  app.blLloadCourse = True
 		  
 		  MessageBox("New course " + tempCourseID.ToString + " (" + tempLocationName + ") saved.")
 		  
