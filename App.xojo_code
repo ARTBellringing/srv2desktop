@@ -153,6 +153,10 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		blCourseNoMenu As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		blLloadCourse As Boolean = False
 	#tag EndProperty
 
@@ -671,6 +675,14 @@ Inherits DesktopApplication
 			Group="Behavior"
 			InitialValue=""
 			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="blReloadStatus"
+			Visible=false
+			Group="Behavior"
+			InitialValue="False"
+			Type="boolean"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

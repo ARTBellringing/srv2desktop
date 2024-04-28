@@ -3188,14 +3188,13 @@ End
 		    app.objectCourseID = lbxCourses.SelectedRowText.ToInteger
 		    btnFetchCourse.enabled = True
 		    app.blLloadCourse = True
+		    app.blCourseNoMenu = True
 		    app.windowCoursesP = New WindowCourses
 		    app.windowCoursesP.show
 		    app.blReloadStatus = True
 		    Self.close
 		    
 		  End If
-		  
-		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -3203,6 +3202,7 @@ End
 	#tag Event
 		Sub Pressed()
 		  app.blLloadCourse = True
+		  app.blCourseNoMenu = True
 		  app.windowCoursesP = New WindowCourses
 		  app.windowCoursesP.show
 		  app.blReloadStatus = True

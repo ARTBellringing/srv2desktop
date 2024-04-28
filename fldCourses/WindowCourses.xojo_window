@@ -2338,6 +2338,16 @@ End
 		  populateCountry
 		  populateCoursesOnOpen
 		  
+		  If app.blCourseNoMenu = True Then
+		    
+		    Self.MenuBar = Nil
+		    ' remove the main menu
+		    app.blCourseNoMenu = False
+		    
+		  Else
+		    Self.MenuBar = MainMenuBar
+		    
+		  End If
 		  
 		  
 		End Sub
